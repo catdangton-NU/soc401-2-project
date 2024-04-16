@@ -1,0 +1,166 @@
+---
+title: "401-2_Homework2"
+author: "Cat Dang Ton"
+date: "April 14, 2024"
+format: html
+editor: visual
+embed-resources: true
+---
+
+## Question 1
+
+I am still using data from the 2022 Health and Retirement Survey. The sample consists of `r nrow(df)` respondents to the survey's subsection on Widowhood and Divorce, who experienced the death of a spouse between 2020 and 2022.
+
+Dependent variable: whether or not the widow had to sell assets, withdraw money that normally would not be touched, get help from a relative, or from a church or other institution, or do anything else special to find the money to cover the deceased spouse's death expenses (funeral expenses, legal fees, expenses for any illness that led to death). (Yes = 1, No = 0).
+
+Independent variables:
+
+1.  Whether the living spouse is US-born or foreign born (US-born = 1, foreign-born = 0)
+2.  Total death expenses that are NOT covered by insurance or the deceased spouse's estate (Exact dollar amounts, or if not available, the midpoint of approximated estimates)
+3.  The widow's level of education (note: widow's income calculations are forthcoming. Education is a stand-in for now.)
+
+```{r, echo = FALSE}
+# Import inputs
+library(pacman)
+p_load (tidyverse, haven, modelsummary, marginaleffects, estimatr, psych, MASS,ggplot2)
+rm(list = ls()) # refresh environment
+# set working directory to project directory
+setwd(here::here("FINAL_PROJECT_HRS_SPOUSAL_DEATH"))
+# read data in relation to working directory
+df <- read.csv("Homework_files/Input/HRS_widows_demog_tracker_cleaned.csv")
+
+```
+
+### A.
+
+```{r}
+# Convert dependent variable and continuous variable to numeric so the model takes it
+df$deathexpense_special <- as.numeric(df$deathexpense_special)
+df$deathexpense_usd <- as.numeric(df$deathexpense_usd)
+# convert unit of analysis to thousands of dollars
+df$deathexpense_1k <- df$deathexpense_usd/1000 
+# run model
+model <- lm_robust(deathexpense_special ~ usborn + deathexpense_1k + degree, data = df)
+
+modelsummary(model)
+```
+
+Reference category: College-educated foreign-born person, who has no death expenses beyond what is covered by insurance or by their deceased spouse's estate.
+
+The number of cases in the model is `r nobs(model)`.
+
+The slope for US-born respondents suggests that, after controlling for the amount final expenses not covered by insurance and for their level of education, a widow's US-born status renders them 23% less likely to have to resort to special means to finance final expenses, compared to foreign-born widows.
+
+### B.
+
+```{r, predicted_values_ols_plot}
+
+# Generate predicted values
+df$predicted_prob <- predict(model, newdata = df)
+
+# Create a scatter plot of the predicted probabilities
+ggplot(df, aes(x = usborn, y = predicted_prob)) +
+  geom_point() +
+  labs(x = "US Born", y = "Predicted Probability of Special Death Expenses") +
+  theme_minimal()
+```
+
+### C.
+
+```{r, logit_regression}
+# Estimate a logistic regression model
+model_logit <- glm(deathexpense_special ~ usborn + degree + deathexpense_1k, 
+  data = df, 
+  family = binomial(link = "logit")) #specify that we want logistic regression(link = "logit")) 
+modelsummary(model_logit) # print logit regression estimates
+```
+
+```{r}
+# Calculate and print odds ratios
+rbind(coef(model_logit), # get coefficients
+  exp(coef(model_logit))) # get odds ratios
+```
+
+Reference category: College-educated foreign-born person, who has no death expenses beyond what is covered by insurance or by their deceased spouse's estate.
+
+US-born: the logged odds of resorting to special means to finance death expenses are lower by 0.60 for US-born widows than for foreign-born widows, holding all other variables constant. The odds of resorting to special means to finance death expenses are 46% lower for US-born widows than for foreign-born widows.
+
+Degree: Compared to those with a college degree, the logged odds of resorting to special means to finance death expenses are lower for those with no degree, those with a GED, a high school diploma, or a postgraduate degree. The odds of resorting to special means to finance death expenses are 14% lower for those with no degree, 23% lower for those with a GED, 32% lower for those with a high school diploma, 31% lower for those with a postgraduate degree, and 19% higher for those who enrolled in college without obtaining a degree.
+
+Death expenses: the logged odds of resorting to special means to finance death expenses increase by 0.03 for each thousand-dollar increase in such expenses. Each additional thousand dollars in death expenses not covered by insurance increases the odds of resorting to special means of financing them by 3%.
+
+### D.
+
+```{r, average_marginal_effects}
+# Average Marginal Effects is:
+# The average of all observation-specific marginal effects
+avg_slopes(model_logit)
+```
+
+Among the variables in the model, it seems the most important predictor of whether or not a widow turns to special means to finance their deceased spouse's final expenses is the widow's US-born status because the estimate is statistically significant at 0.05, the coefficient estimate for usborn has the largest absolute value among the coefficients, the confidence interval does not include 0, and the standard error is relatively small.
+
+### E.
+
+```{r}
+# 1. Graph the probability of the outcome for values of one of the independent variables, 
+# holding the other variables at their mean or mode.
+# Also known as the default setting of plot_predictions.
+# condition = independent variable of interest.
+# if condition var = continuous, plot_predictions plots the mean.
+plot_predictions(model_logit, condition = "deathexpense_1k") # continuous indep. var.
+
+# 2. Plot average predictions 
+# graph average predictions based on letting controls retain original values,
+# but changing X rather than holding other variables at mean/mode.
+# this is known as a "counterfactual" grid type in plot_predictions()
+plot_predictions(model_logit, by = "deathexpense_1k", newdata = datagrid(deathexpense_1k = 0:700, grid_type = "counterfactual"), type = "response")
+
+```
+
+## Question 2
+
+### A.
+
+Outcome variable: whether or not the speech contains populist claims, based on an iteratively defined dictionary of populist terms. It is a binomial variable with 0 and 1 values.
+
+Main independent variables:
+
+-   Party (Republican or Democratic),
+-   party incumbency,
+-   prior office,
+-   political career length,
+-   phase of campaign in relation to election day,
+-   interaction term between field position and campaign duration (?) (from Hypothesis 6; but regression table 2 did not have an interaction term?)
+-   Geographic region
+
+### B.
+
+The odds ratio of an incumbent's speech being populist is 0.279, which means that for every political speech from an incumbent party member that contains a populist claim, there would be nearly 4 speeches from challengers containing a populist claim. Incumbents are thus less likely to make populist claims than challengers.
+
+Controls were included for length of speech, because the longer the speech, the more likely it is to contain a populist claim.
+
+### C.
+
+For a baseline probability of 0.3, the effect of being part of the incumbent party on the proability of using populist rhetoric is $p \times (1-p) \times \text{coef} = 0.3 \times (1 - 0.3) \times \ln(0.279) = -0.268$
+
+### D.
+
+Given the hypotheses listed in Table 1, I'm inclined to think that the only control variable is speech length. Each of the models in table 2 corresponds to one of the hypotheses in table 1 (e.g. models 1 & 2 tests hypothesis 1, models 5-7 tests hypothesis 4), which means that these are separate models for separate hypotheses. There are no hypotheses here that would require running a model with all variables included as controls.
+
+### E.
+
+Significance levels: 0.05, 0.01, 0.001
+
+One constraint comes from a confounding variable. It is possible that carrying out a populist speech increases (or decreases) the likelihood that a candidate stays in the running and makes more speeches. This latent "success rate" relates to the independent variable (duration of campaign) and the dependent variable (presence of populist claims).
+
+### F.
+
+The status of having never been in political office ("field position: none") is the strongest predictor of populism in a speech, because its odds ratios are greatest across 11 models, and their estimates are statistically significant at the 0.001 threshold. Compared to members of the previous administration, those who held no previous office had 3.6 to 5 times higher odds of making populist claims.
+
+### G.
+
+The measurement of populist claims-making using only the presence or absence of populist claims does not capture the salience or prevalence of such claims within a given speech. Measuring salience is important not only in consideration of the role of rhetorical emphasis in reinforcing political claims, but is also crucial for a contemporary analysis. Given the rise of populism, it may well be that populist claims exist in a majority of political speeches in the 21st century, but some speeches mention a single populist sentence, while others make populism their entire platform. Classifying speeches on presence-absence only, thus, erases this potential variance in the sample, which could result in less precise regression estimates.
+
+It is difficult to measure the prevalence of some type of claim using only a dictionary model (which relies on exact keyword matches). Structural topic models could offer a solution to this issue.
+
+Validation also involves testing the dictionary algorithm on an untrained dataset to avoid overfitting results. If I understand correctly, it requires splitting the original data set into at least two parts, a training set and a test set. We develop the dictionary on one of them, then apply the dictionary on the other, then manually review/validate and report only the results of the test set. The authors of the article didn't specify if they'd done this, so we can't rule out the possibility that the resulting estimates were overfitted--that the estimates were contingent on what happens to come up in those speeches used to develop the dictionary.

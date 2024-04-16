@@ -1,0 +1,19 @@
+## These are commands I'd used to create symlinks for the input of 02_Clean. It links to the output of 01_Import_HRS.
+
+#!/bin/bash
+
+# Path to the original file
+original_file="/Users/CatDang/Library/CloudStorage/OneDrive-NorthwesternUniversity/Northwestern/Coursework/SPRING_2024/SOC_401_Categorical_Regression/Final_project_HRS_Spousal_death/01_Import_HRS/Output/widowhood_survey.csv"
+
+# Path where the symbolic link should be created
+symlink="/Users/CatDang/Library/CloudStorage/OneDrive-NorthwesternUniversity/Northwestern/Coursework/SPRING_2024/SOC_401_Categorical_Regression/Final_project_HRS_Spousal_death/02_Merge/Input/widowhood_survey.csv"
+
+# Create the symbolic link
+ln -s "$original_file" "$symlink"
+
+# Check if the symbolic link was created successfully
+if [ $? -eq 0 ]; then
+    echo "Symbolic link created: $symlink -> $original_file"
+else
+    echo "Failed to create symbolic link"
+fi

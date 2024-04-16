@@ -1,0 +1,747 @@
+"","respondent_id","USBORN","DEGREE","SS048M1","SS044","SS045","SS046","SS047","SS003_1","SS004_1","SS008_1","SS005_1","SS006_1","SS007_1","deathexpense_special","usborn","degree","deathexpense_usd"
+"1","10106_20",5,9,5,18000,NA,NA,NA,8,NA,NA,NA,NA,NA,0,"foreign","Degree unknown/Some College",18000
+"2","10281_10",5,2,5,15000,NA,NA,NA,2,650,4,NA,NA,NA,0,"foreign","High school diploma",15000
+"3","10394_10",1,4,5,20000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",20000
+"4","10537_11",5,0,3,22000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","No degree",22000
+"5","11999_10",1,2,5,1000,NA,NA,NA,2,750,4,NA,NA,NA,0,"us-born","High school diploma",1000
+"6","12218_20",1,2,5,10000,NA,NA,NA,3,99999998,NA,101,349,NA,0,"us-born","High school diploma",10000
+"7","12344_20",1,4,5,2945,NA,NA,NA,3,3700,4,NA,NA,NA,0,"us-born","College degree",2945
+"8","12588_10",1,4,5,5757,NA,NA,NA,2,1802,4,NA,NA,NA,0,"us-born","College degree",5757
+"9","13433_30",1,2,5,9999998,0,1999,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",999.5
+"10","13552_20",1,2,5,20000,NA,NA,NA,2,2000,4,NA,NA,NA,0,"us-born","High school diploma",20000
+"11","13590_30",1,2,5,3000,NA,NA,NA,2,1800,4,NA,NA,NA,0,"us-born","High school diploma",3000
+"12","13817_40",1,5,5,1000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Postgraduate degree",1000
+"13","14420_21",1,0,5,9999998,5001,6999,NA,1,NA,NA,NA,NA,NA,0,"us-born","No degree",6000
+"14","14619_20",1,1,5,0,NA,NA,NA,3,1100,4,NA,NA,NA,0,"us-born","GED",0
+"15","15514_20",1,4,2,10000,NA,NA,NA,3,2400,2,NA,NA,NA,1,"us-born","College degree",10000
+"16","15883_11",1,4,5,0,NA,NA,NA,2,1600,4,NA,NA,NA,0,"us-born","College degree",0
+"17","16048_20",1,2,5,8000,NA,NA,NA,2,99999998,NA,1001,99999996,NA,0,"us-born","High school diploma",8000
+"18","16541_11",1,2,5,9999998,0,1999,NA,3,99999998,NA,651,999,NA,0,"us-born","High school diploma",999.5
+"19","16822_10",1,2,5,7500,NA,NA,NA,2,-8,-8,751,99999996,0,0,"us-born","High school diploma",7500
+"20","17003_40",1,2,7,16000,NA,NA,NA,2,788,4,NA,NA,NA,1,"us-born","High school diploma",16000
+"21","17356_10",1,2,5,2500,NA,NA,NA,3,99999998,NA,651,999,NA,0,"us-born","High school diploma",2500
+"22","17383_12",1,5,5,0,NA,NA,NA,2,1200,4,NA,NA,NA,0,"us-born","Postgraduate degree",0
+"23","17833_10",1,0,5,0,NA,NA,NA,2,1021,4,NA,NA,NA,0,"us-born","No degree",0
+"24","17862_40",1,2,5,9999998,10001,99999996,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",14071.255
+"25","18435_40",1,1,5,5000,NA,NA,NA,3,1100,4,NA,NA,NA,0,"us-born","GED",5000
+"26","18439_40",1,2,3,1000,NA,NA,NA,3,-8,-8,0,99999996,0,1,"us-born","High school diploma",1000
+"27","18447_40",5,0,5,9999998,2001,4999,NA,5,NA,NA,NA,NA,NA,0,"foreign","No degree",3500
+"28","19049_10",1,2,5,1500,NA,NA,NA,2,2000,4,NA,NA,NA,0,"us-born","High school diploma",1500
+"29","19052_40",1,1,5,10000,NA,NA,NA,2,3200,4,NA,NA,NA,0,"us-born","GED",10000
+"30","19065_20",1,2,5,19000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",19000
+"31","19110_10",1,1,3,8000,NA,NA,NA,3,1200,4,NA,NA,NA,1,"us-born","GED",8000
+"32","20316_20",1,0,3,18000,NA,NA,NA,3,735,4,NA,NA,NA,1,"us-born","No degree",18000
+"33","20634_40",5,3,7,4000,NA,NA,NA,3,760,4,NA,NA,NA,1,"foreign","College degree",4000
+"34","20700_11",1,2,5,7000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",7000
+"35","21169_10",5,2,5,2000,NA,NA,NA,2,1450,4,NA,NA,NA,0,"foreign","High school diploma",2000
+"36","21412_10",1,2,5,5000,NA,NA,NA,3,500,4,NA,NA,NA,0,"us-born","High school diploma",5000
+"37","22267_10",1,2,5,9000,NA,NA,NA,3,99999998,NA,0,99999996,98,0,"us-born","High school diploma",9000
+"38","22330_20",1,5,5,5000,NA,NA,NA,2,400,4,NA,NA,NA,0,"us-born","Postgraduate degree",5000
+"39","22738_10",1,2,5,20000,NA,NA,NA,2,800,4,NA,NA,NA,0,"us-born","High school diploma",20000
+"40","22841_41",1,0,5,10000,NA,NA,NA,2,1000,4,NA,NA,NA,0,"us-born","No degree",10000
+"41","23827_10",1,0,5,9000,NA,NA,NA,2,99999998,NA,500,500,NA,0,"us-born","No degree",9000
+"42","23886_20",1,2,5,9000,NA,NA,NA,2,700,4,NA,NA,NA,0,"us-born","High school diploma",9000
+"43","25102_40",1,4,5,4000,NA,NA,NA,2,300,4,NA,NA,NA,0,"us-born","College degree",4000
+"44","30829_11",1,0,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",0
+"45","31608_10",1,2,5,0,NA,NA,NA,2,99999999,NA,0,99999996,99,0,"us-born","High school diploma",0
+"46","31923_10",1,1,1,8000,NA,NA,NA,3,0,-8,NA,NA,NA,1,"us-born","GED",8000
+"47","32481_40",5,5,5,20000,NA,NA,NA,3,99999998,NA,351,99999996,98,0,"foreign","Postgraduate degree",20000
+"48","32991_20",1,0,5,9999998,0,1999,NA,2,800,4,NA,NA,NA,0,"us-born","No degree",999.5
+"49","33028_10",1,2,5,6500,NA,NA,NA,2,99999998,NA,751,999,NA,0,"us-born","High school diploma",6500
+"50","33527_30",1,4,5,17300,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",17300
+"51","33566_22",5,3,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"foreign","College degree",0
+"52","33842_31",1,3,5,0,NA,NA,NA,2,1600,4,NA,NA,NA,0,"us-born","College degree",0
+"53","33944_40",5,2,5,3000,NA,NA,NA,1,NA,NA,NA,NA,NA,0,"foreign","High school diploma",3000
+"54","34756_30",1,2,7,2500,NA,NA,NA,3,700,4,NA,NA,NA,1,"us-born","High school diploma",2500
+"55","34884_20",1,2,1,0,NA,NA,NA,3,2000,4,NA,NA,NA,1,"us-born","High school diploma",0
+"56","35169_10",1,2,7,16000,NA,NA,NA,3,850,4,NA,NA,NA,1,"us-born","High school diploma",16000
+"57","35519_10",1,2,5,8700,NA,NA,NA,2,970,4,NA,NA,NA,0,"us-born","High school diploma",8700
+"58","36243_30",1,2,5,9000,NA,NA,NA,3,3000,4,NA,NA,NA,0,"us-born","High school diploma",9000
+"59","36408_30",1,2,5,9999998,2001,4999,NA,3,1044,4,NA,NA,NA,0,"us-born","High school diploma",3500
+"60","37057_20",1,4,5,4500,NA,NA,NA,3,3600,4,NA,NA,NA,0,"us-born","College degree",4500
+"61","38615_20",1,3,5,5000,NA,NA,NA,2,1200,4,NA,NA,NA,0,"us-born","College degree",5000
+"62","38717_40",1,2,5,4500,NA,NA,NA,3,1200,4,NA,NA,NA,0,"us-born","High school diploma",4500
+"63","39010_30",1,5,5,2500,NA,NA,NA,2,250,4,NA,NA,NA,0,"us-born","Postgraduate degree",2500
+"64","39275_20",1,2,5,4000,NA,NA,NA,2,1300,4,NA,NA,NA,0,"us-born","High school diploma",4000
+"65","39319_20",1,2,5,20000,NA,NA,NA,3,5000,4,NA,NA,NA,0,"us-born","High school diploma",20000
+"66","39348_20",1,2,5,0,NA,NA,NA,3,-8,-8,1001,99999996,NA,0,"us-born","High school diploma",0
+"67","39970_20",1,3,5,-8,2000,2000,NA,2,-8,-8,0,99999996,0,0,"us-born","College degree",2000
+"68","40280_40",1,3,5,10000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",10000
+"69","40398_11",1,2,5,10000,NA,NA,NA,2,1500,4,NA,NA,NA,0,"us-born","High school diploma",10000
+"70","40737_31",5,2,7,8000,NA,NA,NA,3,3000,4,NA,NA,NA,1,"foreign","High school diploma",8000
+"71","41325_40",1,0,7,0,NA,NA,NA,3,8000,4,NA,NA,NA,1,"us-born","No degree",0
+"72","41706_40",1,3,5,16000,NA,NA,NA,3,99999998,NA,1000,1000,NA,0,"us-born","College degree",16000
+"73","41838_20",1,3,5,20000,NA,NA,NA,2,650,4,NA,NA,NA,0,"us-born","College degree",20000
+"74","42164_40",5,2,5,0,NA,NA,NA,3,2400,4,NA,NA,NA,0,"foreign","High school diploma",0
+"75","42496_10",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"76","42833_40",1,2,5,4000,NA,NA,NA,3,2200,4,NA,NA,NA,0,"us-born","High school diploma",4000
+"77","43767_20",1,5,5,9999998,7000,7000,NA,5,NA,NA,NA,NA,NA,0,"us-born","Postgraduate degree",7000
+"78","43787_20",1,3,2,6000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","College degree",6000
+"79","44109_20",1,0,5,4000,NA,NA,NA,2,1400,4,NA,NA,NA,0,"us-born","No degree",4000
+"80","44602_20",1,0,5,0,NA,NA,NA,3,1400,4,NA,NA,NA,0,"us-born","No degree",0
+"81","45225_10",1,0,5,15000,NA,NA,NA,2,700,4,NA,NA,NA,0,"us-born","No degree",15000
+"82","45231_20",1,2,5,8900,NA,NA,NA,2,1300,4,NA,NA,NA,0,"us-born","High school diploma",8900
+"83","45433_11",1,2,4,15000,NA,NA,NA,2,3000,4,NA,NA,NA,1,"us-born","High school diploma",15000
+"84","45612_10",1,3,3,20000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","College degree",20000
+"85","46226_40",1,2,5,5000,NA,NA,NA,2,1100,4,NA,NA,NA,0,"us-born","High school diploma",5000
+"86","46787_11",1,3,5,5000,NA,NA,NA,3,640,4,NA,NA,NA,0,"us-born","College degree",5000
+"87","46811_20",1,4,5,7000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",7000
+"88","47415_40",5,2,4,11000,NA,NA,NA,3,1000,4,NA,NA,NA,1,"foreign","High school diploma",11000
+"89","47591_10",1,2,5,9999998,2001,4999,NA,3,2100,4,NA,NA,NA,0,"us-born","High school diploma",3500
+"90","48018_20",1,2,5,2500,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",2500
+"91","48504_10",1,2,5,-8,10000,10000,NA,2,440,4,NA,NA,NA,0,"us-born","High school diploma",10000
+"92","48612_40",1,2,5,9999998,2001,4999,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",3500
+"93","48825_10",1,2,5,15000,NA,NA,NA,2,99999998,NA,0,99999996,98,0,"us-born","High school diploma",15000
+"94","49396_10",1,2,5,15000,NA,NA,NA,1,NA,NA,NA,NA,NA,0,"us-born","High school diploma",15000
+"95","49455_10",1,2,5,20000,NA,NA,NA,3,800,4,NA,NA,NA,0,"us-born","High school diploma",20000
+"96","50232_10",1,2,5,14000,NA,NA,NA,2,800,4,NA,NA,NA,0,"us-born","High school diploma",14000
+"97","50365_31",1,9,5,11000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Degree unknown/Some College",11000
+"98","50377_40",1,2,5,4000,NA,NA,NA,3,2121,4,NA,NA,NA,0,"us-born","High school diploma",4000
+"99","50380_30",1,1,5,9999998,5001,6999,NA,2,3200,4,NA,NA,NA,0,"us-born","GED",6000
+"100","50452_10",1,2,5,3700,NA,NA,NA,3,700,4,NA,NA,NA,0,"us-born","High school diploma",3700
+"101","50456_10",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"102","50473_22",1,9,5,7500,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Degree unknown/Some College",7500
+"103","52289_10",1,0,5,9000,NA,NA,NA,3,3000,4,NA,NA,NA,0,"us-born","No degree",9000
+"104","53029_11",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"105","53407_20",1,2,7,0,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","High school diploma",0
+"106","53824_30",1,3,5,1000,NA,NA,NA,2,1600,4,NA,NA,NA,0,"us-born","College degree",1000
+"107","53856_20",1,5,5,700,NA,NA,NA,2,400,4,NA,NA,NA,0,"us-born","Postgraduate degree",700
+"108","53871_10",1,2,5,700,NA,NA,NA,2,600,4,NA,NA,NA,0,"us-born","High school diploma",700
+"109","53882_11",1,0,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",0
+"110","53889_40",5,2,5,10000,NA,NA,NA,3,99999998,NA,0,99999996,98,0,"foreign","High school diploma",10000
+"111","54191_11",1,3,3,10000,NA,NA,NA,3,99999999,NA,0,99999996,99,1,"us-born","College degree",10000
+"112","54384_10",1,2,2,5000,NA,NA,NA,2,3000,4,NA,NA,NA,1,"us-born","High school diploma",5000
+"113","54534_20",1,0,5,9999998,5000,5000,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",5000
+"114","54616_10",1,2,5,9999998,0,1999,NA,1,NA,NA,NA,NA,NA,0,"us-born","High school diploma",999.5
+"115","55363_40",1,2,5,1000,NA,NA,NA,3,99999998,NA,0,99999996,98,0,"us-born","High school diploma",1000
+"116","55369_40",5,2,5,1000,NA,NA,NA,3,800,4,NA,NA,NA,0,"foreign","High school diploma",1000
+"117","55654_20",1,4,1,9999998,10001,99999996,NA,3,99999998,NA,1001,99999996,NA,1,"us-born","College degree",14071.255
+"118","55720_10",1,2,5,9999998,10000,10000,NA,3,2000,4,NA,NA,NA,0,"us-born","High school diploma",10000
+"119","56164_10",1,2,5,10000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",10000
+"120","56274_10",1,6,5,3000,NA,NA,NA,2,2500,4,NA,NA,NA,0,"us-born","Postgraduate degree",3000
+"121","56540_11",5,1,3,9000,NA,NA,NA,2,1500,4,NA,NA,NA,1,"foreign","GED",9000
+"122","56754_40",5,0,3,5000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","No degree",5000
+"123","57388_11",1,2,5,13000,NA,NA,NA,3,2000,4,NA,NA,NA,0,"us-born","High school diploma",13000
+"124","59355_11",1,0,5,9999998,2000,2000,NA,8,NA,NA,NA,NA,NA,0,"us-born","No degree",2000
+"125","59939_10",1,4,5,9999999,2001,4999,NA,1,NA,NA,NA,NA,NA,0,"us-born","College degree",3500
+"126","62443_10",5,0,3,13000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","No degree",13000
+"127","63699_40",1,0,5,9000,NA,NA,NA,2,1500,4,NA,NA,NA,0,"us-born","No degree",9000
+"128","64812_10",1,0,5,9999998,2000,2000,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",2000
+"129","71999_30",1,2,5,9999999,5000,5000,NA,1,NA,NA,NA,NA,NA,0,"us-born","High school diploma",5000
+"130","72004_20",5,2,5,20000,NA,NA,NA,3,99999998,NA,0,99999996,98,0,"foreign","High school diploma",20000
+"131","72106_40",1,4,5,950,NA,NA,NA,3,2900,4,NA,NA,NA,0,"us-born","College degree",950
+"132","72942_10",1,2,5,0,NA,NA,NA,3,1900,4,NA,NA,NA,0,"us-born","High school diploma",0
+"133","73485_30",1,1,5,8000,NA,NA,NA,3,90,4,NA,NA,NA,0,"us-born","GED",8000
+"134","75266_10",1,2,5,1100,NA,NA,NA,2,99999998,NA,0,99999996,98,0,"us-born","High school diploma",1100
+"135","75596_10",1,0,5,9999998,5000,5000,NA,2,1600,4,NA,NA,NA,0,"us-born","No degree",5000
+"136","75977_20",5,2,5,10000,NA,NA,NA,3,1100,4,NA,NA,NA,0,"foreign","High school diploma",10000
+"137","76111_10",1,2,5,500,NA,NA,NA,3,1600,4,NA,NA,NA,0,"us-born","High school diploma",500
+"138","76438_20",1,2,5,16000,NA,NA,NA,3,1073,4,NA,NA,NA,0,"us-born","High school diploma",16000
+"139","77614_40",1,4,5,3000,NA,NA,NA,8,NA,NA,NA,NA,NA,0,"us-born","College degree",3000
+"140","77793_20",1,1,5,1000,NA,NA,NA,2,750,4,NA,NA,NA,0,"us-born","GED",1000
+"141","78133_10",1,2,5,20000,NA,NA,NA,2,1000,4,NA,NA,NA,0,"us-born","High school diploma",20000
+"142","78585_20",1,0,5,3000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",3000
+"143","78716_11",1,4,5,30000,NA,NA,NA,3,2100,4,NA,NA,NA,0,"us-born","College degree",30000
+"144","78989_10",1,2,5,11000,NA,NA,NA,2,700,4,NA,NA,NA,0,"us-born","High school diploma",11000
+"145","79318_30",1,2,2,10000,NA,NA,NA,3,1000,4,NA,NA,NA,1,"us-born","High school diploma",10000
+"146","79882_40",1,2,5,9200,NA,NA,NA,2,525,4,NA,NA,NA,0,"us-born","High school diploma",9200
+"147","79991_10",1,4,5,2500,NA,NA,NA,2,1200,4,NA,NA,NA,0,"us-born","College degree",2500
+"148","81164_40",1,2,5,3000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",3000
+"149","81443_20",1,2,5,9999998,2001,4999,NA,3,99999998,NA,1001,99999996,NA,0,"us-born","High school diploma",3500
+"150","81554_20",1,2,5,400,NA,NA,NA,3,99999998,NA,0,99999996,98,0,"us-born","High school diploma",400
+"151","81879_10",1,2,5,9500,NA,NA,NA,2,1700,4,NA,NA,NA,0,"us-born","High school diploma",9500
+"152","81959_11",1,4,5,2500,NA,NA,NA,3,1200,4,NA,NA,NA,0,"us-born","College degree",2500
+"153","82436_10",1,3,5,2500,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",2500
+"154","83486_10",1,0,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",0
+"155","84052_10",1,3,5,-8,5000,5000,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",5000
+"156","84246_20",1,2,5,12500,NA,NA,NA,3,1500,4,NA,NA,NA,0,"us-born","High school diploma",12500
+"157","84482_20",1,0,5,20000,NA,NA,NA,3,356,4,NA,NA,NA,0,"us-born","No degree",20000
+"158","84809_20",1,2,5,7000,NA,NA,NA,3,2200,4,NA,NA,NA,0,"us-born","High school diploma",7000
+"159","86024_20",1,2,5,6000,NA,NA,NA,3,3035,4,NA,NA,NA,0,"us-born","High school diploma",6000
+"160","86609_10",1,2,5,2000,NA,NA,NA,1,NA,NA,NA,NA,NA,0,"us-born","High school diploma",2000
+"161","86769_20",1,2,5,0,NA,NA,NA,2,1200,4,NA,NA,NA,0,"us-born","High school diploma",0
+"162","86797_10",1,1,3,9999998,2001,4999,NA,3,2153,4,NA,NA,NA,1,"us-born","GED",3500
+"163","87372_10",1,2,5,2300,NA,NA,NA,2,1616,4,NA,NA,NA,0,"us-born","High school diploma",2300
+"164","87401_40",1,3,5,2000,NA,NA,NA,2,1200,4,NA,NA,NA,0,"us-born","College degree",2000
+"165","87677_10",1,0,7,4000,NA,NA,NA,3,750,4,NA,NA,NA,1,"us-born","No degree",4000
+"166","87771_11",5,2,5,13000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"foreign","High school diploma",13000
+"167","96126_10",1,2,5,3000,NA,NA,NA,2,1500,4,NA,NA,NA,0,"us-born","High school diploma",3000
+"168","112747_10",1,5,5,14200,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Postgraduate degree",14200
+"169","113607_20",1,2,5,33000,NA,NA,NA,2,350,4,NA,NA,NA,0,"us-born","High school diploma",33000
+"170","114556_10",1,2,5,20000,NA,NA,NA,3,900,4,NA,NA,NA,0,"us-born","High school diploma",20000
+"171","114563_20",1,5,2,9999998,0,1999,NA,3,-8,-8,1001,99999996,NA,1,"us-born","Postgraduate degree",999.5
+"172","117335_10",1,4,4,0,NA,NA,NA,2,1700,4,NA,NA,NA,1,"us-born","College degree",0
+"173","118337_10",1,2,7,0,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","High school diploma",0
+"174","119908_20",1,2,5,8000,NA,NA,NA,2,1000,4,NA,NA,NA,0,"us-born","High school diploma",8000
+"175","120881_10",1,5,2,10000,NA,NA,NA,3,2416,4,NA,NA,NA,1,"us-born","Postgraduate degree",10000
+"176","121006_20",1,4,5,0,NA,NA,NA,3,1416,4,NA,NA,NA,0,"us-born","College degree",0
+"177","123278_20",1,2,5,9000,NA,NA,NA,3,2000,4,NA,NA,NA,0,"us-born","High school diploma",9000
+"178","124773_20",1,1,5,10000,NA,NA,NA,2,650,4,NA,NA,NA,0,"us-born","GED",10000
+"179","130220_10",1,2,5,4000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",4000
+"180","132268_11",1,2,5,0,NA,NA,NA,3,1700,4,NA,NA,NA,0,"us-born","High school diploma",0
+"181","133135_20",1,1,5,7000,NA,NA,NA,3,800,4,NA,NA,NA,0,"us-born","GED",7000
+"182","137725_20",1,2,2,1200,NA,NA,NA,2,1000,4,NA,NA,NA,1,"us-born","High school diploma",1200
+"183","137890_10",5,2,5,1500,NA,NA,NA,2,1300,4,NA,NA,NA,0,"foreign","High school diploma",1500
+"184","139506_20",1,4,3,3500,NA,NA,NA,2,1100,4,NA,NA,NA,1,"us-born","College degree",3500
+"185","139920_10",1,2,7,17000,NA,NA,NA,2,1200,4,NA,NA,NA,1,"us-born","High school diploma",17000
+"186","140644_20",1,2,5,500,NA,NA,NA,3,3500,4,NA,NA,NA,0,"us-born","High school diploma",500
+"187","140722_20",1,2,5,15000,NA,NA,NA,3,800,4,NA,NA,NA,0,"us-born","High school diploma",15000
+"188","140736_10",1,2,2,9500,NA,NA,NA,2,625,4,NA,NA,NA,1,"us-born","High school diploma",9500
+"189","143233_10",1,6,5,18000,NA,NA,NA,2,1500,4,NA,NA,NA,0,"us-born","Postgraduate degree",18000
+"190","145073_10",1,2,5,10365,NA,NA,NA,3,976,4,NA,NA,NA,0,"us-born","High school diploma",10365
+"191","145534_20",1,0,5,2500,NA,NA,NA,2,1200,4,NA,NA,NA,0,"us-born","No degree",2500
+"192","146182_11",1,2,5,6000,NA,NA,NA,2,99999999,NA,1001,99999996,NA,0,"us-born","High school diploma",6000
+"193","146424_10",1,2,5,7500,NA,NA,NA,2,2300,4,NA,NA,NA,0,"us-born","High school diploma",7500
+"194","148569_11",1,2,5,280,NA,NA,NA,3,1300,4,NA,NA,NA,0,"us-born","High school diploma",280
+"195","150186_20",1,4,5,2765,NA,NA,NA,3,945,4,NA,NA,NA,0,"us-born","College degree",2765
+"196","150875_10",1,5,5,9999998,10001,99999996,NA,5,NA,NA,NA,NA,NA,0,"us-born","Postgraduate degree",14071.255
+"197","151413_10",1,4,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",0
+"198","151677_20",1,1,5,1600,NA,NA,NA,2,1790,4,NA,NA,NA,0,"us-born","GED",1600
+"199","154624_20",1,2,5,5000,NA,NA,NA,2,800,4,NA,NA,NA,0,"us-born","High school diploma",5000
+"200","156080_10",1,2,5,3600,NA,NA,NA,2,985,4,NA,NA,NA,0,"us-born","High school diploma",3600
+"201","158937_11",1,0,5,5000,NA,NA,NA,2,1700,4,NA,NA,NA,0,"us-born","No degree",5000
+"202","160618_20",1,0,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",0
+"203","164974_20",1,2,5,9999998,0,1999,NA,3,487,4,NA,NA,NA,0,"us-born","High school diploma",999.5
+"204","173152_10",1,4,5,10000,NA,NA,NA,3,800,4,NA,NA,NA,0,"us-born","College degree",10000
+"205","174863_10",1,2,5,5000,NA,NA,NA,2,99999998,NA,1001,99999996,NA,0,"us-born","High school diploma",5000
+"206","176069_10",1,2,5,6000,NA,NA,NA,2,600,4,NA,NA,NA,0,"us-born","High school diploma",6000
+"207","179512_20",5,2,5,1000,NA,NA,NA,3,99999998,NA,0,99999996,98,0,"foreign","High school diploma",1000
+"208","179885_11",1,2,5,800,NA,NA,NA,2,1400,4,NA,NA,NA,0,"us-born","High school diploma",800
+"209","179938_20",1,2,5,0,NA,NA,NA,8,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"210","183390_10",1,2,5,10000,NA,NA,NA,2,700,4,NA,NA,NA,0,"us-born","High school diploma",10000
+"211","185552_20",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"212","185716_20",1,3,5,16000,NA,NA,NA,3,36000,6,NA,NA,NA,0,"us-born","College degree",16000
+"213","204445_20",1,2,3,9999998,7001,9999,NA,3,99999998,NA,1001,99999996,NA,1,"us-born","High school diploma",8500
+"214","210076_20",1,0,3,1800,NA,NA,NA,2,500,4,NA,NA,NA,1,"us-born","No degree",1800
+"215","210974_10",1,4,5,9999998,5001,6999,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",6000
+"216","211244_10",1,2,5,11000,NA,NA,NA,2,2300,4,NA,NA,NA,0,"us-born","High school diploma",11000
+"217","211283_20",1,1,5,0,NA,NA,NA,2,99999998,NA,0,99999996,98,0,"us-born","GED",0
+"218","212672_20",5,2,3,10000,NA,NA,NA,3,99999998,NA,1001,99999996,NA,1,"foreign","High school diploma",10000
+"219","213381_20",1,4,5,4000,NA,NA,NA,2,1800,4,NA,NA,NA,0,"us-born","College degree",4000
+"220","500132_10",5,2,2,25000,NA,NA,NA,2,1500,4,NA,NA,NA,1,"foreign","High school diploma",25000
+"221","500311_10",1,2,3,5000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","High school diploma",5000
+"222","500324_20",1,9,5,2500,NA,NA,NA,2,1058,4,NA,NA,NA,0,"us-born","Degree unknown/Some College",2500
+"223","500360_20",1,2,5,5000,NA,NA,NA,3,1259,4,NA,NA,NA,0,"us-born","High school diploma",5000
+"224","500422_20",1,2,5,8500,NA,NA,NA,1,NA,NA,NA,NA,NA,0,"us-born","High school diploma",8500
+"225","500431_10",1,2,5,1500,NA,NA,NA,3,1850,4,NA,NA,NA,0,"us-born","High school diploma",1500
+"226","500546_10",1,1,5,0,NA,NA,NA,2,1844,4,NA,NA,NA,0,"us-born","GED",0
+"227","500609_11",1,9,5,3100,NA,NA,NA,2,1100,4,NA,NA,NA,0,"us-born","Degree unknown/Some College",3100
+"228","500661_20",5,0,5,9999998,7000,7000,NA,5,NA,NA,NA,NA,NA,0,"foreign","No degree",7000
+"229","500714_10",1,2,5,10000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",10000
+"230","500726_10",5,0,5,300,NA,NA,NA,3,300,4,NA,NA,NA,0,"foreign","No degree",300
+"231","500755_10",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"232","500829_20",1,2,3,8000,NA,NA,NA,2,634,4,NA,NA,NA,1,"us-born","High school diploma",8000
+"233","500870_20",1,2,5,12000,NA,NA,NA,2,650,4,NA,NA,NA,0,"us-born","High school diploma",12000
+"234","500937_20",1,3,5,2700,NA,NA,NA,2,1750,4,NA,NA,NA,0,"us-born","College degree",2700
+"235","500956_10",1,4,5,10000,NA,NA,NA,2,1300,4,NA,NA,NA,0,"us-born","College degree",10000
+"236","501214_20",1,1,5,800,NA,NA,NA,3,1744,4,NA,NA,NA,0,"us-born","GED",800
+"237","501217_10",1,4,5,11000,NA,NA,NA,1,NA,NA,NA,NA,NA,0,"us-born","College degree",11000
+"238","501238_10",1,2,2,3500,NA,NA,NA,2,1200,4,NA,NA,NA,1,"us-born","High school diploma",3500
+"239","501261_11",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"240","501436_10",1,0,5,0,NA,NA,NA,1,NA,NA,NA,NA,NA,0,"us-born","No degree",0
+"241","501441_10",1,2,5,0,NA,NA,NA,3,1400,4,NA,NA,NA,0,"us-born","High school diploma",0
+"242","501507_10",1,2,3,7000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","High school diploma",7000
+"243","501536_20",1,2,5,1500,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",1500
+"244","501575_20",1,1,5,12000,NA,NA,NA,2,1585,4,NA,NA,NA,0,"us-born","GED",12000
+"245","501595_20",5,0,5,1000,NA,NA,NA,2,1600,4,NA,NA,NA,0,"foreign","No degree",1000
+"246","501605_10",1,2,2,23000,NA,NA,NA,2,1249,4,NA,NA,NA,1,"us-born","High school diploma",23000
+"247","501706_10",1,3,3,10000,NA,NA,NA,1,NA,NA,NA,NA,NA,1,"us-born","College degree",10000
+"248","501755_20",1,0,5,9999998,0,1999,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",999.5
+"249","501796_20",1,2,5,0,NA,NA,NA,3,1050,4,NA,NA,NA,0,"us-born","High school diploma",0
+"250","501892_20",1,2,5,2000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",2000
+"251","501893_11",1,9,5,800,NA,NA,NA,2,1300,4,NA,NA,NA,0,"us-born","Degree unknown/Some College",800
+"252","501945_20",1,2,5,10000,NA,NA,NA,2,1300,4,NA,NA,NA,0,"us-born","High school diploma",10000
+"253","502017_10",1,2,5,9999998,0,1999,NA,1,NA,NA,NA,NA,NA,0,"us-born","High school diploma",999.5
+"254","502029_10",1,2,5,9999998,0,1999,NA,2,99999998,NA,751,99999996,99,0,"us-born","High school diploma",999.5
+"255","502053_10",1,2,5,1200,NA,NA,NA,3,1100,4,NA,NA,NA,0,"us-born","High school diploma",1200
+"256","502068_11",1,0,5,9999999,5001,6999,NA,2,800,4,NA,NA,NA,0,"us-born","No degree",6000
+"257","502235_10",5,0,7,9999998,10001,99999996,NA,3,700,4,NA,NA,NA,1,"foreign","No degree",14071.255
+"258","502242_20",1,0,7,5800,NA,NA,NA,2,700,4,NA,NA,NA,1,"us-born","No degree",5800
+"259","502264_10",1,0,3,11000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","No degree",11000
+"260","502276_20",1,1,5,5500,NA,NA,NA,3,900,4,NA,NA,NA,0,"us-born","GED",5500
+"261","502414_20",5,0,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"foreign","No degree",0
+"262","502416_10",1,0,5,2000,NA,NA,NA,2,851,4,NA,NA,NA,0,"us-born","No degree",2000
+"263","502472_10",1,4,5,9999998,10001,99999996,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",14071.255
+"264","502512_10",1,2,5,0,NA,NA,NA,2,1900,4,NA,NA,NA,0,"us-born","High school diploma",0
+"265","502755_10",1,5,5,3000,NA,NA,NA,2,-8,-8,1001,99999996,NA,0,"us-born","Postgraduate degree",3000
+"266","521669_10",5,0,2,16000,NA,NA,NA,3,500,4,NA,NA,NA,1,"foreign","No degree",16000
+"267","521795_10",1,0,5,24000,NA,NA,NA,1,NA,NA,NA,NA,NA,0,"us-born","No degree",24000
+"268","521920_10",1,3,5,500,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",500
+"269","522017_20",5,2,5,3600,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"foreign","High school diploma",3600
+"270","522509_10",1,0,3,2300,NA,NA,NA,3,530,4,NA,NA,NA,1,"us-born","No degree",2300
+"271","522510_20",1,2,5,11000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",11000
+"272","522945_20",1,1,5,1500,NA,NA,NA,2,1000,4,NA,NA,NA,0,"us-born","GED",1500
+"273","522982_20",1,2,2,9999999,10001,99999996,NA,3,99999999,NA,1001,99999996,NA,1,"us-born","High school diploma",14071.255
+"274","523448_10",5,0,7,15000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","No degree",15000
+"275","523756_10",1,2,5,9999998,2000,2000,NA,2,99999998,NA,500,500,NA,0,"us-born","High school diploma",2000
+"276","523768_10",1,2,5,9999998,0,1999,NA,2,99999998,NA,751,999,NA,0,"us-born","High school diploma",999.5
+"277","523913_10",1,3,5,2000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",2000
+"278","523957_10",1,0,5,2250,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",2250
+"279","523966_10",1,4,5,9000,NA,NA,NA,3,99999998,NA,351,649,NA,0,"us-born","College degree",9000
+"280","524207_20",5,1,7,25000,NA,NA,NA,2,1000,4,NA,NA,NA,1,"foreign","GED",25000
+"281","524535_10",1,3,5,10000,NA,NA,NA,8,NA,NA,NA,NA,NA,0,"us-born","College degree",10000
+"282","524884_20",1,2,5,0,NA,NA,NA,3,464,4,NA,NA,NA,0,"us-born","High school diploma",0
+"283","525452_10",1,1,5,2000,NA,NA,NA,2,1100,4,NA,NA,NA,0,"us-born","GED",2000
+"284","525580_20",5,1,3,12000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","GED",12000
+"285","526216_20",1,2,5,10000,NA,NA,NA,2,1600,4,NA,NA,NA,0,"us-born","High school diploma",10000
+"286","527192_20",1,2,5,20000,NA,NA,NA,3,99999998,NA,651,999,NA,0,"us-born","High school diploma",20000
+"287","527296_21",1,3,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",0
+"288","528755_10",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"289","529844_20",1,5,2,15000,NA,NA,NA,2,99999998,NA,0,99999996,98,1,"us-born","Postgraduate degree",15000
+"290","531508_10",1,2,5,1189,NA,NA,NA,2,996,4,NA,NA,NA,0,"us-born","High school diploma",1189
+"291","531968_10",1,2,2,10000,NA,NA,NA,2,2100,4,NA,NA,NA,1,"us-born","High school diploma",10000
+"292","532500_20",5,2,5,17000,NA,NA,NA,2,99999998,NA,501,99999996,98,0,"foreign","High school diploma",17000
+"293","532512_11",1,9,2,3000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","Degree unknown/Some College",3000
+"294","532861_20",1,2,2,25000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","High school diploma",25000
+"295","533591_10",5,3,5,4500,NA,NA,NA,1,NA,NA,NA,NA,NA,0,"foreign","College degree",4500
+"296","534873_20",1,2,5,18000,NA,NA,NA,2,99999998,NA,751,999,NA,0,"us-born","High school diploma",18000
+"297","535246_10",5,3,5,9999998,10001,99999996,NA,5,NA,NA,NA,NA,NA,0,"foreign","College degree",14071.255
+"298","535737_10",5,0,5,35000,NA,NA,NA,2,1300,4,NA,NA,NA,0,"foreign","No degree",35000
+"299","535901_20",5,2,5,12000,NA,NA,NA,2,1200,4,NA,NA,NA,0,"foreign","High school diploma",12000
+"300","536291_10",1,2,5,9999998,5001,6999,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",6000
+"301","536353_10",5,2,7,9999998,2000,2000,NA,3,960,4,NA,NA,NA,1,"foreign","High school diploma",2000
+"302","536597_10",5,2,7,29000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","High school diploma",29000
+"303","536986_10",5,0,7,0,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","No degree",0
+"304","537522_10",1,4,7,5000,NA,NA,NA,2,924,4,NA,NA,NA,1,"us-born","College degree",5000
+"305","540308_20",1,2,5,150000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",150000
+"306","540548_10",5,0,5,1100,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"foreign","No degree",1100
+"307","540676_20",1,2,3,15000,NA,NA,NA,2,1275,4,NA,NA,NA,1,"us-born","High school diploma",15000
+"308","540882_10",5,0,3,3000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","No degree",3000
+"309","540899_10",1,0,7,9999998,2001,4999,NA,5,NA,NA,NA,NA,NA,1,"us-born","No degree",3500
+"310","541014_20",1,2,5,10000,NA,NA,NA,2,900,4,NA,NA,NA,0,"us-born","High school diploma",10000
+"311","541454_20",1,5,2,10000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","Postgraduate degree",10000
+"312","541507_10",1,3,5,20000,NA,NA,NA,2,2200,4,NA,NA,NA,0,"us-born","College degree",20000
+"313","541618_20",5,0,5,6000,NA,NA,NA,2,1200,4,NA,NA,NA,0,"foreign","No degree",6000
+"314","541922_20",5,0,3,15000,NA,NA,NA,3,1150,4,NA,NA,NA,1,"foreign","No degree",15000
+"315","541993_20",1,9,7,10700,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","Degree unknown/Some College",10700
+"316","542204_20",1,5,5,20000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Postgraduate degree",20000
+"317","542403_10",1,9,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Degree unknown/Some College",0
+"318","542524_20",1,9,5,18000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Degree unknown/Some College",18000
+"319","542570_20",1,4,5,15000,NA,NA,NA,1,NA,NA,NA,NA,NA,0,"us-born","College degree",15000
+"320","542660_10",1,2,5,8000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",8000
+"321","542897_10",1,9,1,20000,NA,NA,NA,1,NA,NA,NA,NA,NA,1,"us-born","Degree unknown/Some College",20000
+"322","542978_10",5,0,7,18000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","No degree",18000
+"323","543005_10",5,0,5,250,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"foreign","No degree",250
+"324","543113_20",1,3,5,1300,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",1300
+"325","543456_10",1,4,2,1800,NA,NA,NA,2,1500,4,NA,NA,NA,1,"us-born","College degree",1800
+"326","543469_20",1,9,3,2000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","Degree unknown/Some College",2000
+"327","544014_10",5,2,5,8200,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"foreign","High school diploma",8200
+"328","544046_10",1,3,7,0,NA,NA,NA,2,1400,4,NA,NA,NA,1,"us-born","College degree",0
+"329","544360_20",1,9,5,3500,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Degree unknown/Some College",3500
+"330","544461_11",1,2,5,13000,NA,NA,NA,2,600,4,NA,NA,NA,0,"us-born","High school diploma",13000
+"331","544646_10",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"332","544704_10",1,4,5,20000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",20000
+"333","544857_10",1,0,1,2000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","No degree",2000
+"334","545112_10",1,9,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Degree unknown/Some College",0
+"335","545198_10",1,9,5,10000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Degree unknown/Some College",10000
+"336","545587_20",1,2,5,7000,NA,NA,NA,2,400,4,NA,NA,NA,0,"us-born","High school diploma",7000
+"337","545720_10",1,9,9,6000,NA,NA,NA,2,996,4,NA,NA,NA,NA,"us-born","Degree unknown/Some College",6000
+"338","545739_10",1,9,5,0,NA,NA,NA,2,886,4,NA,NA,NA,0,"us-born","Degree unknown/Some College",0
+"339","546089_10",1,1,2,10500,NA,NA,NA,1,NA,NA,NA,NA,NA,1,"us-born","GED",10500
+"340","546218_10",1,4,5,3000,NA,NA,NA,3,99999998,NA,1001,99999996,NA,0,"us-born","College degree",3000
+"341","546350_20",5,2,7,10000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","High school diploma",10000
+"342","546366_10",1,5,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Postgraduate degree",0
+"343","546429_10",1,0,5,1500,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",1500
+"344","546492_20",1,0,3,5000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","No degree",5000
+"345","901276_20",1,2,5,9999998,7001,9999,NA,2,1300,4,NA,NA,NA,0,"us-born","High school diploma",8500
+"346","902392_20",1,2,3,4000,NA,NA,NA,2,1900,4,NA,NA,NA,1,"us-born","High school diploma",4000
+"347","902805_10",1,9,3,2000,NA,NA,NA,3,1600,4,NA,NA,NA,1,"us-born","Degree unknown/Some College",2000
+"348","902841_20",5,4,3,5000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","College degree",5000
+"349","903231_20",1,2,5,17000,NA,NA,NA,1,NA,NA,NA,NA,NA,0,"us-born","High school diploma",17000
+"350","903465_10",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"351","903859_10",1,3,7,11000,NA,NA,NA,2,550,4,NA,NA,NA,1,"us-born","College degree",11000
+"352","904239_10",1,0,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",0
+"353","904315_20",5,4,5,9999998,2001,4999,NA,5,NA,NA,NA,NA,NA,0,"foreign","College degree",3500
+"354","905081_10",5,0,5,14000,NA,NA,NA,3,99999998,NA,101,349,NA,0,"foreign","No degree",14000
+"355","907226_20",1,0,3,2000,NA,NA,NA,2,1400,4,NA,NA,NA,1,"us-born","No degree",2000
+"356","907313_10",1,1,5,12000,NA,NA,NA,2,3200,4,NA,NA,NA,0,"us-born","GED",12000
+"357","907705_10",1,2,5,9200,NA,NA,NA,2,1474,4,NA,NA,NA,0,"us-born","High school diploma",9200
+"358","908514_10",5,0,3,9000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","No degree",9000
+"359","910368_21",1,9,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Degree unknown/Some College",0
+"360","910771_20",5,2,3,30000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","High school diploma",30000
+"361","911659_20",1,0,5,7000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",7000
+"362","911801_20",5,0,5,20000,NA,NA,NA,1,NA,NA,NA,NA,NA,0,"foreign","No degree",20000
+"363","912641_10",5,0,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"foreign","No degree",0
+"364","913159_20",1,3,5,9999998,5000,5000,NA,2,700,4,NA,NA,NA,0,"us-born","College degree",5000
+"365","914306_20",1,2,5,9999998,2001,4999,NA,8,NA,NA,NA,NA,NA,0,"us-born","High school diploma",3500
+"366","914655_10",5,0,7,17000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","No degree",17000
+"367","915295_10",1,2,5,3000,NA,NA,NA,3,2100,4,NA,NA,NA,0,"us-born","High school diploma",3000
+"368","915825_10",1,0,5,5000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",5000
+"369","915940_10",1,2,5,10000,NA,NA,NA,2,1400,4,NA,NA,NA,0,"us-born","High school diploma",10000
+"370","916415_20",5,2,5,15000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"foreign","High school diploma",15000
+"371","917577_10",5,0,3,28000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","No degree",28000
+"372","917845_10",1,4,7,9999998,2001,4999,NA,2,1200,4,NA,NA,NA,1,"us-born","College degree",3500
+"373","918270_20",5,0,5,9999998,2001,4999,NA,5,NA,NA,NA,NA,NA,0,"foreign","No degree",3500
+"374","918670_20",1,2,5,1500,NA,NA,NA,2,99999998,NA,1001,99999996,NA,0,"us-born","High school diploma",1500
+"375","918990_10",5,0,5,5000,NA,NA,NA,3,841,4,NA,NA,NA,0,"foreign","No degree",5000
+"376","919600_20",1,9,5,0,NA,NA,NA,2,1650,4,NA,NA,NA,0,"us-born","Degree unknown/Some College",0
+"377","11911_40",1,2,5,32000,NA,NA,NA,2,191,4,NA,NA,NA,0,"us-born","High school diploma",32000
+"378","12009_10",1,5,5,99998,0,1999,NA,5,NA,NA,NA,NA,NA,0,"us-born","Postgraduate degree",999.5
+"379","12276_30",5,2,5,99998,2001,4999,NA,2,1200,4,NA,NA,NA,0,"foreign","High school diploma",3500
+"380","13140_10",1,2,5,99998,2001,4999,NA,3,1850,4,NA,NA,NA,0,"us-born","High school diploma",3500
+"381","13637_40",1,2,5,12000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",12000
+"382","13671_20",1,2,2,12000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","High school diploma",12000
+"383","14224_10",1,2,5,99998,2000,2000,NA,2,99998,NA,500,500,NA,0,"us-born","High school diploma",2000
+"384","14434_20",1,2,5,0,NA,NA,NA,3,99998,NA,351,649,NA,0,"us-born","High school diploma",0
+"385","15225_20",1,2,5,1500,NA,NA,NA,3,830,4,NA,NA,NA,0,"us-born","High school diploma",1500
+"386","15776_20",1,2,3,2000,NA,NA,NA,3,1430,4,NA,NA,NA,1,"us-born","High school diploma",2000
+"387","15992_20",1,2,5,10000,NA,NA,NA,3,1800,4,NA,NA,NA,0,"us-born","High school diploma",10000
+"388","16022_10",1,5,2,4000,NA,NA,NA,2,1400,4,NA,NA,NA,1,"us-born","Postgraduate degree",4000
+"389","16174_40",1,2,5,10000,NA,NA,NA,2,1000,4,NA,NA,NA,0,"us-born","High school diploma",10000
+"390","16648_10",1,4,5,10000,NA,NA,NA,2,-8,8,750,750,NA,0,"us-born","College degree",10000
+"391","16975_10",1,2,5,99998,0,1999,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",999.5
+"392","16996_20",1,2,2,-8,7000,7000,NA,5,NA,NA,NA,NA,NA,1,"us-born","High school diploma",7000
+"393","17075_20",1,2,5,700,NA,NA,NA,3,700,4,NA,NA,NA,0,"us-born","High school diploma",700
+"394","17520_10",1,2,5,0,NA,NA,NA,2,20000,6,NA,NA,NA,0,"us-born","High school diploma",0
+"395","17750_20",1,2,5,10000,NA,NA,NA,2,700,4,NA,NA,NA,0,"us-born","High school diploma",10000
+"396","17938_10",1,4,1,15000,NA,NA,NA,2,99998,-8,1001,99999996,NA,1,"us-born","College degree",15000
+"397","18285_30",1,6,5,200,NA,NA,NA,3,-8,7,651,999,NA,0,"us-born","Postgraduate degree",200
+"398","18352_10",1,2,5,10000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",10000
+"399","18451_10",1,2,5,2000,NA,NA,NA,2,800,4,NA,NA,NA,0,"us-born","High school diploma",2000
+"400","18774_20",1,1,5,0,NA,NA,NA,2,99998,NA,1001,99999996,NA,0,"us-born","GED",0
+"401","19054_21",1,2,5,99998,5000,5000,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",5000
+"402","19687_40",1,2,5,8000,NA,NA,NA,2,2500,4,NA,NA,NA,0,"us-born","High school diploma",8000
+"403","19704_11",1,2,5,9000,NA,NA,NA,2,99998,NA,501,749,NA,0,"us-born","High school diploma",9000
+"404","20678_10",1,2,2,6000,NA,NA,NA,2,900,4,NA,NA,NA,1,"us-born","High school diploma",6000
+"405","20692_20",1,2,5,1500,NA,NA,NA,3,99998,NA,351,99999996,98,0,"us-born","High school diploma",1500
+"406","21012_30",1,2,5,400,NA,NA,NA,2,911,4,NA,NA,NA,0,"us-born","High school diploma",400
+"407","21427_10",1,0,2,10000,NA,NA,NA,2,99999,NA,1000,1000,NA,1,"us-born","No degree",10000
+"408","21791_30",1,2,5,3400,NA,NA,NA,3,1400,4,NA,NA,NA,0,"us-born","High school diploma",3400
+"409","22049_10",1,2,5,4000,NA,NA,NA,2,600,4,NA,NA,NA,0,"us-born","High school diploma",4000
+"410","22242_10",1,6,5,4000,NA,NA,NA,2,1400,4,NA,NA,NA,0,"us-born","Postgraduate degree",4000
+"411","22266_20",1,2,3,1400,NA,NA,NA,2,1000,4,NA,NA,NA,1,"us-born","High school diploma",1400
+"412","22912_30",1,2,5,9000,NA,NA,NA,3,642,4,NA,NA,NA,0,"us-born","High school diploma",9000
+"413","23105_20",1,2,3,99998,5000,5000,NA,2,7000,6,NA,NA,NA,1,"us-born","High school diploma",5000
+"414","23344_20",1,0,5,4300,NA,NA,NA,3,2200,4,NA,NA,NA,0,"us-born","No degree",4300
+"415","23754_30",1,2,2,14000,NA,NA,NA,2,2025,4,NA,NA,NA,1,"us-born","High school diploma",14000
+"416","23967_11",5,2,5,99998,0,1999,NA,3,500,4,NA,NA,NA,0,"foreign","High school diploma",999.5
+"417","24187_20",1,0,5,2000,NA,NA,NA,2,1200,4,NA,NA,NA,0,"us-born","No degree",2000
+"418","24416_10",1,2,5,2400,NA,NA,NA,3,2500,4,NA,NA,NA,0,"us-born","High school diploma",2400
+"419","24539_10",1,4,5,4000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",4000
+"420","30423_20",5,0,5,5000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"foreign","No degree",5000
+"421","30769_10",5,2,5,14000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"foreign","High school diploma",14000
+"422","31590_10",5,5,5,30000,NA,NA,NA,3,4000,4,NA,NA,NA,0,"foreign","Postgraduate degree",30000
+"423","31632_20",1,0,5,20000,NA,NA,NA,2,450,4,NA,NA,NA,0,"us-born","No degree",20000
+"424","32048_40",1,5,5,20000,NA,NA,NA,3,1100,4,NA,NA,NA,0,"us-born","Postgraduate degree",20000
+"425","32361_11",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"426","32443_10",1,5,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Postgraduate degree",0
+"427","33888_12",5,4,5,8000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"foreign","College degree",8000
+"428","34338_10",1,2,2,10000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","High school diploma",10000
+"429","34957_10",1,2,5,25000,NA,NA,NA,2,600,4,NA,NA,NA,0,"us-born","High school diploma",25000
+"430","35009_10",1,2,5,0,NA,NA,NA,2,1500,4,NA,NA,NA,0,"us-born","High school diploma",0
+"431","36277_40",1,2,5,800,NA,NA,NA,2,1900,4,NA,NA,NA,0,"us-born","High school diploma",800
+"432","36398_40",1,3,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",0
+"433","36418_30",1,0,3,1100,NA,NA,NA,3,99998,NA,651,999,NA,1,"us-born","No degree",1100
+"434","37546_10",1,2,5,5000,NA,NA,NA,3,99998,NA,0,99999996,98,0,"us-born","High school diploma",5000
+"435","38015_20",1,3,5,5000,NA,NA,NA,3,3500,4,NA,NA,NA,0,"us-born","College degree",5000
+"436","39107_20",1,2,5,5000,NA,NA,NA,3,2000,4,NA,NA,NA,0,"us-born","High school diploma",5000
+"437","39184_20",1,2,5,3000,NA,NA,NA,2,239,4,NA,NA,NA,0,"us-born","High school diploma",3000
+"438","39196_40",1,0,5,8000,NA,NA,NA,3,4500,4,NA,NA,NA,0,"us-born","No degree",8000
+"439","39430_10",1,4,5,50,NA,NA,NA,2,1626,4,NA,NA,NA,0,"us-born","College degree",50
+"440","39437_10",1,2,5,2200,NA,NA,NA,3,1700,4,NA,NA,NA,0,"us-born","High school diploma",2200
+"441","39937_20",1,2,5,4500,NA,NA,NA,1,NA,NA,NA,NA,NA,0,"us-born","High school diploma",4500
+"442","40111_40",5,0,2,5000,NA,NA,NA,3,1700,4,NA,NA,NA,1,"foreign","No degree",5000
+"443","40260_20",1,2,3,10000,NA,NA,NA,3,1500,4,NA,NA,NA,1,"us-born","High school diploma",10000
+"444","40376_20",1,2,2,12000,NA,NA,NA,8,NA,NA,NA,NA,NA,1,"us-born","High school diploma",12000
+"445","40651_41",1,4,5,0,NA,NA,NA,2,99998,NA,751,999,NA,0,"us-born","College degree",0
+"446","40669_31",1,3,2,17000,NA,NA,NA,2,1600,4,NA,NA,NA,1,"us-born","College degree",17000
+"447","40905_10",1,4,5,2000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",2000
+"448","40908_10",1,0,5,0,NA,NA,NA,2,1349,4,NA,NA,NA,0,"us-born","No degree",0
+"449","41059_10",1,2,5,13000,NA,NA,NA,3,1100,4,NA,NA,NA,0,"us-born","High school diploma",13000
+"450","41067_40",1,2,5,0,NA,NA,NA,3,2500,4,NA,NA,NA,0,"us-born","High school diploma",0
+"451","42290_20",5,0,5,10000,NA,NA,NA,3,764,4,NA,NA,NA,0,"foreign","No degree",10000
+"452","42645_10",1,2,5,500,NA,NA,NA,2,500,4,NA,NA,NA,0,"us-born","High school diploma",500
+"453","42814_10",1,5,5,3800,NA,NA,NA,2,850,4,NA,NA,NA,0,"us-born","Postgraduate degree",3800
+"454","42938_11",1,1,5,0,NA,NA,NA,3,3575,4,NA,NA,NA,0,"us-born","GED",0
+"455","43295_12",1,2,5,5000,NA,NA,NA,3,1900,4,NA,NA,NA,0,"us-born","High school diploma",5000
+"456","43512_10",1,0,3,8000,NA,NA,NA,2,235,4,NA,NA,NA,1,"us-born","No degree",8000
+"457","43564_30",1,0,3,8000,NA,NA,NA,2,780,4,NA,NA,NA,1,"us-born","No degree",8000
+"458","43628_20",1,0,5,99998,5000,5000,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",5000
+"459","43912_20",1,2,5,12000,NA,NA,NA,1,NA,NA,NA,NA,NA,0,"us-born","High school diploma",12000
+"460","44104_10",1,2,5,9000,NA,NA,NA,2,900,4,NA,NA,NA,0,"us-born","High school diploma",9000
+"461","44681_40",1,0,5,8000,NA,NA,NA,2,1100,4,NA,NA,NA,0,"us-born","No degree",8000
+"462","45749_20",1,2,5,3000,NA,NA,NA,2,1000,4,NA,NA,NA,0,"us-born","High school diploma",3000
+"463","45786_10",1,2,5,5000,NA,NA,NA,2,900,4,NA,NA,NA,0,"us-born","High school diploma",5000
+"464","45867_20",1,2,5,2000,NA,NA,NA,2,800,4,NA,NA,NA,0,"us-born","High school diploma",2000
+"465","45992_40",1,2,5,99998,2001,4999,NA,2,500,4,NA,NA,NA,0,"us-born","High school diploma",3500
+"466","46793_10",1,2,5,99998,0,1999,NA,3,99998,NA,0,99999996,98,0,"us-born","High school diploma",999.5
+"467","47136_21",1,3,2,7000,NA,NA,NA,2,1700,4,NA,NA,NA,1,"us-born","College degree",7000
+"468","47604_30",1,2,5,2500,NA,NA,NA,3,1500,4,NA,NA,NA,0,"us-born","High school diploma",2500
+"469","47630_12",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"470","47660_10",1,2,5,680,NA,NA,NA,3,2200,4,NA,NA,NA,0,"us-born","High school diploma",680
+"471","47848_40",1,2,2,2200,NA,NA,NA,3,960,4,NA,NA,NA,1,"us-born","High school diploma",2200
+"472","48406_20",1,2,5,12000,NA,NA,NA,2,1000,4,NA,NA,NA,0,"us-born","High school diploma",12000
+"473","48440_40",1,2,2,4300,NA,NA,NA,2,2200,4,NA,NA,NA,1,"us-born","High school diploma",4300
+"474","48479_10",1,2,5,7000,NA,NA,NA,2,1800,4,NA,NA,NA,0,"us-born","High school diploma",7000
+"475","48531_30",1,0,5,5000,NA,NA,NA,2,600,4,NA,NA,NA,0,"us-born","No degree",5000
+"476","48962_20",1,2,5,5000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",5000
+"477","49093_40",1,5,5,15000,NA,NA,NA,2,-8,-8,1001,99999996,NA,0,"us-born","Postgraduate degree",15000
+"478","49178_10",1,2,5,8000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",8000
+"479","49799_40",1,0,5,10000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",10000
+"480","49801_20",1,0,5,0,NA,NA,NA,3,1200,4,NA,NA,NA,0,"us-born","No degree",0
+"481","50158_10",1,2,1,2700,NA,NA,NA,2,1400,4,NA,NA,NA,1,"us-born","High school diploma",2700
+"482","50181_20",1,2,5,15000,NA,NA,NA,3,99998,NA,351,649,NA,0,"us-born","High school diploma",15000
+"483","50746_10",1,2,2,8000,NA,NA,NA,3,99999,NA,0,99999996,99,1,"us-born","High school diploma",8000
+"484","51228_10",1,2,5,13000,NA,NA,NA,3,700,4,NA,NA,NA,0,"us-born","High school diploma",13000
+"485","52255_30",1,0,1,99998,5000,5000,NA,5,NA,NA,NA,NA,NA,1,"us-born","No degree",5000
+"486","52846_20",1,0,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",0
+"487","52930_20",1,2,2,13000,NA,NA,NA,3,99998,NA,0,99999996,98,1,"us-born","High school diploma",13000
+"488","52985_20",1,2,5,7200,NA,NA,NA,2,1600,4,NA,NA,NA,0,"us-born","High school diploma",7200
+"489","53828_20",1,2,5,1000,NA,NA,NA,2,575,4,NA,NA,NA,0,"us-born","High school diploma",1000
+"490","54772_10",5,3,5,2000,NA,NA,NA,3,2600,8,NA,NA,NA,0,"foreign","College degree",2000
+"491","55000_40",5,0,4,10000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","No degree",10000
+"492","55403_30",1,2,3,2000,NA,NA,NA,3,-8,-8,1001,99999996,NA,1,"us-born","High school diploma",2000
+"493","56092_10",1,2,1,5000,NA,NA,NA,2,99999,NA,0,99999996,99,1,"us-born","High school diploma",5000
+"494","56138_40",1,2,5,5000,NA,NA,NA,2,3100,4,NA,NA,NA,0,"us-born","High school diploma",5000
+"495","56215_20",1,2,5,99998,2001,4999,NA,3,1000,4,NA,NA,NA,0,"us-born","High school diploma",3500
+"496","56296_20",1,2,3,500,NA,NA,NA,2,1800,4,NA,NA,NA,1,"us-born","High school diploma",500
+"497","56712_10",5,2,5,21000,NA,NA,NA,2,99998,NA,0,99999996,98,0,"foreign","High school diploma",21000
+"498","56966_40",5,0,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"foreign","No degree",0
+"499","57026_21",1,2,5,15000,NA,NA,NA,2,2500,4,NA,NA,NA,0,"us-born","High school diploma",15000
+"500","57099_10",1,5,2,18000,NA,NA,NA,2,3000,4,NA,NA,NA,1,"us-born","Postgraduate degree",18000
+"501","57253_10",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"502","57627_10",1,2,3,1500,NA,NA,NA,2,99998,NA,751,999,NA,1,"us-born","High school diploma",1500
+"503","57669_40",5,2,2,1600,NA,NA,NA,2,560,4,NA,NA,NA,1,"foreign","High school diploma",1600
+"504","57714_40",1,4,5,10000,NA,NA,NA,2,160,4,NA,NA,NA,0,"us-born","College degree",10000
+"505","59368_40",1,3,3,1200,NA,NA,NA,2,600,4,NA,NA,NA,1,"us-born","College degree",1200
+"506","59690_30",1,0,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",0
+"507","60146_10",1,0,5,0,NA,NA,NA,2,1300,4,NA,NA,NA,0,"us-born","No degree",0
+"508","60148_40",1,1,5,10000,NA,NA,NA,2,99998,NA,251,499,NA,0,"us-born","GED",10000
+"509","60316_40",1,4,2,6000,NA,NA,NA,2,700,4,NA,NA,NA,1,"us-born","College degree",6000
+"510","60424_20",1,2,3,0,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","High school diploma",0
+"511","60427_20",1,4,5,2000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",2000
+"512","60769_41",1,3,5,15000,NA,NA,NA,3,400,4,NA,NA,NA,0,"us-born","College degree",15000
+"513","60788_40",1,0,5,5000,NA,NA,NA,3,99998,NA,651,999,NA,0,"us-born","No degree",5000
+"514","60807_10",1,2,5,9000,NA,NA,NA,2,99998,NA,751,999,NA,0,"us-born","High school diploma",9000
+"515","61052_10",1,0,5,2500,NA,NA,NA,3,99999,NA,1001,99999996,NA,0,"us-born","No degree",2500
+"516","61213_40",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"517","61230_40",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"518","63712_10",5,0,5,20000,NA,NA,NA,3,1100,4,NA,NA,NA,0,"foreign","No degree",20000
+"519","64391_40",1,0,5,2000,NA,NA,NA,2,800,4,NA,NA,NA,0,"us-born","No degree",2000
+"520","64654_10",1,0,6,5000,NA,NA,NA,3,1400,4,NA,NA,NA,NA,"us-born","No degree",5000
+"521","65172_10",5,0,5,99998,0,1999,NA,5,NA,NA,NA,NA,NA,0,"foreign","No degree",999.5
+"522","65550_20",1,0,5,12000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",12000
+"523","71012_10",1,0,5,10000,NA,NA,NA,3,1300,4,NA,NA,NA,0,"us-born","No degree",10000
+"524","71875_20",1,2,5,5000,NA,NA,NA,3,2900,4,NA,NA,NA,0,"us-born","High school diploma",5000
+"525","73878_10",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"526","74260_40",1,4,2,8000,NA,NA,NA,2,500,4,NA,NA,NA,1,"us-born","College degree",8000
+"527","74266_10",5,5,2,15000,NA,NA,NA,2,1100,4,NA,NA,NA,1,"foreign","Postgraduate degree",15000
+"528","74272_20",1,4,3,17000,NA,NA,NA,3,-8,-8,1001,99999996,NA,1,"us-born","College degree",17000
+"529","74666_10",1,2,2,16400,NA,NA,NA,3,2790,4,NA,NA,NA,1,"us-born","High school diploma",16400
+"530","75060_20",1,5,2,99999,5001,6999,NA,2,99998,NA,501,749,NA,1,"us-born","Postgraduate degree",6000
+"531","75750_20",1,2,3,5000,NA,NA,NA,3,-8,-8,351,99999996,0,1,"us-born","High school diploma",5000
+"532","75821_20",1,2,5,6000,NA,NA,NA,2,775,4,NA,NA,NA,0,"us-born","High school diploma",6000
+"533","76583_11",1,0,4,6000,NA,NA,NA,2,900,4,NA,NA,NA,1,"us-born","No degree",6000
+"534","76717_20",5,4,1,10000,NA,NA,NA,3,3000,4,NA,NA,NA,1,"foreign","College degree",10000
+"535","77518_10",1,2,5,2500,NA,NA,NA,3,-8,-8,650,650,NA,0,"us-born","High school diploma",2500
+"536","77532_40",1,1,2,12000,NA,NA,NA,3,831,4,NA,NA,NA,1,"us-born","GED",12000
+"537","77866_10",1,2,5,3000,NA,NA,NA,3,1600,4,NA,NA,NA,0,"us-born","High school diploma",3000
+"538","78443_11",1,4,5,2400,NA,NA,NA,2,997,4,NA,NA,NA,0,"us-born","College degree",2400
+"539","78478_20",1,5,5,16000,NA,NA,NA,2,2000,4,NA,NA,NA,0,"us-born","Postgraduate degree",16000
+"540","78509_10",1,2,5,9500,NA,NA,NA,2,1200,4,NA,NA,NA,0,"us-born","High school diploma",9500
+"541","78582_20",1,5,5,20000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Postgraduate degree",20000
+"542","78875_11",1,2,5,9000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",9000
+"543","79778_10",1,2,5,3000,NA,NA,NA,2,750,4,NA,NA,NA,0,"us-born","High school diploma",3000
+"544","80248_10",1,2,5,0,NA,NA,NA,3,1268,4,NA,NA,NA,0,"us-born","High school diploma",0
+"545","80614_30",5,2,5,5000,NA,NA,NA,2,1600,4,NA,NA,NA,0,"foreign","High school diploma",5000
+"546","81059_20",1,4,2,10000,NA,NA,NA,2,1550,4,NA,NA,NA,1,"us-born","College degree",10000
+"547","81287_40",1,2,5,10000,NA,NA,NA,3,842,4,NA,NA,NA,0,"us-born","High school diploma",10000
+"548","81448_20",1,2,5,5000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",5000
+"549","81752_11",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"550","83473_10",1,2,5,10000,NA,NA,NA,2,-8,8,1000,1000,NA,0,"us-born","High school diploma",10000
+"551","83705_20",1,2,5,5000,NA,NA,NA,2,99998,NA,1000,1000,NA,0,"us-born","High school diploma",5000
+"552","83714_30",1,2,5,6000,NA,NA,NA,2,4000,4,NA,NA,NA,0,"us-born","High school diploma",6000
+"553","84135_10",1,2,5,12000,NA,NA,NA,2,570,4,NA,NA,NA,0,"us-born","High school diploma",12000
+"554","84164_40",1,2,5,20000,NA,NA,NA,3,1500,4,NA,NA,NA,0,"us-born","High school diploma",20000
+"555","84180_30",1,2,5,0,NA,NA,NA,3,99999,NA,0,99999996,99,0,"us-born","High school diploma",0
+"556","84635_40",1,2,5,13000,NA,NA,NA,3,99998,NA,0,99999996,98,0,"us-born","High school diploma",13000
+"557","85196_10",1,1,5,11400,NA,NA,NA,3,1100,4,NA,NA,NA,0,"us-born","GED",11400
+"558","85217_30",1,2,2,30000,NA,NA,NA,3,3000,4,NA,NA,NA,1,"us-born","High school diploma",30000
+"559","85482_10",1,2,5,5000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",5000
+"560","85616_20",1,2,5,8000,NA,NA,NA,2,650,4,NA,NA,NA,0,"us-born","High school diploma",8000
+"561","86083_20",1,4,5,3000,NA,NA,NA,3,800,4,NA,NA,NA,0,"us-born","College degree",3000
+"562","86421_40",1,2,5,16000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",16000
+"563","86560_40",1,2,5,2000,NA,NA,NA,3,1000,4,NA,NA,NA,0,"us-born","High school diploma",2000
+"564","86735_21",1,2,1,10000,NA,NA,NA,3,1360,4,NA,NA,NA,1,"us-born","High school diploma",10000
+"565","86777_30",1,4,5,1000,NA,NA,NA,3,1400,4,NA,NA,NA,0,"us-born","College degree",1000
+"566","87363_30",1,5,5,500,NA,NA,NA,3,800,4,NA,NA,NA,0,"us-born","Postgraduate degree",500
+"567","87469_20",1,2,5,25000,NA,NA,NA,2,1400,4,NA,NA,NA,0,"us-born","High school diploma",25000
+"568","90924_20",1,2,5,975,NA,NA,NA,2,188,4,NA,NA,NA,0,"us-born","High school diploma",975
+"569","110780_20",1,5,5,8000,NA,NA,NA,3,2700,4,NA,NA,NA,0,"us-born","Postgraduate degree",8000
+"570","111919_21",1,9,5,2800,NA,NA,NA,2,2100,4,NA,NA,NA,0,"us-born","Degree unknown/Some College",2800
+"571","113083_20",1,4,5,7000,NA,NA,NA,3,1600,4,NA,NA,NA,0,"us-born","College degree",7000
+"572","116027_10",1,6,5,4500,NA,NA,NA,2,1100,4,NA,NA,NA,0,"us-born","Postgraduate degree",4500
+"573","116968_20",1,2,2,13000,NA,NA,NA,2,903,4,NA,NA,NA,1,"us-born","High school diploma",13000
+"574","117258_10",1,3,7,99998,10001,99999996,NA,2,500,4,NA,NA,NA,1,"us-born","College degree",14071.255
+"575","120165_20",1,2,5,3000,NA,NA,NA,2,1400,4,NA,NA,NA,0,"us-born","High school diploma",3000
+"576","120359_10",1,4,5,10000,NA,NA,NA,2,2200,4,NA,NA,NA,0,"us-born","College degree",10000
+"577","121665_20",1,2,5,8800,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",8800
+"578","122031_20",1,2,2,5600,NA,NA,NA,2,2000,4,NA,NA,NA,1,"us-born","High school diploma",5600
+"579","122131_10",1,0,5,1000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",1000
+"580","124483_10",1,2,5,4500,NA,NA,NA,2,900,4,NA,NA,NA,0,"us-born","High school diploma",4500
+"581","133126_10",1,2,5,1400,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",1400
+"582","133201_20",1,4,5,10000,NA,NA,NA,3,12000,6,NA,NA,NA,0,"us-born","College degree",10000
+"583","133891_10",1,5,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Postgraduate degree",0
+"584","137440_10",1,5,5,99998,10001,99999996,NA,2,99998,NA,0,99999996,98,0,"us-born","Postgraduate degree",14071.255
+"585","138648_11",5,9,6,2000,NA,NA,NA,3,99998,NA,351,99999996,98,NA,"foreign","Degree unknown/Some College",2000
+"586","138875_20",1,2,2,7000,NA,NA,NA,2,1083,4,NA,NA,NA,1,"us-born","High school diploma",7000
+"587","145797_10",1,2,3,3000,NA,NA,NA,2,1500,4,NA,NA,NA,1,"us-born","High school diploma",3000
+"588","148613_10",1,2,3,8000,NA,NA,NA,2,1200,4,NA,NA,NA,1,"us-born","High school diploma",8000
+"589","150370_10",1,2,5,3000,NA,NA,NA,3,1590,4,NA,NA,NA,0,"us-born","High school diploma",3000
+"590","150990_20",1,2,2,8000,NA,NA,NA,3,1200,4,NA,NA,NA,1,"us-born","High school diploma",8000
+"591","151243_20",1,1,5,6500,NA,NA,NA,2,1025,4,NA,NA,NA,0,"us-born","GED",6500
+"592","152236_20",1,2,5,3250,NA,NA,NA,3,2088,4,NA,NA,NA,0,"us-born","High school diploma",3250
+"593","152556_20",1,2,5,12000,NA,NA,NA,3,2200,4,NA,NA,NA,0,"us-born","High school diploma",12000
+"594","152901_20",5,4,5,1500,NA,NA,NA,2,289,4,NA,NA,NA,0,"foreign","College degree",1500
+"595","152955_20",1,2,5,13050,NA,NA,NA,3,623,4,NA,NA,NA,0,"us-born","High school diploma",13050
+"596","153601_10",1,2,5,2500,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",2500
+"597","154099_20",1,4,3,6000,NA,NA,NA,3,99999,NA,351,99999996,99,1,"us-born","College degree",6000
+"598","154199_20",1,2,5,10000,NA,NA,NA,1,NA,NA,NA,NA,NA,0,"us-born","High school diploma",10000
+"599","154552_10",1,0,5,1000,NA,NA,NA,3,1300,4,NA,NA,NA,0,"us-born","No degree",1000
+"600","159299_20",1,2,5,8000,NA,NA,NA,3,721,4,NA,NA,NA,0,"us-born","High school diploma",8000
+"601","171503_20",5,3,3,15000,NA,NA,NA,2,1500,4,NA,NA,NA,1,"foreign","College degree",15000
+"602","171707_20",1,2,5,5000,NA,NA,NA,2,1850,4,NA,NA,NA,0,"us-born","High school diploma",5000
+"603","172749_20",1,6,5,10000,NA,NA,NA,2,99998,NA,1001,99999996,NA,0,"us-born","Postgraduate degree",10000
+"604","174503_10",1,2,5,0,NA,NA,NA,3,99999,NA,351,649,NA,0,"us-born","High school diploma",0
+"605","178259_12",1,4,5,5000,NA,NA,NA,2,810,4,NA,NA,NA,0,"us-born","College degree",5000
+"606","178511_20",1,2,5,15000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",15000
+"607","178602_20",1,2,5,9800,NA,NA,NA,3,3800,4,NA,NA,NA,0,"us-born","High school diploma",9800
+"608","179842_20",1,5,5,400,NA,NA,NA,2,1700,4,NA,NA,NA,0,"us-born","Postgraduate degree",400
+"609","180356_10",1,1,5,300,NA,NA,NA,2,795,4,NA,NA,NA,0,"us-born","GED",300
+"610","180361_11",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"611","180805_10",1,2,5,8680,NA,NA,NA,3,892,4,NA,NA,NA,0,"us-born","High school diploma",8680
+"612","183752_20",1,5,5,0,NA,NA,NA,2,1500,4,NA,NA,NA,0,"us-born","Postgraduate degree",0
+"613","186438_20",1,5,5,4000,NA,NA,NA,3,1800,4,NA,NA,NA,0,"us-born","Postgraduate degree",4000
+"614","190757_10",1,4,5,12000,NA,NA,NA,2,300,4,NA,NA,NA,0,"us-born","College degree",12000
+"615","202612_20",1,0,5,1200,NA,NA,NA,3,2000,4,NA,NA,NA,0,"us-born","No degree",1200
+"616","202973_20",1,5,5,3000,NA,NA,NA,2,600,4,NA,NA,NA,0,"us-born","Postgraduate degree",3000
+"617","205144_20",1,5,5,12000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Postgraduate degree",12000
+"618","205403_11",5,2,5,10000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"foreign","High school diploma",10000
+"619","210080_10",5,2,5,8000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"foreign","High school diploma",8000
+"620","210089_10",5,2,5,2050,NA,NA,NA,3,3000,4,NA,NA,NA,0,"foreign","High school diploma",2050
+"621","210791_10",1,4,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",0
+"622","211616_10",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"623","211701_10",5,0,5,1150,NA,NA,NA,3,1100,4,NA,NA,NA,0,"foreign","No degree",1150
+"624","211858_20",1,0,2,10000,NA,NA,NA,2,99998,NA,751,99999996,98,1,"us-born","No degree",10000
+"625","211887_20",1,2,5,10000,NA,NA,NA,3,1800,4,NA,NA,NA,0,"us-born","High school diploma",10000
+"626","211888_20",1,2,5,3000,NA,NA,NA,2,565,4,NA,NA,NA,0,"us-born","High school diploma",3000
+"627","212575_11",1,2,5,99998,2001,4999,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",3500
+"628","212649_20",1,2,5,99998,10001,99999996,NA,3,1800,4,NA,NA,NA,0,"us-born","High school diploma",14071.255
+"629","212665_10",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"630","213042_10",1,2,5,1200,NA,NA,NA,2,591,4,NA,NA,NA,0,"us-born","High school diploma",1200
+"631","213162_10",1,2,5,200,NA,NA,NA,3,5500,4,NA,NA,NA,0,"us-born","High school diploma",200
+"632","213224_20",1,2,5,99998,0,1999,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",999.5
+"633","213225_20",1,2,5,99998,2001,4999,NA,2,99998,NA,500,500,NA,0,"us-born","High school diploma",3500
+"634","213333_10",1,2,5,6000,NA,NA,NA,3,2000,4,NA,NA,NA,0,"us-born","High school diploma",6000
+"635","213353_20",1,4,5,99998,2001,4999,NA,2,724,4,NA,NA,NA,0,"us-born","College degree",3500
+"636","213378_10",1,4,5,99998,0,1999,NA,2,1000,4,NA,NA,NA,0,"us-born","College degree",999.5
+"637","213467_10",1,4,5,11500,NA,NA,NA,3,700,4,NA,NA,NA,0,"us-born","College degree",11500
+"638","500308_20",1,2,2,12000,NA,NA,NA,2,1500,4,NA,NA,NA,1,"us-born","High school diploma",12000
+"639","500313_10",1,2,5,99999,7001,9999,NA,3,918,4,NA,NA,NA,0,"us-born","High school diploma",8500
+"640","500337_10",1,5,2,8000,NA,NA,NA,2,1600,4,NA,NA,NA,1,"us-born","Postgraduate degree",8000
+"641","500366_20",1,2,5,8000,NA,NA,NA,3,1800,4,NA,NA,NA,0,"us-born","High school diploma",8000
+"642","500590_10",5,2,5,4000,NA,NA,NA,3,571,4,NA,NA,NA,0,"foreign","High school diploma",4000
+"643","500681_10",1,3,5,600,NA,NA,NA,2,1160,4,NA,NA,NA,0,"us-born","College degree",600
+"644","500722_10",1,2,2,99998,2000,2000,NA,2,99998,NA,750,750,NA,1,"us-born","High school diploma",2000
+"645","500831_10",1,3,2,10000,NA,NA,NA,2,2100,4,NA,NA,NA,1,"us-born","College degree",10000
+"646","500877_11",1,0,5,0,NA,NA,NA,2,99998,NA,1001,99999996,NA,0,"us-born","No degree",0
+"647","500967_10",1,5,5,10000,NA,NA,NA,3,2365,4,NA,NA,NA,0,"us-born","Postgraduate degree",10000
+"648","500974_10",1,5,5,3000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Postgraduate degree",3000
+"649","501009_20",1,5,2,6000,NA,NA,NA,2,405,4,NA,NA,NA,1,"us-born","Postgraduate degree",6000
+"650","501219_20",1,2,2,99998,7001,9999,NA,2,1900,4,NA,NA,NA,1,"us-born","High school diploma",8500
+"651","501359_20",1,1,5,3700,NA,NA,NA,2,99998,NA,751,999,NA,0,"us-born","GED",3700
+"652","501431_20",1,4,2,11000,NA,NA,NA,2,1000,4,NA,NA,NA,1,"us-born","College degree",11000
+"653","501470_10",5,0,5,7000,NA,NA,NA,2,2400,4,NA,NA,NA,0,"foreign","No degree",7000
+"654","501492_10",1,2,5,1700,NA,NA,NA,3,1091,4,NA,NA,NA,0,"us-born","High school diploma",1700
+"655","501528_20",1,9,2,3000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","Degree unknown/Some College",3000
+"656","501546_10",1,2,5,15000,NA,NA,NA,3,2700,4,NA,NA,NA,0,"us-born","High school diploma",15000
+"657","501569_20",1,4,5,4000,NA,NA,NA,2,1600,4,NA,NA,NA,0,"us-born","College degree",4000
+"658","501635_20",1,2,5,0,NA,NA,NA,2,2000,4,NA,NA,NA,0,"us-born","High school diploma",0
+"659","501956_10",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"660","502049_20",1,0,5,12000,NA,NA,NA,3,99998,NA,101,349,NA,0,"us-born","No degree",12000
+"661","502168_11",5,2,2,3000,NA,NA,NA,2,980,4,NA,NA,NA,1,"foreign","High school diploma",3000
+"662","502297_20",1,4,2,10000,NA,NA,NA,2,99998,NA,251,499,NA,1,"us-born","College degree",10000
+"663","502435_10",1,2,2,3000,NA,NA,NA,2,1600,4,NA,NA,NA,1,"us-born","High school diploma",3000
+"664","502451_10",1,2,2,10000,NA,NA,NA,1,NA,NA,NA,NA,NA,1,"us-born","High school diploma",10000
+"665","502509_10",1,3,5,3000,NA,NA,NA,3,1100,4,NA,NA,NA,0,"us-born","College degree",3000
+"666","502695_10",1,2,5,300,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",300
+"667","502724_20",1,2,5,10000,NA,NA,NA,3,99999,NA,0,99999996,99,0,"us-born","High school diploma",10000
+"668","502751_10",1,2,3,5000,NA,NA,NA,2,1450,4,NA,NA,NA,1,"us-born","High school diploma",5000
+"669","520221_11",1,9,3,400,NA,NA,NA,2,2000,4,NA,NA,NA,1,"us-born","Degree unknown/Some College",400
+"670","520376_20",1,2,5,8500,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",8500
+"671","520722_20",1,2,5,10000,NA,NA,NA,1,NA,NA,NA,NA,NA,0,"us-born","High school diploma",10000
+"672","521033_10",1,1,5,25000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","GED",25000
+"673","521102_10",1,2,5,7000,NA,NA,NA,2,2400,4,NA,NA,NA,0,"us-born","High school diploma",7000
+"674","521142_11",1,2,4,10000,NA,NA,NA,2,4500,4,NA,NA,NA,1,"us-born","High school diploma",10000
+"675","521670_10",1,3,5,4000,NA,NA,NA,1,NA,NA,NA,NA,NA,0,"us-born","College degree",4000
+"676","522571_20",1,2,5,1170,NA,NA,NA,3,2400,4,NA,NA,NA,0,"us-born","High school diploma",1170
+"677","523342_20",1,2,7,20000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","High school diploma",20000
+"678","523659_10",1,2,2,4000,NA,NA,NA,2,1500,4,NA,NA,NA,1,"us-born","High school diploma",4000
+"679","527348_21",1,2,5,99998,2000,2000,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",2000
+"680","527746_20",1,2,2,15000,NA,NA,NA,2,1000,4,NA,NA,NA,1,"us-born","High school diploma",15000
+"681","528130_10",1,0,5,6000,NA,NA,NA,2,2800,4,NA,NA,NA,0,"us-born","No degree",6000
+"682","528566_20",1,0,5,2000,NA,NA,NA,2,99998,NA,751,999,NA,0,"us-born","No degree",2000
+"683","529377_10",1,2,2,3100,NA,NA,NA,8,NA,NA,NA,NA,NA,1,"us-born","High school diploma",3100
+"684","529657_10",1,2,5,99998,5000,5000,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",5000
+"685","530232_20",1,1,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","GED",0
+"686","530333_20",5,2,3,7000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","High school diploma",7000
+"687","530736_10",1,2,3,99998,5001,6999,NA,5,NA,NA,NA,NA,NA,1,"us-born","High school diploma",6000
+"688","531953_10",5,0,1,8300,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","No degree",8300
+"689","532166_11",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"690","532227_20",1,2,5,24000,NA,NA,NA,2,2300,4,NA,NA,NA,0,"us-born","High school diploma",24000
+"691","533192_10",1,0,5,2500,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",2500
+"692","533620_10",5,0,5,7000,NA,NA,NA,3,99998,NA,101,349,NA,0,"foreign","No degree",7000
+"693","534191_20",5,2,5,20000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"foreign","High school diploma",20000
+"694","535347_20",1,3,2,7800,NA,NA,NA,2,1000,4,NA,NA,NA,1,"us-born","College degree",7800
+"695","536559_20",5,3,6,7800,NA,NA,NA,8,NA,NA,NA,NA,NA,NA,"foreign","College degree",7800
+"696","537401_10",1,1,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","GED",0
+"697","537500_10",1,2,5,3000,NA,NA,NA,2,166,4,NA,NA,NA,0,"us-born","High school diploma",3000
+"698","537566_10",1,0,5,3800,NA,NA,NA,3,1800,4,NA,NA,NA,0,"us-born","No degree",3800
+"699","540225_20",1,0,2,600,NA,NA,NA,2,1700,4,NA,NA,NA,1,"us-born","No degree",600
+"700","540304_10",1,2,3,5000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","High school diploma",5000
+"701","541497_10",1,2,5,13000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",13000
+"702","542430_20",1,4,4,1600,NA,NA,NA,2,796,4,NA,NA,NA,1,"us-born","College degree",1600
+"703","542537_20",1,3,5,8000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",8000
+"704","542586_10",1,1,5,30000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","GED",30000
+"705","542676_10",1,9,5,6000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Degree unknown/Some College",6000
+"706","542822_10",1,2,5,99998,0,1999,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",999.5
+"707","543408_10",1,9,5,2500,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","Degree unknown/Some College",2500
+"708","543973_11",1,9,5,800,NA,NA,NA,2,1700,4,NA,NA,NA,0,"us-born","Degree unknown/Some College",800
+"709","543990_20",1,1,3,15000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","GED",15000
+"710","544398_20",1,3,2,2000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","College degree",2000
+"711","544667_10",1,2,5,6000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",6000
+"712","544690_10",1,3,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",0
+"713","544733_20",5,9,5,1000,NA,NA,NA,3,1200,4,NA,NA,NA,0,"foreign","Degree unknown/Some College",1000
+"714","544754_20",1,4,4,2000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","College degree",2000
+"715","546349_20",1,2,5,0,NA,NA,NA,2,99999,NA,0,99999996,99,0,"us-born","High school diploma",0
+"716","546441_20",1,4,5,5000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",5000
+"717","546520_20",1,9,2,6000,NA,NA,NA,2,99998,NA,501,749,NA,1,"us-born","Degree unknown/Some College",6000
+"718","900229_10",1,2,2,10000,NA,NA,NA,3,4000,4,NA,NA,NA,1,"us-born","High school diploma",10000
+"719","901043_10",1,2,5,50,NA,NA,NA,2,625,4,NA,NA,NA,0,"us-born","High school diploma",50
+"720","902214_20",5,2,5,10000,NA,NA,NA,2,1100,4,NA,NA,NA,0,"foreign","High school diploma",10000
+"721","902506_10",5,9,3,30000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"foreign","Degree unknown/Some College",30000
+"722","902918_20",1,3,2,2000,NA,NA,NA,1,NA,NA,NA,NA,NA,1,"us-born","College degree",2000
+"723","903137_10",5,4,5,10000,NA,NA,NA,3,6000,4,NA,NA,NA,0,"foreign","College degree",10000
+"724","904111_10",1,2,2,-8,10000,10000,NA,5,NA,NA,NA,NA,NA,1,"us-born","High school diploma",10000
+"725","904168_20",1,2,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",0
+"726","905779_10",1,2,4,250,NA,NA,NA,3,2269,4,NA,NA,NA,1,"us-born","High school diploma",250
+"727","906656_10",1,2,5,17000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","High school diploma",17000
+"728","908593_10",1,3,5,0,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",0
+"729","908703_20",5,5,3,20000,NA,NA,NA,3,1100,4,NA,NA,NA,1,"foreign","Postgraduate degree",20000
+"730","908974_20",1,2,3,13000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","High school diploma",13000
+"731","909404_10",1,4,1,9000,NA,NA,NA,3,1500,4,NA,NA,NA,1,"us-born","College degree",9000
+"732","910113_10",1,2,3,13000,NA,NA,NA,5,NA,NA,NA,NA,NA,1,"us-born","High school diploma",13000
+"733","910517_10",1,0,5,2000,NA,NA,NA,3,1000,4,NA,NA,NA,0,"us-born","No degree",2000
+"734","910518_10",5,4,5,6600,NA,NA,NA,3,1470,4,NA,NA,NA,0,"foreign","College degree",6600
+"735","910584_10",1,3,5,5000,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","College degree",5000
+"736","910811_10",1,3,5,10000,NA,NA,NA,2,1700,4,NA,NA,NA,0,"us-born","College degree",10000
+"737","911856_10",5,2,3,12000,NA,NA,NA,1,NA,NA,NA,NA,NA,1,"foreign","High school diploma",12000
+"738","912312_10",1,0,5,8000,NA,NA,NA,2,400,4,NA,NA,NA,0,"us-born","No degree",8000
+"739","914448_10",1,2,5,99998,2001,4999,NA,2,3000,4,NA,NA,NA,0,"us-born","High school diploma",3500
+"740","915190_21",1,0,5,99998,7001,9999,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",8500
+"741","916597_10",1,4,5,1000,NA,NA,NA,2,1100,4,NA,NA,NA,0,"us-born","College degree",1000
+"742","916725_21",1,0,5,1200,NA,NA,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",1200
+"743","918579_20",1,0,5,10000,NA,NA,NA,2,750,4,NA,NA,NA,0,"us-born","No degree",10000
+"744","919366_20",1,0,5,1200,NA,NA,NA,2,1200,4,NA,NA,NA,0,"us-born","No degree",1200
+"745","919603_10",5,0,6,9000,NA,NA,NA,5,NA,NA,NA,NA,NA,NA,"foreign","No degree",9000
+"746","920331_11",1,0,5,99998,10001,99999996,NA,5,NA,NA,NA,NA,NA,0,"us-born","No degree",14071.255

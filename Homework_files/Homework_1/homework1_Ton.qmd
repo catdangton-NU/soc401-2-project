@@ -1,0 +1,197 @@
+---
+title: "401-2_Homework1"
+author: "Cat Dang Ton"
+date: "April 4, 2024"
+format: html
+editor: visual
+embed-resources: true
+---
+
+```{r setup}
+library(pacman)
+p_load (tidyverse, haven, modelsummary, marginaleffects, estimatr, psych, MASS)
+rm(list = ls()) # refresh environment
+getwd() # check working directory before proceeding!
+# The assumed working directory is Final_Project_HRS_Spousal_Death.
+df_raw <- read.csv("03_Clean/Output/HRS_widows_demog_tracker_cleaned.csv")
+```
+
+## 1.
+
+I am using data from the 2022 Health and Retirement Survey. The sample consists of `r nrow(df)` respondents to the survey's subsection on Widowhood and Divorce, who experienced the death of a spouse between 2020 and 2022.
+
+Dependent variable: whether or not the widowed spouse had to sell assets, withdraw money that normally would not be touched, get help from a relative, or from a church or other institution, or do anything else special to find the money to cover the deceased spouse's death expenses (funeral expenses, legal fees, expenses for any illness that led to death). (Yes = 1, No = 0). Let's say that this means the widow had difficulty covering such final expenses.
+
+Independent variables:
+
+1.  Whether the living spouse is US-born or foreign born (US-born = 1, foreign-born = 0)
+2.  Total death expenses that are NOT covered by insurance or the deceased spouse's estate (Exact dollar amounts, or if not available, the midpoint of approximated estimates)
+
+```{r, select_vars}
+## All code work for recoding variables was moved to 03_Clean.
+df <- df_raw
+# make descriptive crosstabs
+table1 <- table(df$deathexpense_special, df$usborn)
+table2 <- table(df$deathexpense_special, df$degree)
+print(table1)
+print(table2)
+# Ignore the Degree variable for now, not sure what is going on
+```
+
+```{r, recode_expense_estimates}
+library(purrr) 
+## All code work for recoding variables was moved to 03_Clean.
+# Summary of the new variable
+summary(df$deathexpense_usd)
+```
+
+The sample size is small, but let's proceed with the homework for now.
+
+```{r, ols_model_robust}
+
+# Convert dependent variable and continuous variable to numeric so the model takes it
+df$deathexpense_special <- as.numeric(df$deathexpense_special)
+df$deathexpense_usd <- as.numeric(df$deathexpense_usd)
+# convert unit of analysis to thousands of dollars
+df$deathexpense_1k <- df$deathexpense_usd/1000 
+# run model
+model <- lm_robust(deathexpense_special ~ usborn + deathexpense_1k, data = df)
+
+summary(model)
+```
+
+Reference category: Foreign-born person, who has no death expenses beyond what is covered by insurance or the deceased spouse's estate.
+
+The number of cases in the model is `r nobs(model)`.
+
+### A. interpreting the slope and intercept
+
+The intercept is 0.39, which means that a foreign-born widow, who has no death expenses beyond what is covered by insurance or by their deceased spouse's estate, would still have difficulty covering these expenses 39% of the time. The slope for US-born respondents suggests that, after controlling for the amount of personal funds spent on final expenses, a widow's US-born status reduces their probability of having difficulty covering these expenses by 22%, down to 17%.
+
+### B.
+
+I'm running a scatterplot for death expenses as it is the only continuous variable I currently have.
+
+```{r, scatterplot}
+
+plot_predictions(model, condition = "deathexpense_1k") 
+```
+
+### C.
+
+```{r, conf_intervals}
+point_estimate <- -0.22
+se <- 0.06
+p <- 1.96  # For a 95% confidence interval
+
+lower_bound <- point_estimate - (p * se)
+upper_bound <- point_estimate + (p * se)
+
+# Print results
+cat("Approximate 95% Confidence Interval for the Slope:\n")
+cat("Lower Bound:", lower_bound, "\n")
+cat("Upper Bound:", upper_bound, "\n")
+
+```
+
+### D.
+
+Basic linear probability:
+
+1.  Can create predicted probability estimates above 1 and below 0, which does not make mathematical sense.
+2.  Doesn't reflect how most independent variables in the world have non-linear relationships with binomial outcome variables
+3.  Errors are necessarily heteroskedastic, which violates linear regression modeling assumptions.
+
+## 2A.
+
+```{r}
+# set probabilities from prompt
+probs <- c(0.5, 0.2, 0.9, 0.997)
+
+# get odds
+odds <- probs / (1 - probs)
+
+# get logit
+logit <- log(odds)
+
+# show results
+result <- data.frame(Probabilities = probs, Odds = odds, Logit = logit)
+print(result)
+
+```
+
+## 2B.
+
+```{r}
+# set logits from prompt
+logits <- c(0, 2, -1.2, 4.6)
+
+# get odds
+odds <- exp(logits)
+
+# get probabilities
+probs <- odds / (1 + odds)
+
+# show results
+result <- data.frame(Logit = logit, Odds = odds, Probabilities = probs)
+print(result)
+
+```
+
+## 3.
+
+### A.
+
+The coefficient for 'male' is -0.434212, which means that, compared to that of women, the log odds of men's weekly attendance at church is approx. 0.4342 units lower, holding other variables constant.
+
+### B.
+
+The coefficient for 'year' is -0.004779. This means that for every additional year of education, the odds of attending church weekly decrease by a factor of exp(-0.004779) ≈ 0.99523, holding other variables constant.
+
+### C.
+
+```{r}
+
+# Get coefficients from prompt
+# Don't have female coef? use male coef.
+intercept <- 9.949189
+edu_coef <- 0.031123
+male_coef <- -0.434212
+year_coef <- -0.004779
+
+# Set specific X values 
+edu <- 12 # 12 years of ed
+male <- 0 # because the question is about women, set female = 1, and male = 0
+year <- 1990
+
+# Calculate logit
+logit <- intercept + edu_coef * edu + male_coef * male + year_coef * year
+
+# calculation via function
+inverse_logit <- function(x) { #create an inverse logit function. I did this so you would
+  y <- exp(x)/(1+exp(x)) #have the code if you ever need it
+  return(y)
+}
+
+inverse_logit(logit) #voila, a probability!
+```
+
+The predicted probability of weekly church attendance for a female with a high school degree in 1990 is approximately 0.6909 or 69.09%.
+
+### D.
+
+```{r}
+baseline_prob <- 0.3
+baseline_logit <- log(baseline_prob / (1 - baseline_prob))
+
+# Get the effect of one additional year of education on weekly church attendance,
+# using the partial derivative method, and year_coef from 3C.
+effect_of_year <- baseline_prob * (1 - baseline_prob) * year_coef ; effect_of_year
+
+```
+
+### E.
+
+Education coefficient: statistically significant at p \< 0.05.
+
+Male coefficient: statistically significant at p \< 0.001.

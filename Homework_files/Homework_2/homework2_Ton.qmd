@@ -1,0 +1,49 @@
+## Question 1
+
+## Question 2
+
+### A.
+
+Outcome variable: whether or not the speech contains populist claims, based on an iteratively defined dictionary of populist terms. It is a binomial variable with 0 and 1 values.
+
+Main independent variables:
+
+-   Party (Republican or Democratic),
+-   party incumbency,
+-   prior office,
+-   political career length,
+-   phase of campaign in relation to election day,
+-   interaction term between field position and campaign duration (?) (from Hypothesis 6; but regression table 2 did not have an interaction term?)
+-   Geographic region
+
+### B.
+
+The odds ratio of an incumbent's speech being populist is 0.279, which means that for every political speech from an incumbent party member that contains a populist claim, there would be nearly 4 speeches from challengers containing a populist claim. Incumbents are thus less likely to make populist claims than challengers.
+
+Controls were included for length of speech, because the longer the speech, the more likely it is to contain a populist claim.
+
+### C.
+
+For a baseline probability of 0.3, the effect of being part of the incumbent party on the proability of using populist rhetoric is $p \times (1-p) \times \text{coef} = 0.3 \times (1 - 0.3) \times \ln(0.279) = -0.268$
+
+### D.
+
+Given the hypotheses listed in Table 1, I'm inclined to think that the only control variable is speech length. Each of the models in table 2 corresponds to one of the hypotheses in table 1 (e.g. models 1 & 2 tests hypothesis 1, models 5-7 tests hypothesis 4), which means that these are separate models for separate hypotheses. There are no hypotheses here that would require running a model with all variables included as controls. 
+
+### E.
+
+Significance levels: 0.05, 0.01, 0.001
+
+One constraint comes from a confounding variable. It is possible that carrying out a populist speech increases (or decreases) the likelihood that a candidate stays in the running and makes more speeches. This latent "success rate" relates to the independent variable (duration of campaign) and the dependent variable (presence of populist claims).
+
+### F.
+
+The status of having never been in political office ("field position: none") is the strongest predictor of populism in a speech, because its odds ratios are greatest across 11 models, and their estimates are statistically significant at the 0.001 threshold. Compared to members of the previous administration, those who held no previous office had 3.6 to 5 times higher odds of making populist claims.
+
+### G.
+
+The measurement of populist claims-making using only the presence or absence of populist claims does not capture the salience or prevalence of such claims within a given speech. Measuring salience is important not only in consideration of the role of rhetorical emphasis in reinforcing political claims, but is also crucial for a contemporary analysis. Given the rise of populism, it may well be that populist claims exist in a majority of political speeches in the 21st century, but some speeches mention a single populist sentence, while others make populism their entire platform. Classifying speeches on presence-absence only, thus, erases this potential variance in the sample, which could result in less precise regression estimates.
+
+It is difficult to measure the prevalence of some type of claim using only a dictionary model (which relies on exact keyword matches). Structural topic models could offer a solution to this issue.
+
+Validation also involves testing the dictionary algorithm on an untrained dataset to avoid overfitting results. If I understand correctly, it requires splitting the original data set into at least two parts, a training set and a test set. We develop the dictionary on one of them, then apply the dictionary on the other, then manually review/validate and report only the results of the test set. The authors of the article didn't specify if they'd done this, so we can't rule out the possibility that the resulting estimates were overfitted--that the estimates were contingent on what happens to come up in those speeches used to develop the dictionary.

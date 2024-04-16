@@ -1,0 +1,15 @@
+# Path to the original file
+original_file="/Users/CatDang/Library/CloudStorage/OneDrive-NorthwesternUniversity/Northwestern/Coursework/SPRING_2024/SOC_401_Categorical_Regression/Final_project_HRS_Spousal_death/02_Merge/Output/HRS_widows_demog_tracker_merged.csv"
+
+# Path where the symbolic link should be created
+symlink="/Users/CatDang/Library/CloudStorage/OneDrive-NorthwesternUniversity/Northwestern/Coursework/SPRING_2024/SOC_401_Categorical_Regression/Final_project_HRS_Spousal_death/03_Clean/Input/HRS_widows_demog_tracker_merged.csv"
+
+# Create the symbolic link
+ln -s "$original_file" "$symlink"
+
+# Check if the symbolic link was created successfully
+if [ $? -eq 0 ]; then
+    echo "Symbolic link created: $symlink -> $original_file"
+else
+    echo "Failed to create symbolic link"
+fi
