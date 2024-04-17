@@ -27,7 +27,7 @@ df$degree <- factor(df$DEGREE,
                                "Master degree",
                                "Professional degree (Ph.D., M.D., J.D.)",
                                "Degree unknown/Some College"))
-# Recode Degree into fewer categories
+# Recode Degree into fewer categories //TODO
 df <- df %>%
   mutate(degree = factor(case_when(
     degree %in% c("Two year college degree", "Four year college degree") ~ "Associate's and Bachelor's",
@@ -39,8 +39,6 @@ table1 <- table(df$deathexpense_special, df$usborn)
 table2 <- table(df$deathexpense_special, df$degree)
 print(table1)
 print(table2)
-# Ignore the Degree variable for now, not sure what is going on
-# I wonder if it's possible to use dfm matrices here?
 
 ##### Recode continuous variables ######
 
@@ -48,14 +46,14 @@ print(table2)
 library(purrr)
 
 ## THE STEPS: 
-## Remove refused, don't know, not ascertained, no breakpoint values given in SS047
-## Basically, any non-NA values in SS047.
-# Recode SS044 (death expenses reported in exact dollar amounts) into 'deathexpense_usd'
+# 1. Remove refused, don't know, not ascertained, no breakpoint values given in SS047
+# Basically, any non-NA values in SS047.
+# 2. Recode SS044 (death expenses reported in exact dollar amounts) into 'deathexpense_usd'
 # Cases coded as 9999998 in SS044 included both "dont know" and "not ascertained", 
 # and so the surveyor moves onto questions SS045-046 to obtain an approximate range.
-# Calcualate midpoint values between what's in SS045 (expense estimates, min) and SS046 (expense extimates, max)
+# 3. Calculate midpoint values between what's in SS045 (expense estimates, min) and SS046 (expense extimates, max)
 # Then map those values onto the variable.
-
+# //TODO create a regex function that applies these steps to income start/stop looped vars (S004-S008)
 
 # NOTE: # SS046 = 99999996 stands for expenses totaling above $10000. 
 # I chose a value of 1 SD above the mean of SS044 to substitute for 99999996. 

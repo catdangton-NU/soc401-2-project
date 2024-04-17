@@ -1,5 +1,5 @@
 ####### TEST SCRIPT TO IMPORT HRS SURVEY DATA ########
-
+# //TODO make function for script to avoid copy-pasting steps for each variable
 library(pacman)
 p_load(tidyverse, dplyr, yaml, here, haven) # nolint
 rm(list = ls()) # refresh environment
