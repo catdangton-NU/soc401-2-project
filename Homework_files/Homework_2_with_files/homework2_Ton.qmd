@@ -7,6 +7,26 @@ editor: visual
 embed-resources: true
 ---
 
+## Comments from Evie:
+
+Question
+1A (-.5) remember that LPMs are interpeted like OLS models. It looks
+like you added the intercept and US native variable, which is incorrect.
+Also be careful with causal language ("renders"); Question 2B (-.25)
+this interpretation of odds is not quite correct, see key; Question 2C
+(-.6) missing answer; Question 2D (-.1) your first sentence is
+incorrect, all of the covariates are controls. You are correct in
+specifying that the models have slightly nuanced hypotheses (adding all
+of the controls would produce multicollinearity); Question 2E (-.25) it
+feels unclear what you mean here. Are you suggesting that a confounding
+variable included in the model or ommitted from it limits statistical
+power? I'm not sure what you mean by "success rate." Question 2G no
+points deducted (I like your critique!) but I don't think they use
+computational text analysis techniques to predict coefficients in the
+model (just to detect populist speech and assign binary indicators), so I
+don't think the same test/train split is necessary. It does seem like
+they do some validation by randomly selecting a subset to read.
+
 ## Question 1
 
 I am still using data from the 2022 Health and Retirement Survey. The sample consists of `r nrow(df)` respondents to the survey's subsection on Widowhood and Divorce, who experienced the death of a spouse between 2020 and 2022.
@@ -25,9 +45,9 @@ library(pacman)
 p_load (tidyverse, haven, modelsummary, marginaleffects, estimatr, psych, MASS,ggplot2)
 rm(list = ls()) # refresh environment
 # set working directory to project directory
-setwd(here::here("FINAL_PROJECT_HRS_SPOUSAL_DEATH"))
+# setwd(here::here("FINAL_PROJECT_HRS_SPOUSAL_DEATH"))
 # read data in relation to working directory
-df <- read.csv("Homework_files/Input/HRS_widows_demog_tracker_cleaned.csv")
+df <- read.csv("../Input/HRS_widows_demog_tracker_cleaned.csv")
 
 ```
 

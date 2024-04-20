@@ -1,0 +1,123 @@
+---
+title: "401-2_Homework3"
+author: "Cat Dang Ton"
+date: "April 17, 2024"
+format: html
+editor: visual
+embed-resources: true
+---
+
+## Question 1
+
+```{r, create_dataframe}
+library(pacman) # load packages
+p_load(tidyverse, haven, modelsummary, marginaleffects, estimatr, psych, MASS)
+
+rm(list = ls()) # refresh environment
+
+# create dataframe based on homework prompt
+vote_trump <- c(1, 1, 1, 0, 0, 0)
+gender <- c(1, 0, 1, 0, 1, 0)
+df <- data.frame(vote_trump, gender)
+
+```
+
+### A and B
+
+``` {r, manual_calculation}
+
+# Calculate predicted values
+df <- df %>%
+  mutate(lin_pred1 = 1.2*gender - 0.65) %>% # model A
+  mutate(lin_pred2 = 1.4*gender - 0.65) # model B
+
+inv.logit <- function(x) { #create inverse logit function
+  y <- exp(x)/(1+exp(x))
+  return(y)
+}
+# Calculate likelihood and log likelihood
+# prob = probability of outcome, AKA probability of voting trump
+df <- df %>%
+  mutate(prob1 = if_else(vote_trump == 1, inv.logit(lin_pred1), 1 - inv.logit(lin_pred1)),
+         log_prob1 = log(prob1)) %>%
+  mutate(prob2 = if_else(vote_trump == 1, inv.logit(lin_pred2), 1 - inv.logit(lin_pred2)),
+         log_prob2 = log(prob2))
+
+print(sum(df$log_prob1)) #log likelihood model A
+print(sum(df$log_prob2)) #log likelihood model B
+
+```
+### C.
+
+Based on the log likelihood principle, we would prefer model B because the log likelihood there is slightly closer to 0.
+
+### D.
+
+``` {r, model}
+# run model
+model <- glm(vote_trump ~ gender,
+             data = df,
+             family = binomial(link = "logit"))
+
+# store outputs as objects to enable dynamic reference in text chunk
+# AKA if I update calculations, the text updates accordingly.
+slope <- coef(model)["gender"]
+intercept <- coef(model)["(Intercept)"]
+log_likelihood <- logLik(model)
+```
+
+Slope: `r slope`
+
+Intercept: `r intercept`
+
+Log likelihood: `r log_likelihood
+
+### E.
+
+``` {r, log_odds}
+
+# Function to get log odds
+get_log_odds <- function(x) {
+  # set probabilities from data
+  probs <- mean(x)
+  # get odds
+  odds <- probs / (1 - probs)
+  # get logit
+  logit <- log(odds)
+  return(logit)
+}
+
+# apply function
+logodds_m <- df %>%
+  filter(gender == 1) %>%
+  pull(vote_trump) %>%
+  get_log_odds() 
+
+logodds_f <- df %>%
+  filter(gender == 0) %>%
+  pull(vote_trump) %>%
+  get_log_odds()
+
+logodds_m # men's log odds
+logodds_f # women's log odds
+```
+
+The log odds for men and women have the same value as the zero intercept from the model, but with opposing signs. This means they represent two poles of a number axis that have a distance of `r logodds_m` + abs(`r logodds_f`) = `r logodds_m + abs(logodds_f)`, which is the same value as the slope for gender. 
+
+## Question 2.
+
+### A.
+
+True
+
+### B.
+
+True
+
+### C.
+
+False
+
+### D.
+
+False

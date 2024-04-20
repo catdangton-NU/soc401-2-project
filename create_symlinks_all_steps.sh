@@ -20,6 +20,7 @@ for ((i=0; i<$length-1; i++)); do
     # Check if the Output subfolder exists within the current subdirectory
     if [ -d "${subdirs[$i]}/Output" ]; then
         # Create symbolic links for all .csv files within the Output subfolder to the Input subfolder in the next directory
+        mkdir -p "${subdirs[$i+1]}/Input"
         ln -s "${subdirs[$i]}/Output/"*.csv "${subdirs[$i+1]}/Input"
     fi
 done
