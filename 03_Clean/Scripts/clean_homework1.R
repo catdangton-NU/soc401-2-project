@@ -5,16 +5,33 @@ getwd()
 df_raw <- read.csv("03_Clean/Input/HRS_widows_demog_tracker_merged.csv")
 
 
-# Select relevant variables; recode categorical variables
+# Select relevant variables
 df <- df_raw %>%
     filter(USBORN %in% c(1, 5), !is.na(SS048M1)) %>%
-    dplyr::select(respondent_id, USBORN, DEGREE, SS048M1, SS044, SS045, SS046, SS047, SS003_1, SS004_1, SS008_1, SS005_1, SS006_1, SS007_1) %>%
-    mutate(deathexpense_special = case_when(SS048M1 %in% c(1,2,3,4,7) ~ 1, SS048M1 == 5 ~ 0, TRUE ~ NA)) %>%
-    mutate(usborn = case_when(USBORN == 1 ~ 1, USBORN == 5 ~ 0, TRUE ~ NA))
+    dplyr::select(respondent_id, Year, USBORN, DEGREE, BIRTHYR, GENDER, RACE, HISPANIC, # tracker variables # nolint
+                   SS048M1, # death expense resolution (dependent variable)
+                   SS044, SS045, SS046, SS047, # death expenses beyond insurance and estate coverage
+                   SS003_1, SS004_1, SS008_1, SS005_1, SS006_1, SS007_1, # social security income
+                   SS003_2, SS004_2, SS008_2, SS005_2, SS006_2, SS007_2, # supplemental security income
+                   SS003_3, SS004_3, SS008_3, SS005_3, SS006_3, SS007_3, # Veterans benefits
+                   SS003_4, SS004_4, SS008_4, SS005_4, SS006_4, SS007_4) # Other pensions or annuities
+
+df <- df %>% # Recode dependent variable and some demographic variables
+    mutate(deathexpense_special = case_when(SS048M1 %in% c(1, 2, 3, 4, 7) ~ 1, SS048M1 == 5 ~ 0, TRUE ~ NA)) %>%
+    mutate(foreign = case_when(USBORN == 5 ~ 1, USBORN == 1 ~ 0, TRUE ~ NA)) %>% # Respondent's US-born vs. foreign born status
+    mutate(female = ifelse(GENDER == 2, 1, 0)) %>% 
+    mutate(age = as.numeric(Year) - as.numeric(BIRTHYR))
+
+df <- df %>% # Code race & ethnicity based on available data
+    mutate(black_nh = ifelse(RACE == 2 & HISPANIC == 5, 1, 0))  %>% 
+    mutate(white_nh = ifelse(RACE == 1 & HISPANIC == 5, 1, 0))  %>% 
+    mutate(hisp_allraces = ifelse(HISPANIC %in% c(1, 2, 3), 1, 0))  %>% 
+    # mutate(raceEth_unk = ifelse(HISPANIC == 0 & RACE == 0, 1, 0)) %>% there are no cases with unknown race ethnicity
+    mutate(non_bwh = ifelse(black_nh == 0 & white_nh == 0 & hisp_allraces == 0, 1, 0))
 
 ##### CONVERT variables to factor format to present descriptive matrix #### 
 # I should not factor the dependent variable
-df$usborn <- factor(df$usborn, levels = c(0, 1), labels = c("foreign", "us-born"))
+df$foreign <- factor(df$foreign, levels = c(0, 1), labels = c("us-born", "foreign"))
 
 # Recode Degree into a factor variable
 df$degree <- factor(df$DEGREE,
@@ -30,12 +47,12 @@ df$degree <- factor(df$DEGREE,
 # Recode Degree into fewer categories //TODO
 df <- df %>%
   mutate(degree = factor(case_when(
-    degree %in% c("Two year college degree", "Four year college degree") ~ "Associate's and Bachelor's",
+    degree %in% c("Two year college degree", "Four year college degree") ~ "College (2-year or 4-year)",
     degree %in% c("Master degree", "Professional degree (Ph.D., M.D., J.D.)") ~ "Postgraduate degree",
     TRUE ~ as.character(degree)
   )))
 # make descriptive crosstabs
-table1 <- table(df$deathexpense_special, df$usborn)
+table1 <- table(df$deathexpense_special, df$foreign)
 table2 <- table(df$deathexpense_special, df$degree)
 print(table1)
 print(table2)
