@@ -33,9 +33,15 @@ df <- df %>% # Code race & ethnicity based on available data
     # mutate(raceEth_unk = ifelse(HISPANIC == 0 & RACE == 0, 1, 0)) %>% there are no cases with unknown race ethnicity
     mutate(non_bwh = ifelse(black_nh == 0 & white_nh == 0 & hisp_allraces == 0, 1, 0))
 
+df <- df %>% # Code current job status
+    # working now (1), temporarily laid off (3), on sick or other leave (8)
+    mutate(employed = ifelse(SJ005M1 %in% c(1, 3, 8) | SJ005M2 %in% c(1, 3, 8) | SJ005M3 %in% c(1, 3, 8), 1, 0)) 
+
+# //TODO ask about weird cases (temporarily laid off AND retired)
+table(df$SJ005M1, df$SJ005M2) 
+
 ##### CONVERT variables to factor format to present descriptive matrix #### 
-# I should not factor the dependent variable
-df$foreign <- factor(df$foreign, levels = c(0, 1), labels = c("us-born", "foreign"))
+# I should not factor dummy variables
 
 # Recode Degree into a factor variable
 df$degree <- factor(df$DEGREE,
