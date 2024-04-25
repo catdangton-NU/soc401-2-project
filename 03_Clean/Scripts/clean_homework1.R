@@ -2,19 +2,20 @@ library(pacman)
 p_load (tidyverse, haven, modelsummary, marginaleffects, estimatr, psych, MASS)
 rm(list = ls()) # refresh environment
 getwd()
-df_raw <- read.csv("03_Clean/Input/HRS_widows_demog_tracker_merged.csv")
+df_raw <- read.csv("03_Clean/Input/HRS_widows_employ_tracker_merged.csv")
 
 
 # Select relevant variables
 df <- df_raw %>%
     filter(USBORN %in% c(1, 5), !is.na(SS048M1)) %>%
     dplyr::select(respondent_id, Year, USBORN, DEGREE, BIRTHYR, GENDER, RACE, HISPANIC, # tracker variables # nolint
-                   SS048M1, # death expense resolution (dependent variable)
-                   SS044, SS045, SS046, SS047, # death expenses beyond insurance and estate coverage
-                   SS003_1, SS004_1, SS008_1, SS005_1, SS006_1, SS007_1, # social security income
-                   SS003_2, SS004_2, SS008_2, SS005_2, SS006_2, SS007_2, # supplemental security income
-                   SS003_3, SS004_3, SS008_3, SS005_3, SS006_3, SS007_3, # Veterans benefits
-                   SS003_4, SS004_4, SS008_4, SS005_4, SS006_4, SS007_4) # Other pensions or annuities
+                  SS048M1, # death expense resolution (dependent variable)
+                  SS044, SS045, SS046, SS047, # death expenses beyond insurance and estate coverage
+                  SJ005M1, SJ005M2, SJ005M3, # Current job status (up to 3 electives)
+                  SS003_1, SS004_1, SS008_1, SS005_1, SS006_1, SS007_1, # social security income
+                  SS003_2, SS004_2, SS008_2, SS005_2, SS006_2, SS007_2, # supplemental security income
+                  SS003_3, SS004_3, SS008_3, SS005_3, SS006_3, SS007_3, # Veterans benefits
+                  SS003_4, SS004_4, SS008_4, SS005_4, SS006_4, SS007_4) # Other pensions or annuities
 
 df <- df %>% # Recode dependent variable and some demographic variables
     mutate(deathexpense_special = case_when(SS048M1 %in% c(1, 2, 3, 4, 7) ~ 1, SS048M1 == 5 ~ 0, TRUE ~ NA)) %>%
@@ -26,6 +27,9 @@ df <- df %>% # Code race & ethnicity based on available data
     mutate(black_nh = ifelse(RACE == 2 & HISPANIC == 5, 1, 0))  %>% 
     mutate(white_nh = ifelse(RACE == 1 & HISPANIC == 5, 1, 0))  %>% 
     mutate(hisp_allraces = ifelse(HISPANIC %in% c(1, 2, 3), 1, 0))  %>% 
+    mutate(black_hi = ifelse(RACE == 2 & hisp_allraces == 1, 1, 0)) %>%
+    mutate(white_hi = ifelse(RACE == 1 & hisp_allraces == 1, 1, 0)) %>%
+    mutate(hisp_other = ifelse(hisp_allraces == 1 & RACE == 7, 1, 0)) %>%
     # mutate(raceEth_unk = ifelse(HISPANIC == 0 & RACE == 0, 1, 0)) %>% there are no cases with unknown race ethnicity
     mutate(non_bwh = ifelse(black_nh == 0 & white_nh == 0 & hisp_allraces == 0, 1, 0))
 
@@ -73,10 +77,10 @@ library(purrr)
 # //TODO create a regex function that applies these steps to income start/stop looped vars (S004-S008)
 
 # NOTE: # SS046 = 99999996 stands for expenses totaling above $10000. 
-# I chose a value of 1 SD above the mean of SS044 to substitute for 99999996. 
-# calculate the mean and sd below: 
-mean <- mean(df$SS044[ df$SS044 != 99998 & df$SS044 != 99999 & df$SS044 != 9999998 & df$SS044 != 9999999], na.rm = TRUE)
-sd <- sd(df$SS044[ df$SS044 != 99998 & df$SS044 != 99999 & df$SS044 != 9999998 & df$SS044 != 9999999], na.rm = TRUE)
+# I chose a value of 1 SD above the mean of SS044 to substitute for 99999996 (stand_in). 
+# calculate the mean, sd, and the stand-in: 
+mean <- mean(df$SS044[df$SS044 != 99998 & df$SS044 != 99999 & df$SS044 != 9999998 & df$SS044 != 9999999], na.rm = TRUE)
+sd <- sd(df$SS044[df$SS044 != 99998 & df$SS044 != 99999 & df$SS044 != 9999998 & df$SS044 != 9999999], na.rm = TRUE)
 stand_in <- mean + sd
 # SS044's standard deviation is $10488 and mean is $7653 according to H22S_R codebook. 
 df <- df %>%
@@ -106,13 +110,9 @@ df <- df %>%
     TRUE ~ deathexpense_usd
   ))
 
-## Recoding has errors due to not incorporating SS047 (refusal to answer) and non-response values in SS044 
-# but I've been at this for hours, recoded values keep overriding one another, and I am too tired 
-### UPDATE 04/13/24: resolved!
-
 # Summary of the new variable
 summary(df$deathexpense_usd)
 
 #### EXPORT OUTPUT ####
 
-write.csv(df, file = "03_Clean/Output/HRS_widows_demog_tracker_cleaned.csv")
+write.csv(df, file = "03_Clean/Output/HRS_widows_employ_tracker_cleaned.csv")

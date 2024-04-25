@@ -2,10 +2,10 @@
 # Remote repository: https://github.com/catdangton/soc401-2-project
 # Define variables for input data paths
 WIDOWHOOD_22: raw_data/hrs2022/stata/H22S_R.dta
-DEMOGRAPHICS_22: raw_data/hrs2022/stata/H22B_R.dta
+EMPLOYMENT_22: raw_data/hrs2022/stata/H22J_R.dta
 TRACKER_22: raw_data/hrs2022/CW_Tracker/trk2020tr_r.dta
 WIDOWHOOD_20: raw_data/hrs2020/stata/H20S_R.dta
-DEMOGRAPHICS_20: raw_data/hrs2020/stata/H20B_R.dta
+EMPLOYMENT_20: raw_data/hrs2020/stata/H20J_R.dta
 TRACKER_20: raw_data/hrs2020/CW_Tracker/trk2020tr_r.dta
 
 # Define the target and dependencies
@@ -13,10 +13,10 @@ import_HRS:
   script: Rscript import_HRS.R
   args:
     - raw_data/hrs2022/stata/H22S_R.dta
-    - raw_data/hrs2022/stata/H22B_R.dta
+    - raw_data/hrs2022/stata/H22J_R.dta
     - raw_data/hrs2022/CW_Tracker/trk2020tr_r.dta
     - raw_data/hrs2020/stata/H20S_R.dta
-    - raw_data/hrs2020/stata/H20B_R.dta
+    - raw_data/hrs2020/stata/H20J_R.dta
     - raw_data/hrs2020/CW_Tracker/trk2020tr_r.dta
 # //TODO learn how to write a makefile and/or specify all dependency relations, 
 # not just those of scripts that rely on raw data. 
