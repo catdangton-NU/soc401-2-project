@@ -21,7 +21,10 @@ df <- df %>% # Recode dependent variable and some demographic variables
     mutate(deathexpense_special = case_when(SS048M1 %in% c(1, 2, 3, 4, 7) ~ 1, SS048M1 == 5 ~ 0, TRUE ~ NA)) %>%
     mutate(foreign = case_when(USBORN == 5 ~ 1, USBORN == 1 ~ 0, TRUE ~ NA)) %>% # Respondent's US-born vs. foreign born status
     mutate(female = ifelse(GENDER == 2, 1, 0)) %>% 
-    mutate(age = as.numeric(Year) - as.numeric(BIRTHYR))
+    mutate(age = as.numeric(Year) - as.numeric(BIRTHYR)) %>%
+    mutate(disabled = case_when(SJ005M1 == 4 | SJ005M2 == 4 | SJ005M3 == 4 ~ 1,
+                                SJ005M1 %in% c(1, 2, 3, 5, 6, 7, 8) | SJ005M2 %in% c(1, 2, 3, 5, 6, 7, 8) | SJ005M3 %in% c(1, 2, 3, 5, 6, 7, 8) ~ 0,
+                                TRUE ~ NA))
 
 df <- df %>% # Code race & ethnicity based on available data
     mutate(black_nh = ifelse(RACE == 2 & HISPANIC == 5, 1, 0))  %>% 
@@ -35,8 +38,15 @@ df <- df %>% # Code race & ethnicity based on available data
 
 df <- df %>% # Code current job status
     # working now (1), temporarily laid off (3), on sick or other leave (8)
-    mutate(employed = ifelse(SJ005M1 %in% c(1, 3, 8) | SJ005M2 %in% c(1, 3, 8) | SJ005M3 %in% c(1, 3, 8), 1, 0)) 
-
+    mutate(employed = case_when(SJ005M1 %in% c(1, 3, 8) | SJ005M2 %in% c(1, 3, 8) | SJ005M3 %in% c(1, 3, 8) ~ 1, 
+                                SJ005M1 %in% c(2, 4, 5, 6, 7) | SJ005M2 %in% c(2, 4, 5, 6, 7) | SJ005M3 %in% c(2, 4, 5, 6, 7) ~ 0,
+                                TRUE ~ NA)) %>%
+    mutate(retired = case_when(SJ005M1 %in% c(5) | SJ005M2 %in% c(5) | SJ005M3 %in% c(5) ~ 1, 
+                                SJ005M1 %in% c(2, 4, 1, 3, 8, 6, 7) | SJ005M2 %in% c(2, 4, 1, 3, 8, 6, 7) | SJ005M3 %in% c(2, 4, 1, 3, 8, 6, 7) ~ 0,
+                                TRUE ~ NA)) %>%
+    mutate(homemaker = case_when(SJ005M1 %in% c(6) | SJ005M2 %in% c(6) | SJ005M3 %in% c(6) ~ 1, 
+                                SJ005M1 %in% c(2, 4, 1, 3, 8, 5, 7) | SJ005M2 %in% c(2, 4, 1, 3, 8, 5, 7) | SJ005M3 %in% c(2, 4, 1, 3, 8, 5, 7) ~ 0,
+                                TRUE ~ NA))
 # //TODO ask about weird cases (temporarily laid off AND retired)
 table(df$SJ005M1, df$SJ005M2) 
 

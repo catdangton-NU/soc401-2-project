@@ -1,0 +1,28 @@
+---
+title: "401-2_Homework4"
+author: "Cat Dang Ton"
+date: "April 26, 2024"
+format: html
+editor: visual
+embed-resources: true
+---
+
+## Topic description
+
+The United States' construction of the single-income nuclear family as the primary unit of social and material support suggests that the death of a spouse can leave widows vulnerable to financial hardship. Even as insurance and social assistance structures exist as protective measures, certain groups and certain issues can still fall outside of the contours of coverage. In addition to the possible loss of income is the cost of handling the death itself—funeral expenses, legal fees, and expenses for any illness that led to death. In this exploratory analysis, I examine the extent to which widows are unprotected from the cost of their spouse's death by the existing social insurance/social assistance structures (social security, life insurance, etc.), and what makes a widow more likely to be unprotected. 
+
+## Data and variables
+
+I am using data from the Health and Retirement Survey, a nationally-representative survey of U.S. older adults. The sample consists of `r nrow(df)` respondents to the survey's subsection on Widowhood and Divorce, who experienced the death of a spouse between 2020 and 2022. This subsection consists of questions about the financial impacts of the death, such as changes in income, social assistance and work hours, changes in insurance coverage, death expenses, and so on.
+
+Dependent variable: whether or not the widow had to sell assets, withdraw money that normally would not be touched, get help from a relative, or from a church or other institution, or do anything else special to find the money to cover the deceased spouse's death expenses. (Yes = 1, No = 0).
+
+Independent variables:
+
+1.  Widow's demographic characteristics: Gender, race, ethnicity, foreign-born status, disability status
+2.  Total death expenses that are NOT covered by insurance or the deceased spouse's estate (Exact dollar amounts, or if not available, the midpoint of approximated estimates)
+3.  Widow's employment status (currently employed, retired, homemaker)
+
+```{r}
+
+```
