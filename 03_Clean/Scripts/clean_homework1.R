@@ -108,24 +108,6 @@ df <- df %>%
    SS045 != 0 & SS046 == 99999996 ~ (SS045 + stand_in) / 2,
     TRUE ~ deathexpense_usd
   ))
-
-# Recode SS044 (death expenses reported in exact dollar amounts) into 'deathexpense_usd'
-df <- df %>%
-  mutate(deathexpense_usd = SS044)
-
-# Cases coded as 9999998 in SS044 included both "dont know" and "not ascertained", 
-# and so the surveyor moves onto questions SS045-046 to obtain an approximate range (less than 2000, 2000-10000, more then 10000).
-# 
-# Recode SS045 (expense estimates, min) and SS046 (expense extimates, max) to get calculable midpoint values
-# Then map those values onto the variable.
-df <- df %>%
-  mutate(deathexpense_usd = case_when(
-   SS045 == 0 & SS046 == 99999996 ~ 18141.51, # SS046 = 99999996 stands for expenses totaling above $10000. I chose a value of 1 SD above the mean to substitute for 99999996. standard deviation for SS044 is $10488 and mean is $7653 according to codebook. 
-   SS045 >= 0 & SS046 != 99999996 ~ (SS045 + SS046) / 2,
-   SS045 != 0 & SS046 == 99999996 ~ (SS045 + 18141.51) / 2,
-    TRUE ~ deathexpense_usd
-  ))
-
 # Summary of the new variable
 summary(df$deathexpense_usd)
 

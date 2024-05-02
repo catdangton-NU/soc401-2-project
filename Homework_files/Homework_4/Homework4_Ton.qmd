@@ -1,7 +1,7 @@
 ---
 title: "401-2_Homework4"
 author: "Cat Dang Ton"
-date: "April 26, 2024"
+date: "2024-04-26"
 format: html
 editor: visual
 embed-resources: true
@@ -19,10 +19,198 @@ Dependent variable: whether or not the widow had to sell assets, withdraw money 
 
 Independent variables:
 
-1.  Widow's demographic characteristics: Gender, race, ethnicity, foreign-born status, disability status
-2.  Total death expenses that are NOT covered by insurance or the deceased spouse's estate (Exact dollar amounts, or if not available, the midpoint of approximated estimates)
+1.  Widow's demographic characteristics: Gender, race & ethnicity, foreign-born status, disability status
+2.  Total death expenses that are NOT covered by insurance or the deceased spouse's estate (in thousands of dollars)
+    1.  Where exact dollar estimates are unavailable, range estimates were recorded. I calculated the mean of range estimates. For range estimates that had been coded as "Above $10000", I substituted them with the mean + 1 standard deviation.
 3.  Widow's employment status (currently employed, retired, homemaker)
 
-```{r}
+```{r, setup}
+
+library(pacman)
+p_load(tidyverse, broom, haven, skimr, janitor, marginaleffects, lmtest, modelsummary, flextable)
+
+# Turn off scientific notation
+options(scipen = 100)
+# refresh environment
+rm(list = ls()) 
+
+# set working directory to project directory
+# setwd(here::here("FINAL_PROJECT_HRS_SPOUSAL_DEATH"))
+# read data in relation to working directory
+df <- read.csv("../Input/HRS_widows_employ_tracker_cleaned.csv")
 
 ```
+
+## 1C. 
+
+```{r, logit_basic}
+
+# recode death expenses for easier interpretation
+df$deathexpense_1k <- df$deathexpense_usd/1000 
+
+# Estimate a logistic regression model
+model_logit <- glm(deathexpense_special ~ foreign + female + disabled + employed + homemaker + black_nh + hisp_allraces + non_bwh + deathexpense_1k, 
+  data = df, 
+  family = binomial(link = "logit")) #specify that we want logistic regression(link = "logit")) 
+```
+
+```{r, model_presentation_labels, include=FALSE}
+
+# use coef_map to rename and reorder variables ("default name" = "new name")
+  # any variables not listed in coef_map will be omitted from results
+# assigning values to be included in coef_map to R object to avoid repetition
+coef <- c("foreign" = "Foreign-born", 
+          "female" = "Female",
+          "disabled" = "Disabled",
+          "employed" = "Currently employed",
+          "retired" = "Retired",
+          "homemaker" = "Homemaker",
+          "black_nh" = "NH Black",
+          "white_nh" = "NH White", # can I set White as reference category by excluding it from the coef_map?
+          "hisp_allraces" = "Hispanic (of all races)",
+          "non_bwh" = "Other nonwhite",
+          "deathexpense_1k" = "Death expenses ($1000s)",
+          "female:black_nh" = "Female x NH Black",
+          "female:hisp_allraces" = "Female x Hispanic",
+          "(Intercept)" = "Constant" # shift order of intercept to last
+          )
+
+# use gof_map to adjust goodness-of-fit statistics shown in table
+  # like coef_map, statistics not listed in gof_map will be omitted from results
+# assigning values to be included in gof_map to R object to avoid repetition
+gof <- c("nobs", "bic")
+
+```
+
+
+```{r}
+modelsummary(model_logit,
+            coef_map = coef,
+            gof_map = gof,
+            fmt = 4, # 4 decimal digits (to avoid rounding to 0)
+            stars = T, # significance stars
+            exponentiate = T,
+            title = "Logistic Regression Results for Resorting to Special Means to Cover Death Expenses (odds ratios)",
+            notes = c("SE in parentheses",
+                        "Ref: US-born, male, non-disabled, retired, white")) 
+```
+
+Interpretation of variables pre-interaction: 
+
+Holding all other variables constant,
+
+- The odds of resorting to special means to cover death expenses are 10.33% higher for female widows compared to male widows.
+- The odds of resorting to special means to cover death expenses are 5.05% higher for non-Hispanic Black widows and 26% higher for Hispanic widoes compared to non-Hispanic White widows.
+
+## 1D. 
+
+```{r, avg_marginal_effects}
+# Calculate the average marginal effects
+ame <- avg_slopes(model_logit)
+
+print(ame)
+```
+
+Holding all other variables constant,
+
+- Female widows' probability of resorting to special means to cover death expenses are 1.73 percentage points higher compared to male widows.
+- NH Black widows' probability of resorting to special means to cover death expenses are 0.885 percentage points higher compared to NH White widows, and Hispanic widows' probability of resorting to special means to cover death expenses are 4.29 percentage points higher compared to NH White widows.
+
+## 1E.
+
+E. Now add an interaction term between two of the variables. Is the interaction term (or terms if
+you have factors with multiple levels) statistically significant?
+
+```{r}
+model_interact <- glm(deathexpense_special ~ foreign + female + female*black_nh + female*hisp_allraces + disabled + employed + homemaker + black_nh + hisp_allraces + non_bwh + deathexpense_1k, 
+  data = df, 
+  family = binomial(link = "logit")) #specify that we want logistic regression(link = "logit")) 
+
+modelsummary(model_interact,
+            coef_map = coef,
+            gof_map = gof,
+            fmt = 4, # 4 decimal digits (to avoid rounding to 0)
+            stars = T, # significance stars
+            exponentiate = T,
+            title = "Logistic Regression Results for Resorting to Special Means to Cover Death Expenses (odds ratios)",
+            notes = c("SE in parentheses",
+                        "Ref: US-born, male, non-disabled, retired, white")) 
+```
+The interaction term is not statistically significant. 
+
+## 1F.
+
+```{r, interaction_plot}
+# First off, plotting predicted probability with no interaction
+plot_predictions(model_interact,
+                 condition = "female") 
+
+# Plot predicted probability with interaction effect
+plot_predictions(model_interact,
+                 condition = c("female", "black_nh")) 
+
+# Plot predicted probability with interaction effect
+plot_predictions(model_interact,
+                 condition = c("female", "hisp_allraces")) 
+```
+
+There isnt an interaction based on these graphs. The standard errors are too big. 
+
+## 1G.
+
+```{r}
+modelsummary(list("Model 1" = model_logit, "Model 2" = model_interact),
+            coef_map = coef,
+            gof_map = gof,
+            fmt = 4, # 4 decimal digits (to avoid rounding to 0)
+            stars = T, # significance stars
+            exponentiate = T,
+            title = "Logistic Regression Results for Resorting to Special Means to Cover Death Expenses (odds ratios)",
+            notes = c("SE in parentheses",
+                        "Ref: US-born, male, non-disabled, retired, white")) 
+
+```
+
+The model with the lowest BIC is preferred.
+
+Since the BIC for Model 1 is lower, which means the preferred model is the model without the interaction term.
+
+A BIC difference of of at least 10 qualifies a model to be strongly preferred over another. Thus, model 1 is strongly preferred over model 2.
+
+## 1F. 
+
+The interaction term does not statistically significantly improve the explanatory power of the model. Average marginal effects graphs indicate there is no clear interaction effect between the gender and race variables. Additionally, the models' BIC scores indicate that the model without the interaction term is strongly preferred. Therefore, the logit model without the interaction term provides a sufficient understanding of the data.
+
+# Question 2 
+
+## 2A.
+What would you say are the main substantive arguments of this article?
+
+The article unseats the theory that there is such a thing as a "ghetto subculture" that is uniform yet unregulated (permissive) and merely oppositional to the middle-class mainstream culture. Looking at the variations of youth beliefs about pregnancy, relationship scripts and sexual activity within and between neighborhoods, the authors argue that, compared to middle-class counterparts, poor urban residents live and cohabit among a wider array of competing cultural scripts. This paradoxically regulates their behavior more--they are less likely to realize their own relationship ideals in their actual relationship with others.
+
+
+## 2B.
+
+- Outcome variable: sexual activity (predicted probability)
+- Coefficients are in log odds. Evidence is in p.357, second-to-last paragraphs, where the authors discussed the exponentiates of the coefficients as odds ratios.
+- Standard errors are shown in parentheses.
+
+## 2C.
+
+## 2D.
+
+If there were no interactions, the line representing the 4th quartile would not intersect with the lines representing the other quartiles.
+
+## 2E.
+
+Suppose this omitted variable is whether or not the respondent identifies as asexual. If asexuality is negatively correlated with sexual activity and negatively correlated with the belief that pregnancy isnt all that bad at this stage of their lives, the coefficient for the pregnancy frame variable could be upwardly biased. The coefficient would be larger than it would be if the omitted variable were included in the model.
+
+## 2F.
+
+The addition of this omitted variable to the model would likelly dampen the magnitude of the pregnancy frame coefficient.
+
+## 2G.
+
+Variable names are so abstracted from the substantive matters behind "neighborhood cultural heterogeneity" (which I understand to be the diversity of beliefs about the consequences of teen sex in a given neighborhood) and neighborhood disadvantage that the interaction tables and plots were unintelligible to non-expert readers. I feel confused about whether "cultural heterogeneity" refers to the variety of social groups/lifestyles in a neighborhood, opinions on pregnancy and romantic scripts, or in the distance between ideal and actual sexual activity.
+
+The limiting of gender to a control variable, as regards the belief in the statement "getting someone pregnant/getting pregnant would have negative consequences for me", as well as the omission of gender in the romantic relationship scripts model (due to sample density issues--see authors' footnote 26), seems to be an important limitation of the study. It would be worth interrogating whether gender differences in relationship scripts and in beliefs about pregnancy's consequences would correlate to gender differences in reporting sexual activity. Depending on gendered scripts, students could downplay or have different definitions of what activity counts as "sexual intercourse", thereby affecting the dependent variable.

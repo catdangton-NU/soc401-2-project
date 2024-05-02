@@ -12,12 +12,12 @@ setwd(here::here("FINAL_PROJECT_HRS_SPOUSAL_DEATH"))
 config <- yaml::read_yaml("config.yaml")
 
 # Access variables from yaml file
-widowhood_22 <- config$WIDOWHOOD_22
-employment_22 <- config$EMPLOYMENT_22
-tracker_22 <- config$TRACKER_22
-widowhood_20 <- config$WIDOWHOOD_20
-employment_20 <- config$EMPLOYMENT_20
-tracker_20 <- config$TRACKER_20
+widowhood_22 <- config$widowhood_22
+employment_22 <- config$employment_22
+tracker_22 <- config$tracker_22
+widowhood_20 <- config$widowhood_20
+employment_20 <- config$employment_20
+tracker_20 <- config$tracker_20
 
 # Read the data files into data frames
 df_widowhood_22 <- read_dta(widowhood_22)
