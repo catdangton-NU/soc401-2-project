@@ -9,7 +9,7 @@ embed-resources: true
 
 ## Topic description
 
-The United States' construction of the single-income nuclear family as the primary unit of social and material support suggests that the death of a spouse can leave widows vulnerable to financial hardship. Even as insurance and social assistance structures exist as protective measures, certain groups and certain issues can still fall outside of the contours of coverage. In addition to the possible loss of income is the cost of handling the death itself—funeral expenses, legal fees, and expenses for any illness that led to death. In this exploratory analysis, I examine the extent to which widows are unprotected from the cost of their spouse's death by the existing social insurance/social assistance structures (social security, life insurance, etc.), and what makes a widow more likely to be unprotected. 
+The United States' construction of the single-income nuclear family as the primary unit of social and material support suggests that the death of a spouse can leave widows vulnerable to financial hardship. Even as insurance and social assistance structures exist as protective measures, certain groups and certain issues can still fall outside of the contours of coverage. In addition to the possible loss of income is the cost of handling the death itself—funeral expenses, legal fees, and expenses for any illness that led to death. In this exploratory analysis, I examine the extent to which widows are unprotected from the cost of their spouse's death by the existing social insurance/social assistance structures (social security, life insurance, etc.), and what makes a widow more likely to be unprotected.
 
 ## Data and variables
 
@@ -21,7 +21,7 @@ Independent variables:
 
 1.  Widow's demographic characteristics: Gender, race & ethnicity, foreign-born status, disability status
 2.  Total death expenses that are NOT covered by insurance or the deceased spouse's estate (in thousands of dollars)
-    1.  Where exact dollar estimates are unavailable, range estimates were recorded. I calculated the mean of range estimates. For range estimates that had been coded as "Above $10000", I substituted them with the mean + 1 standard deviation.
+    1.  Where exact dollar estimates are unavailable, range estimates were recorded. I calculated the mean of range estimates. For range estimates that had been coded as "Above \$10000", I substituted them with the mean + 1 standard deviation.
 3.  Widow's employment status (currently employed, retired, homemaker)
 
 ```{r, setup}
@@ -41,7 +41,7 @@ df <- read.csv("../Input/HRS_widows_employ_tracker_cleaned.csv")
 
 ```
 
-## 1C. 
+## 1C.
 
 ```{r, logit_basic}
 
@@ -82,7 +82,6 @@ gof <- c("nobs", "bic")
 
 ```
 
-
 ```{r}
 modelsummary(model_logit,
             coef_map = coef,
@@ -95,14 +94,14 @@ modelsummary(model_logit,
                         "Ref: US-born, male, non-disabled, retired, white")) 
 ```
 
-Interpretation of variables pre-interaction: 
+Interpretation of variables pre-interaction:
 
 Holding all other variables constant,
 
-- The odds of resorting to special means to cover death expenses are 10.33% higher for female widows compared to male widows.
-- The odds of resorting to special means to cover death expenses are 5.05% higher for non-Hispanic Black widows and 26% higher for Hispanic widoes compared to non-Hispanic White widows.
+-   The odds of resorting to special means to cover death expenses are 10.33% higher for female widows compared to male widows.
+-   The odds of resorting to special means to cover death expenses are 5.05% higher for non-Hispanic Black widows and 26% higher for Hispanic widoes compared to non-Hispanic White widows.
 
-## 1D. 
+## 1D.
 
 ```{r, avg_marginal_effects}
 # Calculate the average marginal effects
@@ -113,13 +112,12 @@ print(ame)
 
 Holding all other variables constant,
 
-- Female widows' probability of resorting to special means to cover death expenses are 1.73 percentage points higher compared to male widows.
-- NH Black widows' probability of resorting to special means to cover death expenses are 0.885 percentage points higher compared to NH White widows, and Hispanic widows' probability of resorting to special means to cover death expenses are 4.29 percentage points higher compared to NH White widows.
+-   Female widows' probability of resorting to special means to cover death expenses are 1.73 percentage points higher compared to male widows.
+-   NH Black widows' probability of resorting to special means to cover death expenses are 0.885 percentage points higher compared to NH White widows, and Hispanic widows' probability of resorting to special means to cover death expenses are 4.29 percentage points higher compared to NH White widows.
 
 ## 1E.
 
-E. Now add an interaction term between two of the variables. Is the interaction term (or terms if
-you have factors with multiple levels) statistically significant?
+E. Now add an interaction term between two of the variables. Is the interaction term (or terms if you have factors with multiple levels) statistically significant?
 
 ```{r}
 model_interact <- glm(deathexpense_special ~ foreign + female + female*black_nh + female*hisp_allraces + disabled + employed + homemaker + black_nh + hisp_allraces + non_bwh + deathexpense_1k, 
@@ -136,7 +134,8 @@ modelsummary(model_interact,
             notes = c("SE in parentheses",
                         "Ref: US-born, male, non-disabled, retired, white")) 
 ```
-The interaction term is not statistically significant. 
+
+The interaction term is not statistically significant.
 
 ## 1F.
 
@@ -154,7 +153,7 @@ plot_predictions(model_interact,
                  condition = c("female", "hisp_allraces")) 
 ```
 
-There isnt an interaction based on these graphs. The standard errors are too big. 
+There isnt an interaction based on these graphs. The standard errors are too big.
 
 ## 1G.
 
@@ -177,23 +176,23 @@ Since the BIC for Model 1 is lower, which means the preferred model is the model
 
 A BIC difference of of at least 10 qualifies a model to be strongly preferred over another. Thus, model 1 is strongly preferred over model 2.
 
-## 1F. 
+## 1F.
 
 The interaction term does not statistically significantly improve the explanatory power of the model. Average marginal effects graphs indicate there is no clear interaction effect between the gender and race variables. Additionally, the models' BIC scores indicate that the model without the interaction term is strongly preferred. Therefore, the logit model without the interaction term provides a sufficient understanding of the data.
 
-# Question 2 
+# Question 2
 
 ## 2A.
+
 What would you say are the main substantive arguments of this article?
 
 The article unseats the theory that there is such a thing as a "ghetto subculture" that is uniform yet unregulated (permissive) and merely oppositional to the middle-class mainstream culture. Looking at the variations of youth beliefs about pregnancy, relationship scripts and sexual activity within and between neighborhoods, the authors argue that, compared to middle-class counterparts, poor urban residents live and cohabit among a wider array of competing cultural scripts. This paradoxically regulates their behavior more--they are less likely to realize their own relationship ideals in their actual relationship with others.
 
-
 ## 2B.
 
-- Outcome variable: sexual activity (predicted probability)
-- Coefficients are in log odds. Evidence is in p.357, second-to-last paragraphs, where the authors discussed the exponentiates of the coefficients as odds ratios.
-- Standard errors are shown in parentheses.
+-   Outcome variable: sexual activity (predicted probability)
+-   Coefficients are in log odds. Evidence is in p.357, second-to-last paragraphs, where the authors discussed the exponentiates of the coefficients as odds ratios.
+-   Standard errors are shown in parentheses.
 
 ## 2C.
 

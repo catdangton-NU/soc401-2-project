@@ -9,7 +9,7 @@ df_raw <- read.csv("03_Clean/Input/HRS_widows_employ_tracker_merged.csv")
 df <- df_raw %>%
     filter(USBORN %in% c(1, 5), !is.na(SS048M1)) %>%
     dplyr::select(respondent_id, Year, USBORN, DEGREE, BIRTHYR, GENDER, RACE, HISPANIC, # tracker variables # nolint
-                  SS048M1, # death expense resolution (dependent variable)
+                  SS048M1, SS048M2, SS048M3, # death expense resolution (dependent variable)
                   SS044, SS045, SS046, SS047, # death expenses beyond insurance and estate coverage
                   SJ005M1, SJ005M2, SJ005M3, # Current job status (up to 3 electives)
                   SS003_1, SS004_1, SS008_1, SS005_1, SS006_1, SS007_1, # social security income
@@ -18,7 +18,7 @@ df <- df_raw %>%
                   SS003_4, SS004_4, SS008_4, SS005_4, SS006_4, SS007_4) # Other pensions or annuities
 
 df <- df %>% # Recode dependent variable and some demographic variables
-    mutate(deathexpense_special = case_when(SS048M1 %in% c(1, 2, 3, 4, 7) ~ 1, SS048M1 == 5 ~ 0, TRUE ~ NA)) %>%
+    mutate(deathexpense_special = case_when(SS048M1 %in% c(1, 2, 3, 4, 6, 7) ~ 1, SS048M1 == 5 ~ 0, TRUE ~ NA)) %>%
     mutate(foreign = case_when(USBORN == 5 ~ 1, USBORN == 1 ~ 0, TRUE ~ NA)) %>% # Respondent's US-born vs. foreign born status
     mutate(female = ifelse(GENDER == 2, 1, 0)) %>% 
     mutate(age = as.numeric(Year) - as.numeric(BIRTHYR)) %>%
@@ -47,6 +47,32 @@ df <- df %>% # Code current job status
     mutate(homemaker = case_when(SJ005M1 %in% c(6) | SJ005M2 %in% c(6) | SJ005M3 %in% c(6) ~ 1, 
                                 SJ005M1 %in% c(2, 4, 1, 3, 8, 5, 7) | SJ005M2 %in% c(2, 4, 1, 3, 8, 5, 7) | SJ005M3 %in% c(2, 4, 1, 3, 8, 5, 7) ~ 0,
                                 TRUE ~ NA))
+
+df <- df %>% # code more detailed outcomes
+  mutate(sell_assets = case_when(SS048M1 == 1 | SS048M2 == 1 | SS048M3 == 1 ~ 1, TRUE ~ 0),
+        withdraw_money = case_when(SS048M1 == 2 | SS048M2 == 2 | SS048M3 == 2 ~ 1, TRUE ~ 0),
+        fam_help = case_when(SS048M1 == 3 | SS048M2 == 3 | SS048M3 == 3 ~ 1, TRUE ~ 0),
+        charity_help = case_when(SS048M1 == 4 | SS048M2 == 4 | SS048M3 == 4 ~ 1, TRUE ~ 0),
+        did_nothing_special = case_when(SS048M1 == 5 | SS048M2 == 5 | SS048M3 == 5 ~ 1, TRUE ~ 0),
+        borrow_money = case_when(SS048M1 == 6 | SS048M2 == 6 | SS048M3 == 6 ~ 1, TRUE ~ 0),
+        other = case_when(SS048M1 == 7 | SS048M2 == 7 | SS048M3 == 7 ~ 1, TRUE ~ 0),
+        dk_na = case_when(SS048M1 == 8 | SS048M2 == 8 | SS048M3 == 8 ~ 1, TRUE ~ 0),
+        rf = case_when(SS048M1 == 9 | SS048M2 == 9 | SS048M3 == 9 ~ 1, TRUE ~ 0),
+        inap = case_when(is.na(SS048M1) | is.na(SS048M2) | is.na(SS048M3) ~ 1, TRUE ~ 0))
+
+df <- df %>%
+  mutate(deathexpense_sources = case_when(sell_assets == 1 | withdraw_money == 1 ~ "assets_savings", 
+                                          fam_help == 1 ~ "relatives_friends",
+                                          charity_help == 1 ~ "charities", 
+                                          borrow_money == 1 ~ "loans",
+                                          other == 1 ~ "other",
+                                          # full coverage is where the costs exceeding insurance/estate coverage is less than $300.
+                                          SS044 <= 300 ~ "insurance_estate_full", 
+                                          TRUE ~ NA))
+df$deathexpense_sources <- as.factor(df$deathexpense_sources)
+df$deathexpense_sources <- relevel(df$deathexpense_sources, ref = "insurance_estate_full")
+table(df$deathexpense_sources)
+
 # //TODO ask about weird cases (temporarily laid off AND retired)
 table(df$SJ005M1, df$SJ005M2) 
 
@@ -57,13 +83,13 @@ table(df$SJ005M1, df$SJ005M2)
 df$degree <- factor(df$DEGREE,
                     levels = c(0, 1, 2, 3, 4, 5, 6, 9),
                     labels = c("No degree",
-                               "GED",
-                               "High school diploma",
-                               "Two year college degree",
-                               "Four year college degree",
-                               "Master degree",
-                               "Professional degree (Ph.D., M.D., J.D.)",
-                               "Degree unknown/Some College"))
+                              "GED",
+                              "High school diploma",
+                              "Two year college degree",
+                              "Four year college degree",
+                              "Master degree",
+                              "Professional degree (Ph.D., M.D., J.D.)",
+                              "Degree unknown/Some College"))
 # Recode Degree into fewer categories //TODO
 df <- df %>%
   mutate(degree = factor(case_when(
@@ -91,6 +117,7 @@ library(purrr)
 # 3. Calculate midpoint values between what's in SS045 (expense estimates, min) and SS046 (expense extimates, max)
 # Then map those values onto the variable.
 # //TODO create a regex function that applies these steps to income start/stop looped vars (S004-S008)
+# //TODO figure out why 100 cases were dropped in this step.
 
 # NOTE: # SS046 = 99999996 stands for expenses totaling above $10000. 
 # I chose a value of 1 SD above the mean of SS044 to substitute for 99999996 (stand_in). 
@@ -100,7 +127,7 @@ sd <- sd(df$SS044[df$SS044 != 99998 & df$SS044 != 99999 & df$SS044 != 9999998 & 
 stand_in <- mean + sd
 # SS044's standard deviation is $10488 and mean is $7653 according to H22S_R codebook. 
 df <- df %>%
-  filter(is.na(SS047)) %>%
+  filter(is.na(SS047)) %>% # remove NAs
   mutate(deathexpense_usd = SS044)  %>% 
   mutate(deathexpense_usd = case_when(
    SS045 == 0 & SS046 == 99999996 ~ stand_in, 
