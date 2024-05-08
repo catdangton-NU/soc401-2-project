@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the root directory (project directory)
-root_directory="/Users/catdangton/Library/CloudStorage/OneDrive-NorthwesternUniversity/Northwestern/Coursework/SPRING_2024/SOC_401_Categorical_Regression/Final_project_HRS_Spousal_death"
+root_directory=""
 
 # Create an array of subdirectories
 subdirs=("$root_directory"/*/)
