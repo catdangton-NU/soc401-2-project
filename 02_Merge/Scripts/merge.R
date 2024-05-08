@@ -7,60 +7,65 @@ rm(list = ls()) # refresh environment
 ### Check if there's a difference in observations in tracker_20 and tracker_22 ###
 # I suspect it is the same file.
 # step 1: Import dataframes
-tracker_20 <- read.csv("02_Merge/Input/tracker_20.csv")
+# tracker_20 <- read.csv("02_Merge/Input/tracker_20.csv")
 tracker_22 <- read.csv("02_Merge/Input/tracker_22.csv")
 # step 2: print the number of rows that are different
-print(nrow(setdiff(tracker_22, tracker_20)))
+# print(nrow(setdiff(tracker_22, tracker_20)))
 # No difference. Using tracker_22 from now on.
 df_tracker <- tracker_22
 
 #### Combine survey dataframes from 2020 and 2022 ####
 
-# Read the dataframes
-df_widowdiv_20 <- read.csv("02_Merge/Input/widowhood_20.csv")
-df_widowdiv_22 <- read.csv("02_Merge/Input/widowhood_22.csv")
-df_demog_20 <- read.csv("02_Merge/Input/demographics_20.csv")
-df_demog_22 <- read.csv("02_Merge/Input/demographics_22.csv")
+# create function to read, add year and respondent id
+read_and_process <- function(file_path, year) {
+    df <- read.csv(file_path)
+    df$Year <- year
+    df$respondent_id <- paste(df$HHID, df$PN, sep = "_")
+    return(df)
+}
 
-# Add a new column to specify the year
-df_widowdiv_20$Year <- 2020
-df_widowdiv_22$Year <- 2022
-df_demog_20$Year <- 2020
-df_demog_22$Year <- 2020
+df_widowdiv_20 <- read_and_process("02_Merge/Input/widowhood_20.csv", 2020)
+df_widowdiv_22 <- read_and_process("02_Merge/Input/widowhood_22.csv", 2022)
+df_widowdiv_18 <- read_and_process("02_Merge/Input/widowhood_18.csv", 2018)
+df_employ_20 <- read_and_process("02_Merge/Input/employment_20.csv", 2020)
+df_employ_22 <- read_and_process("02_Merge/Input/employment_22.csv", 2022)
+df_employ_18 <- read_and_process("02_Merge/Input/employment_18.csv", 2018)
+df_tracker <- read_and_process("02_Merge/Input/tracker_22.csv", 2022)
 
-# Create respondent IDs
-df_tracker$respondent_id <- paste(df_tracker$HHID, df_tracker$PN, sep = "_")
-df_widowdiv_20$respondent_id <- paste(df_widowdiv_20$HHID, df_widowdiv_20$PN, sep = "_")
-df_widowdiv_22$respondent_id <- paste(df_widowdiv_22$HHID, df_widowdiv_22$PN, sep = "_")
-df_demog_20$respondent_id <- paste(df_demog_20$HHID, df_demog_20$PN, sep = "_")
-df_demog_22$respondent_id <- paste(df_demog_22$HHID, df_demog_22$PN, sep = "_")
-
-
+sum(!is.na(df_widowdiv_18$QS048M1))
 
 ## Filter respondents who had a deceased spouse
 # I viewed the codebook (raw_data/codebook/H22S_R.txt)
 # and found that SS052M and RS052M ("in which state or country did your partner die?"") captured all cases.
-df_widow_20 <- df_widowdiv_20 %>%
-    filter(!is.na(RS052M))
 df_widow_22 <- df_widowdiv_22 %>%
     filter(!is.na(SS052M))
+df_widow_20 <- df_widowdiv_20 %>%
+    filter(!is.na(RS052M))
+df_widow_18 <- df_widowdiv_18 %>%
+    filter(!is.na(QS052M))
 # check number of variables and cases
-print(ncol(df_widow_20))
-print(nrow(df_widow_20))
+print(ncol(df_widow_22))
+print(nrow(df_widow_22))
 
 ### MERGE 2020 into 2022 survey results ###
 # Rename the columns in 2020 data to enable dataframe merging to latest wave
 df_widow_renamed20 <- df_widow_20 %>%
-  rename_with(~ gsub("^R", "S", .), starts_with("R"))
-df_demog_renamed20 <- df_demog_20 %>%
-  rename_with(~ gsub("^R", "S", .), starts_with("R"))
+    rename_with(~ gsub("^R", "S", .), starts_with("R"))
+df_employ_renamed20 <- df_employ_20 %>%
+    rename_with(~ gsub("^R", "S", .), starts_with("R"))
+
+df_widow_renamed18 <- df_widow_18 %>%
+    rename_with(~ gsub("^Q", "S", .), starts_with("Q"))
+df_employ_renamed18 <- df_employ_18 %>%
+    rename_with(~ gsub("^Q", "S", .), starts_with("Q"))
 
 # Find the columns that are in df_widow_renamed20 but not in df_widow_22
 diff_columns <- setdiff(names(df_widow_renamed20), names(df_widow_22))
 print(diff_columns)
 
 ## Find respondent_ids that overlap between df_widow_renamed20 and df_widow_22
-view(intersect(df_widow_renamed20$respondent_id, df_widow_22$respondent_id))
+View(intersect(df_widow_renamed20$respondent_id, df_widow_22$respondent_id))
+View(intersect(df_widow_renamed18$respondent_id, df_widow_22$respondent_id))
 # There are 21 overlaps. 
 # Assuming each respondent_ID corresponds to a unique person,
 # This means 21 people here were interviewed in both waves. 
@@ -84,60 +89,57 @@ df_widow_renamed20 <- df_widow_renamed20  %>%
 df_widow_22 <- df_widow_22  %>% 
     filter(!(respondent_id %in% common_ids))
 
-##### REPEAT the previous section FOR df_demog #### 
-## DID NOT WORK //TODO fix this
-# Find respondent_ids that overlap between df_widow_renamed20 and df_widow_22
-common_ids <- intersect(df_demog_renamed20$respondent_id, df_demog_22$respondent_id)
+##### REPEAT the previous section FOR 2018 cases in df_widow #### 
+common_ids <- intersect(df_widow_renamed18$respondent_id, df_widow_22$respondent_id)
+df_widow_renamed18 <- df_widow_renamed18  %>% 
+    filter(!(respondent_id %in% common_ids))
+df_widow_22 <- df_widow_22  %>% 
+    filter(!(respondent_id %in% common_ids))
 
-# Filter df_widow_renamed20 and df_widow_22 for the common respondent_ids
-df_demog_renamed20_common <- df_demog_renamed20[df_demog_renamed20$respondent_id %in% common_ids, ]
-df_demog_22_common <- df_demog_22[df_demog_22$respondent_id %in% common_ids, ]
-View(df_demog_renamed20_common)
-View(df_demog_22_common)
-
-# These respondents' survey answers are different between the two years. 
-# I don't know how to deal with this. 
-# I cannot remove these cases because there are 12159 of them.
-
-# //TODO 
-
-#### Merge 2020 and 2022 dataframe by respondent_id, ####
+# Merge widows for all three years
+df_widow <- bind_rows(df_widow_22, df_widow_renamed20)
+df_widow <- bind_rows(df_widow, df_widow_renamed18)
 # bind_rows() contain all rows from both df_widow_22 and df_widow_renamed20,
 # without splitting the common columns into .x and .y. 
 ## It also fills in NA values for columns that are not found in the other dataframe 
-# Merge df_widow_22 and df_widow_renamed20
-df_widow <- bind_rows(df_widow_22, df_widow_renamed20)
 
-# Merge df_demog_22 and df_demog_renamed20
-df_demog <- bind_rows(df_demog_22, df_demog_renamed20)
+##### Left join df_widow with employment information
+# in a way that privileges the latest employment info
 
-print(ncol(df_widow_22))
-print(ncol(df_widow))
-print(nrow(df_widow_22))
-print(nrow(df_widow))
+# Find respondent_ids that overlap between df_employ of 3 years and the merged df_widow
+common_ids_1 <- intersect(df_employ_22$respondent_id, df_widow$respondent_id) 
+common_ids_2 <- intersect(df_employ_renamed20$respondent_id, df_widow$respondent_id) 
+common_ids_2 <- intersect(df_employ_renamed18$respondent_id, df_widow$respondent_id) 
 
-print(ncol(df_demog_22))
-print(ncol(df_demog))
-print(nrow(df_demog_22))
-print(nrow(df_demog))
+common_ids <- unique(c(common_ids_1, common_ids_2, common_ids_3))
+length(common_ids)
+# there's 828 cases in which employment data overlaps with widowhood data. 
 
-
-# Merge df_widow and df_demog based on respondent ID
-# df_widow_d <- df_widow %>%
-#    left_join(df_demog, by = "respondent_id")
-# // TODO this created duplicate respondent_ids??? what is going on?
+# Merge df_widow and df_employ based on respondent ID
+df_widow_em <- df_widow %>%
+    left_join(df_employ_renamed18, by = "respondent_id") %>%
+    left_join(df_employ_renamed20, by = "respondent_id") %>%
+    left_join(df_employ_22, by = "respondent_id") %>%
+    rename(Year = Year.x) # Keep Year values from df_widow
+    # select(-Year.y) # Discard Year values from df_employ
 # check number of variables after the merge
-# print(ncol(df_widow_d))
+print(ncol(df_widow_em))
+print(nrow(df_widow_em))
 
-## Note: there may not be enough overlaps to justify merging demographics and widowhood surveys.
+## Note: there may not be enough overlaps to justify merging employment and widowhood surveys.
 # But let's keep it merged for now.
 
 # Merge resulting dataframe with tracker
-df_widow_tr_d <- df_widow %>%
-    left_join(df_tracker, by = "respondent_id")
+df_widow_tr_em <- df_widow_em %>%
+    left_join(df_tracker, by = "respondent_id") %>%
+    rename(Year = Year.x) # Keep Year values from df_widow
+    # select(-Year.y)
 # check number of variables after the merge
-print(ncol(df_widow_tr_d))
+print(ncol(df_widow_tr_em))
+print(nrow(df_widow_tr_em))
 
-# Write output: HRS data for widows, merged with demographics survey and tracker.
+unique(df_widow_tr_em$Year)
+
+# Write output: HRS data for widows, merged with employment survey and tracker.
 # HRS survey years merged: 2020 and 2022
-write.csv(df_widow_tr_d, file = "02_Merge/Output/HRS_widows_demog_tracker_merged.csv")
+write.csv(df_widow_tr_em, file = "02_Merge/Output/HRS_widows_employ_tracker_merged.csv")

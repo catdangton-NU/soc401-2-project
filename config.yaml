@@ -1,22 +1,25 @@
 ---
 # Remote repository: https://github.com/catdangton/soc401-2-project
 # Define variables for input data paths
-WIDOWHOOD_22: raw_data/hrs2022/stata/H22S_R.dta
-DEMOGRAPHICS_22: raw_data/hrs2022/stata/H22B_R.dta
-TRACKER_22: raw_data/hrs2022/CW_Tracker/trk2020tr_r.dta
-WIDOWHOOD_20: raw_data/hrs2020/stata/H20S_R.dta
-DEMOGRAPHICS_20: raw_data/hrs2020/stata/H20B_R.dta
-TRACKER_20: raw_data/hrs2020/CW_Tracker/trk2020tr_r.dta
+widowhood_22: raw_data/hrs2022/stata/H22S_R.dta
+employment_22: raw_data/hrs2022/stata/H22J_R.dta
+tracker_22: raw_data/hrs2022/CW_Tracker/trk2020tr_r.dta
+widowhood_20: raw_data/hrs2020/stata/H20S_R.dta
+employment_20: raw_data/hrs2020/stata/H20J_R.dta
+widowhood_18: raw_data/h18core/stata/h18s_r.dta
+employment_18: raw_data/h18core/stata/h18j_r.dta
 
 # Define the target and dependencies
-import_HRS:
-  script: Rscript import_HRS.R
-  args:
-    - raw_data/hrs2022/stata/H22S_R.dta
-    - raw_data/hrs2022/stata/H22B_R.dta
-    - raw_data/hrs2022/CW_Tracker/trk2020tr_r.dta
-    - raw_data/hrs2020/stata/H20S_R.dta
-    - raw_data/hrs2020/stata/H20B_R.dta
-    - raw_data/hrs2020/CW_Tracker/trk2020tr_r.dta
+# import_HRS:
+#  script: Rscript import_HRS_simplified.R
+#  data_files:
+#    - widowhood_22
+#    - employment_22
+#    - tracker_22
+#    - widowhood_20
+#    - employment_20
+#    - widowhood_18
+#    - employment_18
+
 # //TODO learn how to write a makefile and/or specify all dependency relations, 
 # not just those of scripts that rely on raw data. 

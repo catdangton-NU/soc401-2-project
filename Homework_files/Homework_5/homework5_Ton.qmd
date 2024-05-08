@@ -1,0 +1,157 @@
+---
+title: "401-2_Homework4"
+author: "Cat Dang Ton"
+date: "2024-05-01"
+format: html
+editor: visual
+embed-resources: true
+---
+
+## 1A
+
+note from lecture: Multinomial regression coefficients indicate the change in **log of relative risk ratio (conditional log odds)** relative to base category. Can interpret direction, significance, and relative magnitude, but hard to evaluate magnitude.
+
+A one-year increase in education is associated with a 0.15 unit increase in the conditional log odds of believing the bible is the inspired word of God, but not to be taken literally. In other words, holding gender and religion constant, people with more years of education are more likely to believe that the bible is the inspired word of God, rather than to believe it is the "Word of God."
+
+A one-year increase in education is associated with a 0.19 unit increase in the conditional log odds of believing the bible is an ancient book. In other words, holding gender and religion constant, people with more years of education are more likely to believe that the bible is an ancient book, rather than to believe it is the "Word of God."
+
+## 1B
+
+Holding gender and education constant,
+
+Those who reported having no religious identity are most likely to believe the Bible is an ancient book relative to believing it is the "Word of God."
+
+Those who reported having Jewish identity are most likely to believe the Bible is the "word of God" relative to believing it is the "inspired word."
+
+## 2A
+
+I am using data from the Health and Retirement Survey, a nationally-representative survey of U.S. older adults. The sample consists of `r nrow(df)` respondents to the survey's subsection on Widowhood and Divorce, who experienced the death of a spouse between 2018 and 2022. This subsection consists of questions about the financial impacts of the death, such as changes in income, social assistance and work hours, changes in insurance coverage, death expenses, and so on.
+
+Dependent variable:
+
+Source of financing funerals: Did the deceased's insurance and estate fully cover death expenses (a.k.a. the widow reports paying less than \$300 beyond the covered amount), or did the widow have to rely on selling assets & withdrawing savings, relatives & friends, charity institutions, loans, or other sources?
+
+Independent variables:
+
+1.  Widow's demographic characteristics: Gender, race & ethnicity, foreign-born status
+2.  Widow's employment status: currently employed or not (note: "non-employed" includes unemployed, retired, homemaker, disabled)
+
+## 2B
+
+```{r, setup}
+
+library(pacman)
+p_load(tidyverse, broom, haven, skimr, janitor, marginaleffects, lmtest, modelsummary, flextable)
+
+# nnet package for multinomial logit
+# install.packages("nnet")
+library(nnet)
+
+# Turn off scientific notation
+options(scipen = 100)
+# refresh environment
+rm(list = ls()) 
+
+# set working directory to project directory
+# setwd(here::here("FINAL_PROJECT_HRS_SPOUSAL_DEATH"))
+
+# read data in relation to working directory
+df <- read.csv("../Input/HRS_widows_employ_tracker_cleaned.csv")
+
+# set thousand dollar units to aid interpretation
+df$deathexpense_1k <- df$deathexpense_usd/1000 
+
+# convert variable to factor and set base category 
+df$deathexpense_sources <- as.factor(df$deathexpense_sources)
+df$deathexpense_sources <- relevel(df$deathexpense_sources, ref = "insurance_estate_full")
+base_category <- levels(df$deathexpense_sources)[1]
+print(base_category)
+table(df$deathexpense_sources)
+
+```
+
+The base category is "insurance_estate_full", which stands for cases where the deceased's insurance and estate fully covered death expenses.
+
+```{r}
+model <- multinom(deathexpense_sources ~ foreign + female + employed + black_nh + hisp_allraces + non_bwh,
+  data = df)
+
+# logistic regression coefficients
+modelsummary(list(model), 
+             shape = term + response ~ statistic,
+             stars = T,
+             ) 
+# relative risk ratios
+modelsummary(list(model), 
+             shape = term + response ~ statistic,
+             stars = T,
+             exponentiate = T,
+             # fmt = fmt_decimal(digits = 4),
+             ) 
+```
+
+Note: I do not understand why the relative risk ratios for Hispanic respondents are absurdly high, at 253067693.401.
+
+## 2C
+
+```{r}
+df$deathexpense_sources <- relevel(df$deathexpense_sources, ref = "assets_savings")
+base_category <- levels(df$deathexpense_sources)[1]
+print(base_category)
+```
+
+The base category here stands for cases where the widow had to sell assets or withdraw savings to cover death expenses.
+
+```{r}
+model <- multinom(deathexpense_sources ~ foreign + female + employed + black_nh + hisp_allraces + non_bwh, 
+  data = df)
+
+# logistic regression coefficients
+modelsummary(list(model), 
+             shape = term + response ~ statistic,
+             stars = T,
+             ) 
+# relative risk ratios
+modelsummary(list(model), 
+             shape = term + response ~ statistic,
+             stars = T,
+             exponentiate = T,
+             # fmt = fmt_decimal(digits = 4),
+             ) 
+```
+
+## 2D
+
+```{r}
+df$deathexpense_sources <- relevel(df$deathexpense_sources, ref = "insurance_estate_full")
+model <- multinom(deathexpense_sources ~ foreign + female + employed + black_nh + hisp_allraces + non_bwh, 
+  data = df)
+
+# Save AME output 
+ame1 <- avg_slopes(model)
+
+# Make table with AME output
+modelsummary(ame1, 
+             shape = term : contrast ~ group,
+             stars = T,
+             notes = str_c("N = ", glance(model)$nobs),
+             title = "Multinomial Logit")
+```
+
+It seems that Hispanic identity has the most impact on the probability that someone relies on relatives and friend (31% higher probability than non-Hispanics) and on assets and savings (35% lower probability than non-Hispanics).
+
+## 2E
+
+```{r}
+plot_predictions(model,
+                 # the second argument must be "group"
+                 condition = c("foreign", "group")) 
+```
+
+## 2F
+
+Holding all other variables constant, to cover their spouse's death expenses,
+
+-   Foreign-born widows are significantly less likely than US-born widows to have their spouse's death expenses fully covered by their spouse's insurance or estate.
+
+-   Hispanic widows are significantly less likely than non-Hispanic widows to relieve themselves of assets & savings and significantly more likely to rely on relatives and friends.
