@@ -10,6 +10,7 @@ widowhood_18: raw_data/h18core/stata/h18s_r.dta
 employment_18: raw_data/h18core/stata/h18j_r.dta
 
 # Define the target and dependencies
+# This didn't work, not sure why
 # import_HRS:
 #  script: Rscript import_HRS_simplified.R
 #  data_files:
