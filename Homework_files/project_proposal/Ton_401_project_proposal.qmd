@@ -1,0 +1,116 @@
+---
+title: "401 project proposal_Ton"
+format: pdf
+editor: visual
+date: "2024-05-05"
+embed-resources: true
+---
+
+```{r, echo = FALSE}
+library(pacman)
+p_load (tidyverse, haven, modelsummary, marginaleffects, estimatr, psych, MASS, gt, gtsummary)
+rm(list = ls()) # refresh environment
+
+
+df <- read.csv("../Input/HRS_widows_employ_tracker_cleaned.csv")
+```
+
+## Topic description
+
+An often overlooked aspect of the rising burden of medical care expenses in the United States is the cost of caring for the deceased and their bereaved in the form of funeral arrangements. Whether as an emergency expense or a foreseen end-of-life expense, direct costs after an event of death (e.g. funerals, legal matters, moving and estate management costs) can reach tens of thousands of dollars, but many Americans don't have enough liquid savings for financial contingencies of this scale (Stavins 2021 Fan & Zick 2004).
+
+Widows are particularly vulnerable to the economic shocks of a death of a spouse, given the reliance on the single-income or double-income nuclear family as the primary unit of social and material support in the United States. Evidence from previous research suggest that recent widows not only have higher risks of entering poverty than similarly aged married couples, but are also particularly burdened by funeral and burial expenses (Fan & Zick 2004).
+
+Even as certain life insurance and public safety nets offer some economic protection for widows, such as Social Security burial assistance, they may either fail to cover the full extent of these expenses, or exclude certain widows on the grounds of employment, citizenship status, and so on. Race and gender are also relevant: older American women are marginalized by retirement income programs' reliance on wage labor, and Black Americans, particularly Black women, are disproportionately likely to have experienced the death of a spouse (Meyer 1990, Umberson et. al. 2017).
+
+In this exploratory analysis of data from the Health and Retirement Study (2018-2022), I seek to examine the extent to which widows are unprotected from the cost of their spouse's death by the existing social insurance/social assistance structures (social security, life insurance, etc.), as well as the alternatives to which widows turn to cover funeral expenses. Using binary and multinomial logistic regression, I also explore what makes a widow more likely to be unprotected, and what may predict the types of measures widows resort to[^1].
+
+[^1]: Need help tightening up the conceptualization and phrasing of these regression models.
+
+## Data and variables
+
+This paper employs publicly available respondent-level data from The University of Michigan Health and Retirement Study (HRS), a longitudinal panel study of a nationally-representative sample of older adults living in America. My analysis is based on a subsample of `r nrow(df)` respondents to the survey's subsection on Widowhood and Divorce, who reported experiencing the death of a spouse in one of three panel waves: 2018, 2020 and 2022.[^2]
+
+[^2]: HRS researchers applied this survey subsection on both widows and divorcees. I determined widows as those who responded with any answer to the question "In which state or country did your spouse die?"
+
+The table below provides a view of the sample's composition by panel year and gender (1 = Female). This table suggests that women disproportionately outlive their spouse.
+
+```{r, echo = FALSE}
+# tabulate year and gender 
+table(df$Year, df$female)
+```
+
+I plan to run two regression models, each with their own dependent variable.
+
+### Model 1: binary logit
+
+Dependent variable: Whether or not the widow took special measures (e.g. sell assets, withdraw money, got help from relatives, friends, charities, or took out loans) to pay the expenses associated with their spouse's death (`deathexpense_special`, Yes = 1, No/Did nothing special = 0, n = `r nrow(df)`)
+
+Because the majority of widows did not resort to any of these measures to pay final expenses, I ask whether certain income sources helped them cover these costs. The following income sources were included in the study's Widowhood and Divorce section.
+
+Key predictor variables:
+
+1.  Whether or not the widow received a life insurance settlement or a lump-sum pension payment, (`lifeins_y`, `pensionsum_y`, Yes = 1, No = 0)
+2.  Whether or not the widow continues to or begins to receive social security income, supplemental security income, veterans benefits, or other pensions and annuities, after their spouse's death. (`socsec_y`, `suppsec_y`, `vetbenefits_y`, `otherpensions_y`, Yes = 1, No = 0)
+3.  Total death expenses that are NOT covered by insurance or the deceased spouse's estate (in thousands of dollars[^3]) (`deathexpense_usd`, control variable)
+
+[^3]: The HRS reports exact dollar estimates as well as range estimates where exact dollar estimates were unavailable (e.g. due to respondents' recall capacity). For range estimates, I took the mean of the minimum and maximum thresholds reported. For range estimates that had been coded as "Above \$10000", I substituted them with the average exact dollar estimate + 1 standard deviation.
+
+Here I am particularly interested in the reference category—widows who were not the beneficiary of any of these income/financial assistance sources.
+
+```{r, message = FALSE}
+# select variables for model 
+m1_vars <- df %>%
+  select(deathexpense_special, lifeins_y, pensionsum_y, socsec_y, suppsec_y, vetbenefits_y,otherpensions_y, deathexpense_usd)
+
+# generate descriptive statistics
+tbl_summary(m1_vars)
+
+
+# generate correlation matrix
+library(corrplot) # load package
+m1_corr <- m1_vars %>% # select dataframe
+  select(-deathexpense_special) %>% # exclude outcome variable from matrix
+  cor(use = "pairwise.complete.obs") %>% # generate matrix
+  corrplot() # convert matrix to a plot
+```
+
+### Model 2: multinomial logit
+
+Which measures widows take to pay for final expenses may vary based on the personal financial resources (assets, savings) and social ties (family, friends, charities) they have to draw upon. Some widows do not have these resources, thus turning to loans. I ask whether there are assymmetries in access to these resources according to the widow's gender, race/ethnicity and current employment status.
+
+Dependent variable: The widow's primary source of support for financing final expenses. Reference category: widows who reported receiving a life insurance settlement and did not resort to any alternative measure listed in model 1. (n = `r nrow(df$deathexpense_sources)` , excluding cases where the source of payment is unspecified)
+
+Key predictor variables:
+
+1.  Widow's demographics: Gender, race & ethnicity, foreign-born status, age
+2.  Widow's employment status (currently employed, retired, homemaker)
+3.  Total death expenses that are NOT covered by insurance or the deceased spouse's estate (in thousands of dollars[^4]) (control variable)
+
+[^4]: The HRS reports exact dollar estimates as well as range estimates where exact dollar estimates were unavailable (e.g. due to respondents' recall capacity). For range estimates, I took the mean of the minimum and maximum thresholds reported. For range estimates that had been coded as "Above \$10000", I substituted them with the average exact dollar estimate + 1 standard deviation.
+
+```{r, message = FALSE}
+# select variables for model 
+m2_vars <- df %>%
+  filter(!is.na(deathexpense_sources)) %>%
+  select(deathexpense_sources, female, age, white_nh, black_nh, hisp_allraces, non_bwh, foreign, employed, retired, homemaker, deathexpense_usd)
+
+# generate descriptive statistics
+tbl_summary(m2_vars)
+
+#visualize correlation matrix
+m2_corr <- m2_vars %>% # select dataframe
+  select(-deathexpense_sources) %>% # exclude outcome variable from matrix
+  cor(use = "pairwise.complete.obs") %>% # generate matrix
+  corrplot() # convert matrix to a plot
+```
+
+## References
+
+Fan, Jessie X., and Cathleen D. Zick. 2004. “The Economic Burden of Health Care, Funeral, and Burial Expenditures at the End of Life.” *Journal of Consumer Affairs* 38(1):35–55. doi: [10.1111/j.1745-6606.2004.tb00464.x](https://doi.org/10.1111/j.1745-6606.2004.tb00464.x).
+
+Meyer, Madonna Harrington. 1990. “Family Status and Poverty among Older Women: The Gendered Distribution of Retirement Income in the United States\*.” *Social Problems* 37(4):551–63. doi: [10.2307/800581](https://doi.org/10.2307/800581).
+
+Stavins, Joanna. 2021. “Unprepared for Financial Shocks: Emergency Savings and Credit Card Debt.” *Contemporary Economic Policy* 39(1):59–82. doi: [10.1111/coep.12477](https://doi.org/10.1111/coep.12477).
+
+Umberson, Debra, Julie Skalamera Olson, Robert Crosnoe, Hui Liu, Tetyana Pudrovska, and Rachel Donnelly. 2017. “Death of Family Members as an Overlooked Source of Racial Disadvantage in the United States.” *Proceedings of the National Academy of Sciences* 114(5):915–20. doi: [10.1073/pnas.1605599114](https://doi.org/10.1073/pnas.1605599114).

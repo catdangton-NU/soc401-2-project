@@ -5,7 +5,7 @@ getwd()
 df_raw <- read.csv("03_Clean/Input/HRS_widows_employ_tracker_merged.csv")
 
 
-# Select relevant variables
+# Select relevant variables from the HRS
 df <- df_raw %>%
     filter(USBORN %in% c(1, 5), !is.na(SS048M1)) %>%
     dplyr::select(respondent_id, Year, USBORN, DEGREE, BIRTHYR, GENDER, RACE, HISPANIC, # tracker variables # nolint
@@ -65,7 +65,7 @@ df <- df %>% # Code current job status
                                 SJ005M1 %in% c(2, 4, 1, 3, 8, 5, 7) | SJ005M2 %in% c(2, 4, 1, 3, 8, 5, 7) | SJ005M3 %in% c(2, 4, 1, 3, 8, 5, 7) ~ 0,
                                 TRUE ~ NA))
 
-df <- df %>% # code more detailed outcomes
+df <- df %>% # convert more detailed death expense sources into dummy variables
   mutate(sell_assets = case_when(SS048M1 == 1 | SS048M2 == 1 | SS048M3 == 1 ~ 1, TRUE ~ 0),
         withdraw_money = case_when(SS048M1 == 2 | SS048M2 == 2 | SS048M3 == 2 ~ 1, TRUE ~ 0),
         fam_help = case_when(SS048M1 == 3 | SS048M2 == 3 | SS048M3 == 3 ~ 1, TRUE ~ 0),
@@ -73,16 +73,16 @@ df <- df %>% # code more detailed outcomes
         did_nothing_special = case_when(SS048M1 == 5 | SS048M2 == 5 | SS048M3 == 5 ~ 1, TRUE ~ 0),
         borrow_money = case_when(SS048M1 == 6 | SS048M2 == 6 | SS048M3 == 6 ~ 1, TRUE ~ 0),
         other = case_when(SS048M1 == 7 | SS048M2 == 7 | SS048M3 == 7 ~ 1, TRUE ~ 0),
-        dk_na = case_when(SS048M1 == 8 | SS048M2 == 8 | SS048M3 == 8 ~ 1, TRUE ~ 0),
-        rf = case_when(SS048M1 == 9 | SS048M2 == 9 | SS048M3 == 9 ~ 1, TRUE ~ 0),
-        inap = case_when(is.na(SS048M1) | is.na(SS048M2) | is.na(SS048M3) ~ 1, TRUE ~ 0))
+        dk_na = case_when(SS048M1 == 8 | SS048M2 == 8 | SS048M3 == 8 ~ 1, TRUE ~ 0), #dont know not ascertained
+        rf = case_when(SS048M1 == 9 | SS048M2 == 9 | SS048M3 == 9 ~ 1, TRUE ~ 0), # refused
+        inap = case_when(is.na(SS048M1) | is.na(SS048M2) | is.na(SS048M3) ~ 1, TRUE ~ 0)) # inapplicable
 
-df <- df %>%
+df <- df %>% # code outcome variable for model 2 (known sources of coverage for death expenses)
   mutate(deathexpense_sources = case_when(sell_assets == 1 | withdraw_money == 1 ~ "assets_savings", 
                                           fam_help == 1 |charity_help == 1 ~ "family_friend_charity",
                                           borrow_money == 1 ~ "loans",
                                           SS040 == 1 ~ "lifeins_fullcover",
-                                          # SS042 == 1 ~ "pension_lumpsum", 
+                                          # SS042 == 1 ~ "pension_lumpsum", can't assume pensions go to death expenses.
                                           other == 1 ~ "other",
                                           TRUE ~ NA))
 df$deathexpense_sources <- as.factor(df$deathexpense_sources)
@@ -91,9 +91,6 @@ table(df$deathexpense_sources)
 
 # //TODO ask about weird cases (temporarily laid off AND retired)
 table(df$SJ005M1, df$SJ005M2) 
-
-##### CONVERT variables to factor format to present descriptive matrix #### 
-# I should not factor dummy variables
 
 # Recode Degree into a factor variable
 df$degree <- factor(df$DEGREE,
