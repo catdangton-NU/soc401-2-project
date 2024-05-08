@@ -32,7 +32,7 @@ df_employ_22 <- read_and_process("02_Merge/Input/employment_22.csv", 2022)
 df_employ_18 <- read_and_process("02_Merge/Input/employment_18.csv", 2018)
 df_tracker <- read_and_process("02_Merge/Input/tracker_22.csv", 2022)
 
-
+sum(!is.na(df_widowdiv_18$QS048M1))
 
 ## Filter respondents who had a deceased spouse
 # I viewed the codebook (raw_data/codebook/H22S_R.txt)
@@ -91,7 +91,7 @@ df_widow_22 <- df_widow_22  %>%
 
 ##### REPEAT the previous section FOR 2018 cases in df_widow #### 
 common_ids <- intersect(df_widow_renamed18$respondent_id, df_widow_22$respondent_id)
-df_widow_renamed18 <- df_widow_renamed20  %>% 
+df_widow_renamed18 <- df_widow_renamed18  %>% 
     filter(!(respondent_id %in% common_ids))
 df_widow_22 <- df_widow_22  %>% 
     filter(!(respondent_id %in% common_ids))
@@ -120,8 +120,8 @@ df_widow_em <- df_widow %>%
     left_join(df_employ_renamed18, by = "respondent_id") %>%
     left_join(df_employ_renamed20, by = "respondent_id") %>%
     left_join(df_employ_22, by = "respondent_id") %>%
-    rename(Year = Year.x) %>% # Keep Year values from df_widow
-    select(-Year.y) # Discard Year values from df_employ
+    rename(Year = Year.x) # Keep Year values from df_widow
+    # select(-Year.y) # Discard Year values from df_employ
 # check number of variables after the merge
 print(ncol(df_widow_em))
 print(nrow(df_widow_em))
@@ -132,11 +132,13 @@ print(nrow(df_widow_em))
 # Merge resulting dataframe with tracker
 df_widow_tr_em <- df_widow_em %>%
     left_join(df_tracker, by = "respondent_id") %>%
-    rename(Year = Year.x) %>% # Keep Year values from df_widow
-    select(-Year.y)
+    rename(Year = Year.x) # Keep Year values from df_widow
+    # select(-Year.y)
 # check number of variables after the merge
 print(ncol(df_widow_tr_em))
-print(nrow(df_widow_em))
+print(nrow(df_widow_tr_em))
+
+unique(df_widow_tr_em$Year)
 
 # Write output: HRS data for widows, merged with employment survey and tracker.
 # HRS survey years merged: 2020 and 2022

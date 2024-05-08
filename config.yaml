@@ -8,8 +8,6 @@ widowhood_20: raw_data/hrs2020/stata/H20S_R.dta
 employment_20: raw_data/hrs2020/stata/H20J_R.dta
 widowhood_18: raw_data/h18core/stata/h18s_r.dta
 employment_18: raw_data/h18core/stata/h18j_r.dta
-widowhood_16: raw_data/h16core/stata/H16S_R.da
-employment_16: raw_data/h16core/stata/H18J_R.da
 
 # Define the target and dependencies
 # import_HRS:

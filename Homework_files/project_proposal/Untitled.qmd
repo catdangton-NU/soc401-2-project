@@ -1,0 +1,44 @@
+---
+title: "401_project_proposal_Ton"
+format: pdf
+editor: visual
+date: "2024-05-05"
+embed-resources: true
+---
+
+```{r, echo = FALSE}
+library(pacman)
+p_load (tidyverse, haven, modelsummary, marginaleffects, estimatr, psych, MASS)
+rm(list = ls()) # refresh environment
+getwd()
+
+df <- read.csv("../Input/HRS_widows_employ_tracker_cleaned.csv")
+```
+
+## Topic description
+
+An often overlooked aspect of the rising burden of medical care expenses in the United States is the cost of caring for the deceased and their bereaved in the form of funeral arrangements. Whether as an emergency expense or a foreseen end-of-life expense, direct costs after an event of death (e.g. funerals, legal matters, moving and estate management costs) can reach tens of thousands of dollars, but many Americans don't have enough liquid savings for financial contingencies of this scale (Stavins 2021 Fan & Zick 2004).
+
+Widows are particularly vulnerable to the economic shocks of a death of a spouse, given the reliance on the single-income or double-income nuclear family as the primary unit of social and material support in the United States. Evidence from previous research suggest that recent widows not only have higher risks of entering poverty than similarly aged married couples, but are also particularly burdened by funeral and burial expenses (Fan & Zick 2004).
+
+Even as certain life insurance and public safety nets offer some economic protection for widows, such as Social Security burial assistance, they may either fail to cover the full extent of these expenses, or exclude certain widows on the grounds of employment, citizenship status, and so on. Race and gender are also relevant: older American women are marginalized by retirement income programs' reliance on wage labor, and Black Americans, particularly Black women, are disproportionately likely to have experienced the death of a spouse (Meyer 1990, Umberson et. al. 2017).
+
+In this exploratory analysis of data from the Health and Retirement Study (2018-2022), I seek to examine the extent to which widows are unprotected from the cost of their spouse's death by the existing social insurance/social assistance structures (social security, life insurance, etc.), as well as the alternatives to which widows turn to cover funeral expenses. Using binary and multinomial logistic regression, I also explore what makes a widow more likely to be unprotected[^1].
+
+[^1]: Need help tightening up the conceptualization and phrasing of these regression models.
+
+## Data and variables
+
+This paper employs publicly available respondent-level data from The University of Michigan Health and Retirement Study (HRS), a longitudinal panel study of a nationally-representative sample of older adults living in America. My analysis is based on a subsample of `r nrow(df)` respondents to the survey's subsection on Widowhood and Divorce, who experienced the death of a spouse within three panel waves: 2018, 2020 and 2022[^2].
+
+[^2]: HRS researchers applied this survey subsection on both widows and divorcees. I determined widows as those who responded with any answer to the question "In which state or country did your spouse die?"
+
+## References
+
+Fan, Jessie X., and Cathleen D. Zick. 2004. “The Economic Burden of Health Care, Funeral, and Burial Expenditures at the End of Life.” *Journal of Consumer Affairs* 38(1):35–55. doi: [10.1111/j.1745-6606.2004.tb00464.x](https://doi.org/10.1111/j.1745-6606.2004.tb00464.x).
+
+Meyer, Madonna Harrington. 1990. “Family Status and Poverty among Older Women: The Gendered Distribution of Retirement Income in the United States\*.” *Social Problems* 37(4):551–63. doi: [10.2307/800581](https://doi.org/10.2307/800581).
+
+Stavins, Joanna. 2021. “Unprepared for Financial Shocks: Emergency Savings and Credit Card Debt.” *Contemporary Economic Policy* 39(1):59–82. doi: [10.1111/coep.12477](https://doi.org/10.1111/coep.12477).
+
+Umberson, Debra, Julie Skalamera Olson, Robert Crosnoe, Hui Liu, Tetyana Pudrovska, and Rachel Donnelly. 2017. “Death of Family Members as an Overlooked Source of Racial Disadvantage in the United States.” *Proceedings of the National Academy of Sciences* 114(5):915–20. doi: [10.1073/pnas.1605599114](https://doi.org/10.1073/pnas.1605599114).

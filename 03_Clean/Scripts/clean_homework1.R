@@ -11,6 +11,8 @@ df <- df_raw %>%
     dplyr::select(respondent_id, Year, USBORN, DEGREE, BIRTHYR, GENDER, RACE, HISPANIC, # tracker variables # nolint
                   SS048M1, SS048M2, SS048M3, # death expense resolution (dependent variable)
                   SS044, SS045, SS046, SS047, # death expenses beyond insurance and estate coverage
+                  SS040, # whether received life insurance settlement
+                  SS042, # whether received lump-sum pension settlement
                   SJ005M1, SJ005M2, SJ005M3, # Current job status (up to 3 electives)
                   SS003_1, SS004_1, SS008_1, SS005_1, SS006_1, SS007_1, # social security income
                   SS003_2, SS004_2, SS008_2, SS005_2, SS006_2, SS007_2, # supplemental security income
@@ -25,6 +27,21 @@ df <- df %>% # Recode dependent variable and some demographic variables
     mutate(disabled = case_when(SJ005M1 == 4 | SJ005M2 == 4 | SJ005M3 == 4 ~ 1,
                                 SJ005M1 %in% c(1, 2, 3, 5, 6, 7, 8) | SJ005M2 %in% c(1, 2, 3, 5, 6, 7, 8) | SJ005M3 %in% c(1, 2, 3, 5, 6, 7, 8) ~ 0,
                                 TRUE ~ NA))
+
+df <- df %>% # code whether widow received income and settlements or not
+    mutate(lifeins_y = case_when(SS040 == 1 ~ 1, SS040 == 5 ~ 0, TRUE ~ NA)) %>%
+    mutate(pensionsum_y = case_when(SS042 == 1 ~ 1, SS042 == 5 ~ 0, TRUE ~ NA)) %>%
+    mutate(socsec_y = case_when(SS003_1 %in% c(1, 3) ~ 1, SS003_1 %in% c(2, 5) ~ 0, TRUE ~ NA)) %>%
+    mutate(suppsec_y = case_when(SS003_2 %in% c(1, 3) ~ 1, SS003_2 %in% c(2, 5) ~ 0, TRUE ~ NA)) %>%
+    mutate(vetbenefits_y = case_when(SS003_3 %in% c(1, 3) ~ 1, SS003_3 %in% c(2, 5) ~ 0, TRUE ~ NA)) %>%
+    mutate(otherpensions_y = case_when(SS003_4 %in% c(1, 3) ~ 1, SS003_4 %in% c(2, 5) ~ 0, TRUE ~ NA)) %>%
+    mutate(socinsur_y = if_else(socsec_y == 1 | vetbenefits_y == 1, 1, 0))
+
+# Count the number of NA values in SS003_1
+num_na <- sum(is.na(df$SS003_4))
+
+# Print the number of NA values
+print(num_na)
 
 df <- df %>% # Code race & ethnicity based on available data
     mutate(black_nh = ifelse(RACE == 2 & HISPANIC == 5, 1, 0))  %>% 
@@ -62,15 +79,14 @@ df <- df %>% # code more detailed outcomes
 
 df <- df %>%
   mutate(deathexpense_sources = case_when(sell_assets == 1 | withdraw_money == 1 ~ "assets_savings", 
-                                          fam_help == 1 ~ "relatives_friends",
-                                          charity_help == 1 ~ "charities", 
+                                          fam_help == 1 |charity_help == 1 ~ "family_friend_charity",
                                           borrow_money == 1 ~ "loans",
+                                          SS040 == 1 ~ "lifeins_fullcover",
+                                          # SS042 == 1 ~ "pension_lumpsum", 
                                           other == 1 ~ "other",
-                                          # full coverage is where the costs exceeding insurance/estate coverage is less than $300.
-                                          SS044 <= 300 ~ "insurance_estate_full", 
                                           TRUE ~ NA))
 df$deathexpense_sources <- as.factor(df$deathexpense_sources)
-df$deathexpense_sources <- relevel(df$deathexpense_sources, ref = "insurance_estate_full")
+df$deathexpense_sources <- relevel(df$deathexpense_sources, ref = "lifeins_fullcover")
 table(df$deathexpense_sources)
 
 # //TODO ask about weird cases (temporarily laid off AND retired)
