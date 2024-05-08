@@ -1,5 +1,8 @@
 # ignore raw data folder and all its contents
 raw_data/
+create_symlinks_all_steps.sh
+makefile
+.DS_Store
 
 # History files
 .Rhistory
