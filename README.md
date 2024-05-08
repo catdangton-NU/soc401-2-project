@@ -10,7 +10,9 @@ To see my code, go to Scripts.
 
 ### 2. Homework files
 
-This folder contains all Quarto documents and rendered files I created to complete course assignments. The project proposal and final project paper will be stored here as well.
+This folder contains all Quarto documents and rendered paper outputs I created to complete course assignments. 
+
+Each assignment is a subfolder. The project proposal and final project paper will be stored as subfolders here as well.
 
 The input data for these documents are linked from the latest numbered task folder (e.g. 03_Clean). 
 
@@ -18,6 +20,6 @@ The input data for these documents are linked from the latest numbered task fold
 
 config.yaml: Specifies the path to HRS survey sections that are imported to my project. The HRS breaks up surveys into many sections, each with its own .dta file. This script helps me quickly add or change the survey sections included in the data analysis pipeline.
 
-create_multiple_symlinks.sh: This script creates symbolic links between files in each Output folder in a preceding task and the Input folder in a successive task. I run this script every time I create a new Output file. If the contents of an Output file is edited but the filename remains the same, these symbolic links allow the Output file to be automatically updated as an Input in the next task. 
+create_multiple_symlinks.sh: This script (only works for MacOS) creates symbolic links between files in each Output folder in a preceding task and the Input folder in a successive task. I run this script every time I create a new Output file. If the contents of an Output file is edited but the filename remains the same, these symbolic links allow the Output file to be automatically updated as an Input in the next task. 
 
-renv and renv.lock: Specifies the R virtual environment for this project, including the R version and the packages used. This will come in handy in the future, when version/package updates can cause compatibility issues.
+renv and renv.lock: Specifies the R virtual environment for this project, including the R version and the packages used to run the code. This will come in handy in the future, when version/package updates can cause compatibility issues.
